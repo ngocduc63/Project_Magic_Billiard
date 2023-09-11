@@ -7,3 +7,12 @@ D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\Pr
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.csproj.CoreCompileInputs.cache
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.exe
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.pdb
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\bin\Debug\ProjectMagicBilliard.exe.config
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\bin\Debug\ProjectMagicBilliard.exe
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\bin\Debug\ProjectMagicBilliard.pdb
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.csproj.AssemblyReference.cache
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.Properties.Resources.resources
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.csproj.GenerateResource.cache
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.csproj.CoreCompileInputs.cache
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.exe
+D:\Workspace\Test\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.pdb

@@ -16,7 +16,8 @@ namespace ProjectMagicBilliard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Scene.Login());
+            Application.Run(new Scene.Home());
+            
         }
     }
 }
