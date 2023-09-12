@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProjectMagicBilliard.Scene
 {
-    public partial class Login : DevLib.ModernUI.Forms.ModernForm
+    public partial class Login : Form
     {
         public Login()
         {
