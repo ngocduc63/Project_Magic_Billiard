@@ -16,5 +16,34 @@ namespace ProjectMagicBilliard.Scene
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string usetName = txtUserName.Text;
+            string passWord = txtPassWord.Text;
+
+            if(CallSQL.LoginCallSQL.Instance.LoginCheck(usetName, passWord))
+            {
+                Scene.Home home = new Home();
+                this.Hide();
+                home.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu"); 
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Bạn có muốn thoát hệ thống?", "Thông báo", MessageBoxButtons.OKCancel);
+
+            if (result != System.Windows.Forms.DialogResult.OK) e.Cancel = true;
+        }
     }
 }
