@@ -15,11 +15,18 @@ namespace ProjectMagicBilliard.Scene
         public Home()
         {
             InitializeComponent();
+            timer1.Start();
+
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            txtTime.Text = DateTime.Now.ToLongDateString() + " | " + DateTime.Now.ToLongTimeString();
         }
     }
 }

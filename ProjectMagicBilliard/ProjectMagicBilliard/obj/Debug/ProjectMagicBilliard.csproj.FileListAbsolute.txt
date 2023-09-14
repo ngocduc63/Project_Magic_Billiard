@@ -12,3 +12,6 @@ D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\Pr
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.csproj.CopyComplete
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.Scene.Login.resources
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.Scene.Home.resources
+D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\bin\Debug\vi\ProjectMagicBilliard.resources.dll
+D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.Scene.Home.vi.resources
+D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\vi\ProjectMagicBilliard.resources.dll
