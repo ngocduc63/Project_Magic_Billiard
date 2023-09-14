@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjectMagicBilliard.Scene
 {
-    public partial class Home : Form
+    public partial class Home : MetroFramework.Forms.MetroForm
     {
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
