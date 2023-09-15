@@ -125,7 +125,6 @@ namespace ProjectMagicBilliard.Scene
             this.BackMaxSize = 600;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(580, 300);
-            this.ControlBox = false;
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassWord);
@@ -136,6 +135,7 @@ namespace ProjectMagicBilliard.Scene
             this.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(20, 60, 20, 19);
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

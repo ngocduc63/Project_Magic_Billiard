@@ -31,204 +31,357 @@ namespace ProjectMagicBilliard.Scene
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.metroPanel1.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.btnEndTimePlay = new MetroFramework.Controls.MetroButton();
+            this.btnDelete = new MetroFramework.Controls.MetroButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbQuantityFood = new MetroFramework.Controls.MetroComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbFood = new MetroFramework.Controls.MetroComboBox();
+            this.btnPay = new MetroFramework.Controls.MetroButton();
+            this.btnInsert = new MetroFramework.Controls.MetroButton();
+            this.btnStartTimePlay = new MetroFramework.Controls.MetroButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.ListTablePlayPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            resources.ApplyResources(this.metroPanel1, "metroPanel1");
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.Controls.Add(this.label2);
-            this.metroPanel1.Controls.Add(this.panel9);
-            this.metroPanel1.Controls.Add(this.panel8);
-            this.metroPanel1.Controls.Add(this.panel7);
-            this.metroPanel1.Controls.Add(this.panel6);
-            this.metroPanel1.Controls.Add(this.panel5);
-            this.metroPanel1.Controls.Add(this.panel4);
-            this.metroPanel1.Controls.Add(this.panel3);
-            this.metroPanel1.Controls.Add(this.panel2);
-            this.metroPanel1.Controls.Add(this.panel1);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroPanel1.UseCustomBackColor = true;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Name = "label2";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.IndianRed;
-            this.panel9.Controls.Add(this.label3);
-            resources.ApplyResources(this.panel9, "panel9");
-            this.panel9.Name = "panel9";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Name = "label3";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.LimeGreen;
-            resources.ApplyResources(this.panel8, "panel8");
-            this.panel8.Name = "panel8";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.LimeGreen;
-            resources.ApplyResources(this.panel7, "panel7");
-            this.panel7.Name = "panel7";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.LimeGreen;
-            resources.ApplyResources(this.panel6, "panel6");
-            this.panel6.Name = "panel6";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.LimeGreen;
-            resources.ApplyResources(this.panel5, "panel5");
-            this.panel5.Name = "panel5";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.LimeGreen;
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Name = "panel4";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.LimeGreen;
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.LimeGreen;
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
+            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label1.Location = new System.Drawing.Point(12, 11);
             this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(497, 45);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Quản lí quán Magic Billiard";
             // 
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.label5);
             this.panel10.Controls.Add(this.label4);
-            resources.ApplyResources(this.panel10, "panel10");
+            this.panel10.Location = new System.Drawing.Point(8, 52);
             this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(454, 34);
+            this.panel10.TabIndex = 2;
             // 
             // label5
             // 
-            resources.ApplyResources(this.label5, "label5");
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.label5.Location = new System.Drawing.Point(207, 2);
             this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 36);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "admin";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
-            resources.ApplyResources(this.label4, "label4");
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.label4.Location = new System.Drawing.Point(3, 3);
             this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(208, 36);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Tên nhân viên: ";
             // 
             // txtTime
             // 
-            resources.ApplyResources(this.txtTime, "txtTime");
+            this.txtTime.AutoSize = true;
             this.txtTime.BackColor = System.Drawing.Color.Transparent;
+            this.txtTime.Font = new System.Drawing.Font("Times New Roman", 18F);
             this.txtTime.ForeColor = System.Drawing.Color.Red;
+            this.txtTime.Location = new System.Drawing.Point(635, 27);
             this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(99, 41);
+            this.txtTime.TabIndex = 3;
+            this.txtTime.Text = "18:05";
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel11
+            // 
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.label6);
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Location = new System.Drawing.Point(468, 88);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(706, 347);
+            this.panel11.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(218, 36);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Hóa đơn bàn 1";
+            // 
+            // panel12
+            // 
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Location = new System.Drawing.Point(3, 497);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(945, 136);
+            this.panel12.TabIndex = 5;
+            // 
+            // panel13
+            // 
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.btnEndTimePlay);
+            this.panel13.Controls.Add(this.btnDelete);
+            this.panel13.Controls.Add(this.label9);
+            this.panel13.Controls.Add(this.cbQuantityFood);
+            this.panel13.Controls.Add(this.label8);
+            this.panel13.Controls.Add(this.cbFood);
+            this.panel13.Controls.Add(this.btnPay);
+            this.panel13.Controls.Add(this.btnInsert);
+            this.panel13.Controls.Add(this.btnStartTimePlay);
+            this.panel13.Controls.Add(this.label7);
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Location = new System.Drawing.Point(468, 439);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(706, 132);
+            this.panel13.TabIndex = 6;
+            // 
+            // btnEndTimePlay
+            // 
+            this.btnEndTimePlay.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnEndTimePlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEndTimePlay.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnEndTimePlay.ForeColor = System.Drawing.Color.Crimson;
+            this.btnEndTimePlay.Location = new System.Drawing.Point(9, 81);
+            this.btnEndTimePlay.Name = "btnEndTimePlay";
+            this.btnEndTimePlay.Size = new System.Drawing.Size(142, 40);
+            this.btnEndTimePlay.TabIndex = 17;
+            this.btnEndTimePlay.Text = "Tính tiền bàn";
+            this.btnEndTimePlay.UseCustomBackColor = true;
+            this.btnEndTimePlay.UseCustomForeColor = true;
+            this.btnEndTimePlay.UseSelectable = true;
+            this.btnEndTimePlay.Click += new System.EventHandler(this.btnEndTimePlay_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnDelete.ForeColor = System.Drawing.Color.Crimson;
+            this.btnDelete.Location = new System.Drawing.Point(426, 84);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(97, 37);
+            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseCustomBackColor = true;
+            this.btnDelete.UseCustomForeColor = true;
+            this.btnDelete.UseSelectable = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(174, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 36);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Dịch vụ";
+            // 
+            // cbQuantityFood
+            // 
+            this.cbQuantityFood.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.cbQuantityFood.FormattingEnabled = true;
+            this.cbQuantityFood.ItemHeight = 29;
+            this.cbQuantityFood.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cbQuantityFood.Location = new System.Drawing.Point(305, 86);
+            this.cbQuantityFood.Name = "cbQuantityFood";
+            this.cbQuantityFood.Size = new System.Drawing.Size(94, 35);
+            this.cbQuantityFood.TabIndex = 14;
+            this.cbQuantityFood.UseSelectable = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(193, 90);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 32);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Số lượng";
+            // 
+            // cbFood
+            // 
+            this.cbFood.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.cbFood.FormattingEnabled = true;
+            this.cbFood.ItemHeight = 29;
+            this.cbFood.Items.AddRange(new object[] {
+            "Coca",
+            "Pepsi",
+            "7up",
+            "sting"});
+            this.cbFood.Location = new System.Drawing.Point(186, 32);
+            this.cbFood.Name = "cbFood";
+            this.cbFood.Size = new System.Drawing.Size(224, 35);
+            this.cbFood.TabIndex = 9;
+            this.cbFood.UseSelectable = true;
+            this.cbFood.SelectedIndexChanged += new System.EventHandler(this.cbFood_SelectedIndexChanged);
+            // 
+            // btnPay
+            // 
+            this.btnPay.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPay.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnPay.ForeColor = System.Drawing.Color.Crimson;
+            this.btnPay.Location = new System.Drawing.Point(551, 86);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(150, 41);
+            this.btnPay.TabIndex = 12;
+            this.btnPay.Text = "Thanh toán";
+            this.btnPay.UseCustomBackColor = true;
+            this.btnPay.UseCustomForeColor = true;
+            this.btnPay.UseSelectable = true;
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnInsert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInsert.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnInsert.ForeColor = System.Drawing.Color.Crimson;
+            this.btnInsert.Location = new System.Drawing.Point(426, 31);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(97, 37);
+            this.btnInsert.TabIndex = 8;
+            this.btnInsert.Text = "Thêm";
+            this.btnInsert.UseCustomBackColor = true;
+            this.btnInsert.UseCustomForeColor = true;
+            this.btnInsert.UseSelectable = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // btnStartTimePlay
+            // 
+            this.btnStartTimePlay.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnStartTimePlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStartTimePlay.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnStartTimePlay.ForeColor = System.Drawing.Color.Crimson;
+            this.btnStartTimePlay.Location = new System.Drawing.Point(9, 31);
+            this.btnStartTimePlay.Name = "btnStartTimePlay";
+            this.btnStartTimePlay.Size = new System.Drawing.Size(142, 40);
+            this.btnStartTimePlay.TabIndex = 11;
+            this.btnStartTimePlay.Text = "Bắt đầu tính giờ";
+            this.btnStartTimePlay.UseCustomBackColor = true;
+            this.btnStartTimePlay.UseCustomForeColor = true;
+            this.btnStartTimePlay.UseSelectable = true;
+            this.btnStartTimePlay.Click += new System.EventHandler(this.btnStartTimePlay_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(-1, -1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 36);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Chức năng";
+            // 
+            // panel14
+            // 
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel14.Location = new System.Drawing.Point(3, 497);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(945, 136);
+            this.panel14.TabIndex = 5;
+            // 
+            // ListTablePlayPanel
+            // 
+            this.ListTablePlayPanel.AutoScroll = true;
+            this.ListTablePlayPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ListTablePlayPanel.BackgroundImage")));
+            this.ListTablePlayPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ListTablePlayPanel.Location = new System.Drawing.Point(8, 90);
+            this.ListTablePlayPanel.Margin = new System.Windows.Forms.Padding(20);
+            this.ListTablePlayPanel.Name = "ListTablePlayPanel";
+            this.ListTablePlayPanel.Size = new System.Drawing.Size(454, 481);
+            this.ListTablePlayPanel.TabIndex = 7;
+            // 
             // Home
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1180, 580);
+            this.Controls.Add(this.ListTablePlayPanel);
+            this.Controls.Add(this.panel13);
+            this.Controls.Add(this.panel11);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.metroPanel1);
             this.DisplayHeader = false;
+            this.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.Name = "Home";
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 19);
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            this.Text = "Quản lí quán Magic Billiard";
             this.TransparencyKey = System.Drawing.SystemColors.Highlight;
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label txtTime;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label6;
+        private MetroFramework.Controls.MetroButton btnInsert;
+        private MetroFramework.Controls.MetroComboBox cbFood;
+        private System.Windows.Forms.Label label7;
+        private MetroFramework.Controls.MetroButton btnPay;
+        private MetroFramework.Controls.MetroButton btnStartTimePlay;
+        private MetroFramework.Controls.MetroComboBox cbQuantityFood;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private MetroFramework.Controls.MetroButton btnDelete;
+        private MetroFramework.Controls.MetroButton btnEndTimePlay;
+        private System.Windows.Forms.FlowLayoutPanel ListTablePlayPanel;
     }
 }
