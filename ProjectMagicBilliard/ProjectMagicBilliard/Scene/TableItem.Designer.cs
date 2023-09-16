@@ -29,11 +29,13 @@ namespace ProjectMagicBilliard.Scene
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtName = new System.Windows.Forms.Label();
             this.txtTimePlay = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.Label();
+            this.timePlay = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txtName
@@ -96,6 +98,11 @@ namespace ProjectMagicBilliard.Scene
             this.txtId.TabIndex = 4;
             this.txtId.Text = "1";
             // 
+            // timePlay
+            // 
+            this.timePlay.Enabled = true;
+            this.timePlay.Tick += new System.EventHandler(this.timePlay_Tick);
+            // 
             // TableItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -106,6 +113,7 @@ namespace ProjectMagicBilliard.Scene
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.txtTimePlay);
             this.Controls.Add(this.txtName);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TableItem";
             this.Size = new System.Drawing.Size(140, 123);
@@ -122,5 +130,6 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.Label txtStatus;
         private System.Windows.Forms.Label txtPrice;
         private System.Windows.Forms.Label txtId;
+        private System.Windows.Forms.Timer timePlay;
     }
 }

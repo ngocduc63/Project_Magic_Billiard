@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectMagicBilliard.Data;
 
 namespace ProjectMagicBilliard.Scene
 {
@@ -16,6 +17,7 @@ namespace ProjectMagicBilliard.Scene
         {
             InitializeComponent();
         }
+        private TimeSpan _timeStart;
 
         private void TableItem_Load(object sender, EventArgs e)
         {
@@ -50,6 +52,36 @@ namespace ProjectMagicBilliard.Scene
         {
             get { return txtPrice.Text; }
             set { txtPrice.Text = "Giá : " + value; }
+        }
+
+        public void SetBackGround(StatusTableEnum status)
+        {
+            if (status == StatusTableEnum.Empty) BackColor = Color.LimeGreen;
+            else BackColor = Color.OrangeRed;
+
+        }
+
+        public void LoadTimePlay(TimeSpan timeStart)
+        {
+            timePlay.Start();
+            _timeStart = timeStart;
+        }
+        public void StopTimePlay()
+        {
+            txtTimePlay.Text = "00:00:00";
+            timePlay.Stop();
+        }
+
+        private void timePlay_Tick(object sender, EventArgs e)
+        {
+            txtTimePlay.Text = FormatTimeSpan(_timeStart, DateTime.Now.ToLocalTime().TimeOfDay);
+        }
+
+        private string FormatTimeSpan(TimeSpan start, TimeSpan end)
+        {
+            TimeSpan resultTime = end - start;
+
+            return resultTime.Hours.ToString("00") + ":" + resultTime.Minutes.ToString("00") + ":" + resultTime.Seconds.ToString("00");
         }
     }
 }

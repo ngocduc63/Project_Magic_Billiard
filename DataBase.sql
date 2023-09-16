@@ -28,12 +28,19 @@ create table account
 	foreign key (idStaff) references staff (id)
 )
 go
-create table tablePLay
+create table tableCategory 
 (
 	id nvarchar(50) primary key,
 	name nvarchar(50),
-	status int default 0,
 	price float not null
+)
+go
+create table tablePLay
+(
+	id nvarchar(50) primary key,
+	status int default 0,
+	idCategory nvarchar(50)
+	foreign key (idCategory) references tableCategory (id)
 )
 go
 create table foodCategory 
@@ -126,4 +133,4 @@ BEGIN
 END
 GO
 --DROP TRIGGER UpdateBill 
---DROP TRIGGER InsertBill 
+--DROP TRIGGER InsertBill

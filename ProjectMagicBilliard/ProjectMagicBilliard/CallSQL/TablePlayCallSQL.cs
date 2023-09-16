@@ -19,7 +19,7 @@ namespace ProjectMagicBilliard.CallSQL
 
         public DataTable GetAllTable()
         {
-            string query = "Select * from tablePlay";
+            string query = "select tablePlay.id, status, name, price from tablePLay join tableCategory on tableCategory.id = tablePLay.idCategory";
 
             DataTable result = DataManager.Instance.ExecuteOuery(query);
 
