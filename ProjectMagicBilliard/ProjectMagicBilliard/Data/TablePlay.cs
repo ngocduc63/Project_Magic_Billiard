@@ -1,16 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectMagicBilliard.Data
 {
-    class TablePlay
+    public class TablePlay
     {
         public string Id { get; set; }
         public string Name { get; set; }
         public StatusTableEnum Status { get; set; }
         public string Price { get; set; }
+
+        public TablePlay()
+        {
+
+        }
+
+        public TablePlay(DataRow row)
+        {
+            this.Id = row["id"].ToString();
+            this.Name = row["name"].ToString();
+            this.Status = (StatusTableEnum) row["status"];
+            this.Price = row["price"].ToString();
+        }
     }
 }

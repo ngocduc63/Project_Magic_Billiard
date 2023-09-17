@@ -25,5 +25,17 @@ namespace ProjectMagicBilliard.CallSQL
 
             return result;
         }
+
+        public DataTable GetBillOfTable(string id)
+        {
+            string query = string.Format("select bill.id, food.name, food.price, billInfo.quantityFood from bill "
+                            + "join billInfo on billInfo.idBill = bill.id "
+                            + "join food on billInfo.idFood = food.id "
+                            + "where idTable = '{0}'", id);
+
+            DataTable result = DataManager.Instance.ExecuteOuery(query);
+
+            return result;
+        }
     }
 }

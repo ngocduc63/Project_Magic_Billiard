@@ -96,7 +96,7 @@ CREATE TRIGGER InsertBill
 ON bill FOR Insert
 AS
 BEGIN
-	DECLARE @idBill INT
+	DECLARE @idBill nvarchar(50)
 	
 	SELECT @idBill = id FROM Inserted	
 	
@@ -116,7 +116,7 @@ CREATE TRIGGER UpdateBill
 ON bill FOR UPDATE
 AS
 BEGIN
-	DECLARE @idBill INT
+	DECLARE @idBill nvarchar(50)
 	
 	SELECT @idBill = id FROM Inserted	
 	

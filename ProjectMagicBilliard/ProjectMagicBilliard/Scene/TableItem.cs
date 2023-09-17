@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectMagicBilliard.Data;
+using ProjectMagicBilliard.CallSQL;
 
 namespace ProjectMagicBilliard.Scene
 {
@@ -23,6 +25,9 @@ namespace ProjectMagicBilliard.Scene
         {
 
         }
+
+        private TablePlay _table = new TablePlay();
+        internal TablePlay Table { get => _table; set => _table = value; }
 
         public string TxtId
         {
@@ -54,6 +59,7 @@ namespace ProjectMagicBilliard.Scene
             set { txtPrice.Text = "Giá : " + value; }
         }
 
+
         public void SetBackGround(StatusTableEnum status)
         {
             if (status == StatusTableEnum.Empty) BackColor = Color.LimeGreen;
@@ -82,6 +88,11 @@ namespace ProjectMagicBilliard.Scene
             TimeSpan resultTime = end - start;
 
             return resultTime.Hours.ToString("00") + ":" + resultTime.Minutes.ToString("00") + ":" + resultTime.Seconds.ToString("00");
+        }
+
+        private void TableItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

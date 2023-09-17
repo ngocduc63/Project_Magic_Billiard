@@ -9,13 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using ProjectMagicBilliard.Data;
+using ProjectMagicBilliard.CallSQL;
 
 namespace ProjectMagicBilliard.Scene
 {
     public partial class Home : MetroFramework.Forms.MetroForm
     {
 
-        private List<Data.TablePlay> lstTable = new List<Data.TablePlay>();
+        static private Home instance;
+
+        public static Home Instance
+        {
+            get { if (instance == null) instance = new Home(); return instance; }
+            private set => instance = value;
+        }
+
+        private List<Data.TablePlay> lstTable = new List<TablePlay>();
         private TimeSpan testTime;
 
         public Home()
@@ -58,7 +67,7 @@ namespace ProjectMagicBilliard.Scene
 
         public void GetTable()
         {
-            DataTable res = CallSQL.TablePlayCallSQL.Instance.GetAllTable();
+            DataTable res = TablePlayCallSQL.Instance.GetAllTable();
 
             if(res == null)
             {
@@ -68,13 +77,8 @@ namespace ProjectMagicBilliard.Scene
 
             foreach(DataRow row in res.Rows)
             {
-                Data.TablePlay table = new Data.TablePlay();
-
-                table.Id = row["id"].ToString();
-                table.Name = row["name"].ToString();
-                table.Status = (StatusTableEnum) (int) row["status"];
-                table.Price = row["price"].ToString();
-
+                TablePlay table = new TablePlay(row);
+                
                 lstTable.Add(table);
             }
 
@@ -89,19 +93,53 @@ namespace ProjectMagicBilliard.Scene
             {
                 TableItem itemTable = new TableItem();
 
-                itemTable.TxtId = Regex.Match(table.Id, @"\d+").Value;
+                itemTable.TxtId = GetNumberFromId(table.Id);
                 itemTable.TxtName = table.Name;
                 itemTable.TxtTime = "00:00:00";
                 itemTable.TxtStatus = table.Status.GetStringValue();
                 itemTable.TxtPrice = table.Price;
 
+                itemTable.Click += ItemTablePlay_Click;
                 ListTablePlayPanel.Controls.Add(itemTable);
 
                 if (table.Status == StatusTableEnum.Full) itemTable.LoadTimePlay(testTime);
                 else itemTable.StopTimePlay();
 
                 itemTable.SetBackGround(table.Status);
+
+                itemTable.Table = table;
             }
+        }
+
+        public void LoadDGVBill(List<BillInfo> lstBillInfo, TablePlay table)
+        {
+            dgvBillInfo.DataSource = lstBillInfo;
+            dgvBillInfo.ReadOnly = true;
+            txtTitleBillInfo.Text = "Hóa đơn bàn " + GetNumberFromId(table.Id);
+        }
+
+        private void ItemTablePlay_Click(object sender, EventArgs e)
+        {
+            TableItem itemTable = (TableItem) sender;
+            TablePlay dataTable = itemTable.Table;
+
+            DataTable data = TablePlayCallSQL.Instance.GetBillOfTable(dataTable.Id);
+
+            List<BillInfo> lstBillInfo = new List<BillInfo>();
+
+            foreach (DataRow row in data.Rows)
+            {
+                BillInfo billInfo = new BillInfo(row);
+
+                lstBillInfo.Add(billInfo);
+            }
+
+            LoadDGVBill(lstBillInfo, dataTable);
+        }
+
+        public string GetNumberFromId(string id)
+        {
+            return Regex.Match(id, @"\d+").Value;
         }
     }
 }

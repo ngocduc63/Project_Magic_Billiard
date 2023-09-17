@@ -56,6 +56,7 @@
     <Compile Include="CallSQL\TablePlayCallSQL.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="Data\AccountData.cs" />
+    <Compile Include="Data\BillInfo.cs" />
     <Compile Include="Data\DataEnum.cs" />
     <Compile Include="Data\StringValueAttribute.cs" />
     <Compile Include="Data\TablePlay.cs" />

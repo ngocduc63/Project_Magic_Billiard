@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectMagicBilliard.Data
 {
-    class AccountData
+    public class AccountData
     {
         public string userName { get; set; }
         public string passWord { get; set; }
