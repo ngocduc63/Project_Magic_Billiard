@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallSQL\BillCallSQL.cs" />
     <Compile Include="CallSQL\LoginCallSQL.cs" />
     <Compile Include="CallSQL\TablePlayCallSQL.cs" />
     <Compile Include="DataManager.cs" />

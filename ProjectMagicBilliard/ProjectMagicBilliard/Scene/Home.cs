@@ -24,15 +24,14 @@ namespace ProjectMagicBilliard.Scene
             private set => instance = value;
         }
 
-        private List<Data.TablePlay> lstTable = new List<TablePlay>();
-        private TimeSpan testTime;
+        private List<TablePlay> lstTable;
+        private string _idCurrentTable;
 
         public Home()
         {
             InitializeComponent();
-            testTime = DateTime.Now.ToLocalTime().TimeOfDay;
             timer1.Start();
-            GetTable();
+            GetTablePlay();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -57,7 +56,13 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnStartTimePlay_Click(object sender, EventArgs e)
         {
+            if (BillCallSQL.Instance.InsertToBill(DateTime.Now.ToLocalTime(), _idCurrentTable))
+            {
+                MessageBox.Show($"Bắt đầu tính giờ bàn {_idCurrentTable}");
+                GetTablePlay();
 
+            }
+            else MessageBox.Show($"Tính giờ bàn {_idCurrentTable} lỗi!!!");
         }
 
         private void btnEndTimePlay_Click(object sender, EventArgs e)
@@ -65,7 +70,7 @@ namespace ProjectMagicBilliard.Scene
 
         }
 
-        public void GetTable()
+        public void GetTablePlay()
         {
             DataTable res = TablePlayCallSQL.Instance.GetAllTable();
 
@@ -73,8 +78,9 @@ namespace ProjectMagicBilliard.Scene
             {
                 MessageBox.Show("Không tải được bàn bi-a hoặc không có bàn");
                 return;
-            } 
+            }
 
+            lstTable = new List<TablePlay>();
             foreach(DataRow row in res.Rows)
             {
                 TablePlay table = new TablePlay(row);
@@ -85,9 +91,10 @@ namespace ProjectMagicBilliard.Scene
             LoadAllTable();
         }
 
+
         public void LoadAllTable()
         {
-            if (ListTablePlayPanel.Controls.Count > 0) ListTablePlayPanel.Controls.Clear();
+            ListTablePlayPanel.Controls.Clear();
 
             foreach (var table in lstTable)
             {
@@ -102,7 +109,11 @@ namespace ProjectMagicBilliard.Scene
                 itemTable.Click += ItemTablePlay_Click;
                 ListTablePlayPanel.Controls.Add(itemTable);
 
-                if (table.Status == StatusTableEnum.Full) itemTable.LoadTimePlay(testTime);
+                if (table.Status == StatusTableEnum.Full)
+                {
+                    DateTime timeStart = (DateTime) BillCallSQL.Instance.GetTimeStart(table.Id).Rows[0]["dateCheckIn"];
+                    itemTable.LoadTimePlay(timeStart.ToLocalTime().TimeOfDay);
+                }
                 else itemTable.StopTimePlay();
 
                 itemTable.SetBackGround(table.Status);
@@ -115,7 +126,7 @@ namespace ProjectMagicBilliard.Scene
         {
             dgvBillInfo.DataSource = lstBillInfo;
             dgvBillInfo.ReadOnly = true;
-            txtTitleBillInfo.Text = "Hóa đơn bàn " + GetNumberFromId(table.Id);
+            txtTitleBillInfo.Text = "Hóa đơn bàn " + _idCurrentTable;
         }
 
         private void ItemTablePlay_Click(object sender, EventArgs e)
@@ -124,6 +135,7 @@ namespace ProjectMagicBilliard.Scene
             TablePlay dataTable = itemTable.Table;
 
             DataTable data = TablePlayCallSQL.Instance.GetBillOfTable(dataTable.Id);
+            _idCurrentTable = dataTable.Id;
 
             List<BillInfo> lstBillInfo = new List<BillInfo>();
 

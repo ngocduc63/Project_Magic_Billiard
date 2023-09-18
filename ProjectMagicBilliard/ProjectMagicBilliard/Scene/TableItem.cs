@@ -80,19 +80,31 @@ namespace ProjectMagicBilliard.Scene
 
         private void timePlay_Tick(object sender, EventArgs e)
         {
-            txtTimePlay.Text = FormatTimeSpan(_timeStart, DateTime.Now.ToLocalTime().TimeOfDay);
+            txtTimePlay.Text = FormatTimeSpan(_timeStart.TotalSeconds, DateTime.Now.ToLocalTime().TimeOfDay.TotalSeconds);
         }
 
-        private string FormatTimeSpan(TimeSpan start, TimeSpan end)
+        private string FormatTimeSpan(double start, double end)
         {
-            TimeSpan resultTime = end - start;
+            double offSet = 17 * 60 * 60;
+            double resultTime = end - start - offSet;
 
-            return resultTime.Hours.ToString("00") + ":" + resultTime.Minutes.ToString("00") + ":" + resultTime.Seconds.ToString("00");
+            // return resultTime.Hours.ToString("00") + ":" + resultTime.Minutes.ToString("00") + ":" + resultTime.Seconds.ToString("00");
+            return ConvertSecondToTime(resultTime);
         }
 
         private void TableItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        public string ConvertSecondToTime(double totalSeconds)
+        {
+            int hours = (int) totalSeconds / 3600;
+            int remainingSeconds =(int) totalSeconds % 3600;
+            int minutes = remainingSeconds / 60;
+            int seconds = remainingSeconds % 60;
+
+            return $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
     }
 }

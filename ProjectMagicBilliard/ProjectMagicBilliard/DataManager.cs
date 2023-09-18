@@ -37,6 +37,19 @@ namespace ProjectMagicBilliard
 
             return data;
         }
+        public bool ExecuteNonOuery(string query)
+        {
+            int data = 0;
+            using (SqlConnection conn = new SqlConnection(strConnect))
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand(query, conn);
+                data = command.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            return data > 0;
+        }
 
     }
 }

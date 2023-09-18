@@ -44,7 +44,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtName.BackColor = System.Drawing.Color.Transparent;
             this.txtName.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtName.Location = new System.Drawing.Point(50, 2);
+            this.txtName.Location = new System.Drawing.Point(35, 2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(107, 41);
             this.txtName.TabIndex = 0;
