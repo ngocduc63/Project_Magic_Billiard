@@ -25,13 +25,20 @@ namespace ProjectMagicBilliard.Scene
         }
 
         private List<TablePlay> lstTable;
-        private string _idCurrentTable;
+        private List<Food> lstFood = new List<Food>();
+        private TablePlay _currentTableData;
+        private string _idCurrentBill;
 
         public Home()
         {
             InitializeComponent();
+            panelDetail.Visible = false;
             timer1.Start();
+            cbQuantityFood.SelectedIndex = 0;
             GetTablePlay();
+            IsTableFull(false);
+            btnStartTimePlay.Enabled = false;
+            LoadChooseFood();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -46,7 +53,17 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-
+            string idFood = cbFood.SelectedValue.ToString();
+            int quantity = Convert.ToInt32(cbQuantityFood.SelectedItem);
+            if (BillInfoCallSQL.Instance.InsertToBillInfo(idFood, quantity, _idCurrentBill))
+            {
+                MessageBox.Show($"Thêm thành công vào hóa đơn {_idCurrentBill}");
+                LoadBillInfo(_currentTableData);
+            }
+            else
+            {
+                MessageBox.Show($"Thêm thất bại vào hóa đơn {_idCurrentBill}");
+            }
         }
 
         private void cbFood_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,13 +73,16 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnStartTimePlay_Click(object sender, EventArgs e)
         {
-            if (BillCallSQL.Instance.InsertToBill(DateTime.Now.ToLocalTime(), _idCurrentTable))
+            if (BillCallSQL.Instance.InsertToBill(DateTime.Now.ToLocalTime(), _currentTableData.Id))
             {
-                MessageBox.Show($"Bắt đầu tính giờ bàn {_idCurrentTable}");
+                MessageBox.Show($"Bắt đầu tính giờ bàn {_currentTableData.Id}");
                 GetTablePlay();
-
+                _idCurrentBill = BillCallSQL.Instance.GetIdCurrent(_currentTableData.Id);
+                txtTitleIdBill.Text = "Hóa đơn số: " + _idCurrentBill;
+                txtTitleIdBill.ForeColor = Color.Black;
+                IsTableFull();
             }
-            else MessageBox.Show($"Tính giờ bàn {_idCurrentTable} lỗi!!!");
+            else MessageBox.Show($"Tính giờ bàn {_currentTableData.Id} lỗi!!!");
         }
 
         private void btnEndTimePlay_Click(object sender, EventArgs e)
@@ -111,7 +131,7 @@ namespace ProjectMagicBilliard.Scene
 
                 if (table.Status == StatusTableEnum.Full)
                 {
-                    DateTime timeStart = Convert.ToDateTime(BillCallSQL.Instance.GetTimeStart(table.Id).Rows[0]["dateCheckIn"]);
+                    DateTime timeStart = BillCallSQL.Instance.GetTimeStart(table.Id);
                     itemTable.LoadTimePlay(timeStart.TimeOfDay);
                 }
                 else itemTable.StopTimePlay();
@@ -122,20 +142,9 @@ namespace ProjectMagicBilliard.Scene
             }
         }
 
-        public void LoadDGVBill(List<BillInfo> lstBillInfo, TablePlay table)
+        public void LoadBillInfo(TablePlay dataTable)
         {
-            dgvBillInfo.DataSource = lstBillInfo;
-            dgvBillInfo.ReadOnly = true;
-            txtTitleBillInfo.Text = "Hóa đơn bàn " + _idCurrentTable;
-        }
-
-        private void ItemTablePlay_Click(object sender, EventArgs e)
-        {
-            TableItem itemTable = (TableItem) sender;
-            TablePlay dataTable = itemTable.Table;
-
             DataTable data = TablePlayCallSQL.Instance.GetBillOfTable(dataTable.Id);
-            _idCurrentTable = dataTable.Id;
 
             List<BillInfo> lstBillInfo = new List<BillInfo>();
 
@@ -146,12 +155,77 @@ namespace ProjectMagicBilliard.Scene
                 lstBillInfo.Add(billInfo);
             }
 
-            LoadDGVBill(lstBillInfo, dataTable);
+            dgvBillInfo.DataSource = lstBillInfo;
+            dgvBillInfo.Columns["Id"].Visible = false; 
+            dgvBillInfo.ReadOnly = true;
+            txtTitleBillInfo.Text = "Hóa đơn bàn " + _currentTableData.Id;
+        }
+
+        private void ItemTablePlay_Click(object sender, EventArgs e)
+        {
+            panelDetail.Visible = true;
+            TableItem itemTable = (TableItem) sender;
+            TablePlay dataTable = itemTable.Table;
+            _currentTableData = dataTable;
+
+            LoadBillInfo(dataTable);
+
+            if(dataTable.Status == StatusTableEnum.Full)
+            {
+                _idCurrentBill = BillCallSQL.Instance.GetIdCurrent(_currentTableData.Id);
+                txtTitleIdBill.Text = "Hóa đơn số: " + _idCurrentBill;
+                txtTitleIdBill.ForeColor = Color.Black;
+
+                IsTableFull();
+            }
+            else
+            {
+                txtTitleIdBill.Text = "Chưa có hóa đơn";
+                txtTitleIdBill.ForeColor = Color.Red;
+
+                IsTableFull(false);
+            }
         }
 
         public string GetNumberFromId(string id)
         {
             return Regex.Match(id, @"\d+").Value;
+        }
+
+        public void IsTableFull(bool isEnable = true)
+        {
+            btnStartTimePlay.Enabled = !isEnable;
+            btnEndTimePlay.Enabled = isEnable;
+            btnInsert.Enabled = isEnable;
+            btnDelete.Enabled = isEnable;
+            btnPay.Enabled = isEnable;
+        }
+
+        public void LoadChooseFood()
+        {
+            DataTable dataFood = FoodCallSQL.Instance.GetAllFood();
+
+            foreach(DataRow row in dataFood.Rows)
+            {
+                Food food = new Food(row);
+
+                lstFood.Add(food);
+            }
+            cbFood.DataSource = lstFood;
+            cbFood.DisplayMember = "Name";
+            cbFood.ValueMember = "Id";
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string id = dgvBillInfo.SelectedRows[0].Cells[0].Value.ToString();
+
+            if (BillInfoCallSQL.Instance.DeleteToBillInfo(id)) 
+            {
+                MessageBox.Show("Xóa thành công");
+                LoadBillInfo(_currentTableData);
+            }
+            else MessageBox.Show("Xóa thất bại");
         }
     }
 }

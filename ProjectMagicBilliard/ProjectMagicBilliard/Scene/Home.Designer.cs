@@ -55,10 +55,13 @@ namespace ProjectMagicBilliard.Scene
             this.panel14 = new System.Windows.Forms.Panel();
             this.ListTablePlayPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvBillInfo = new System.Windows.Forms.DataGridView();
+            this.txtTitleIdBill = new System.Windows.Forms.Label();
+            this.panelDetail = new System.Windows.Forms.Panel();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
+            this.panelDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -124,11 +127,12 @@ namespace ProjectMagicBilliard.Scene
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.dgvBillInfo);
             this.panel11.Controls.Add(this.txtTitleBillInfo);
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Location = new System.Drawing.Point(468, 88);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(706, 347);
+            this.panel11.Size = new System.Drawing.Size(465, 347);
             this.panel11.TabIndex = 4;
             // 
             // txtTitleBillInfo
@@ -198,6 +202,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnDelete.UseCustomBackColor = true;
             this.btnDelete.UseCustomForeColor = true;
             this.btnDelete.UseSelectable = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label9
             // 
@@ -264,9 +269,9 @@ namespace ProjectMagicBilliard.Scene
             this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPay.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnPay.ForeColor = System.Drawing.Color.Crimson;
-            this.btnPay.Location = new System.Drawing.Point(551, 86);
+            this.btnPay.Location = new System.Drawing.Point(551, 42);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(150, 41);
+            this.btnPay.Size = new System.Drawing.Size(150, 70);
             this.btnPay.TabIndex = 12;
             this.btnPay.Text = "Thanh toán";
             this.btnPay.UseCustomBackColor = true;
@@ -346,21 +351,40 @@ namespace ProjectMagicBilliard.Scene
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBillInfo.Location = new System.Drawing.Point(468, 135);
+            this.dgvBillInfo.Location = new System.Drawing.Point(-2, 48);
             this.dgvBillInfo.Name = "dgvBillInfo";
             this.dgvBillInfo.ReadOnly = true;
             this.dgvBillInfo.RowHeadersWidth = 62;
             this.dgvBillInfo.RowTemplate.Height = 28;
             this.dgvBillInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBillInfo.Size = new System.Drawing.Size(565, 298);
+            this.dgvBillInfo.Size = new System.Drawing.Size(465, 298);
             this.dgvBillInfo.TabIndex = 8;
+            // 
+            // txtTitleIdBill
+            // 
+            this.txtTitleIdBill.AutoSize = true;
+            this.txtTitleIdBill.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitleIdBill.Location = new System.Drawing.Point(3, 6);
+            this.txtTitleIdBill.Name = "txtTitleIdBill";
+            this.txtTitleIdBill.Size = new System.Drawing.Size(134, 36);
+            this.txtTitleIdBill.TabIndex = 8;
+            this.txtTitleIdBill.Text = "Hóa đơn";
+            // 
+            // panelDetail
+            // 
+            this.panelDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDetail.Controls.Add(this.txtTitleIdBill);
+            this.panelDetail.Location = new System.Drawing.Point(939, 88);
+            this.panelDetail.Name = "panelDetail";
+            this.panelDetail.Size = new System.Drawing.Size(235, 349);
+            this.panelDetail.TabIndex = 9;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 580);
-            this.Controls.Add(this.dgvBillInfo);
+            this.Controls.Add(this.panelDetail);
             this.Controls.Add(this.ListTablePlayPanel);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel11);
@@ -381,6 +405,8 @@ namespace ProjectMagicBilliard.Scene
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).EndInit();
+            this.panelDetail.ResumeLayout(false);
+            this.panelDetail.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,5 +436,7 @@ namespace ProjectMagicBilliard.Scene
         private MetroFramework.Controls.MetroButton btnEndTimePlay;
         private System.Windows.Forms.FlowLayoutPanel ListTablePlayPanel;
         private System.Windows.Forms.DataGridView dgvBillInfo;
+        private System.Windows.Forms.Label txtTitleIdBill;
+        private System.Windows.Forms.Panel panelDetail;
     }
 }

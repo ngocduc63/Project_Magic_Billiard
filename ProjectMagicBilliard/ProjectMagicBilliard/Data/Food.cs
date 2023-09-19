@@ -7,31 +7,23 @@ using System.Threading.Tasks;
 
 namespace ProjectMagicBilliard.Data
 {
-    public class BillInfo
+    public class Food
     {
         public string Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public int QuantityFood { get; set; }
-        public double TotalPrice
+        public string IdCategory { get; set; }
+
+        public Food()
         {
-            get
-            {
-                return Price * QuantityFood;
-            }
         }
 
-        public BillInfo()
-        {
-
-        }
-
-        public BillInfo(DataRow row)
+        public  Food(DataRow row)
         {
             this.Id = row["id"].ToString();
             this.Name = row["name"].ToString();
-            this.Price = (double) row["price"];
-            this.QuantityFood = (int) row["quantityFood"];
+            this.Price = (double)row["price"];
+            this.IdCategory = row["idCategory"].ToString();
         }
     }
 }

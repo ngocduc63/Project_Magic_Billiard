@@ -24,11 +24,18 @@ namespace ProjectMagicBilliard.CallSQL
             return DataManager.Instance.ExecuteNonOuery(query);
         }
 
-        public DataTable GetTimeStart(string idTable)
+        public DateTime GetTimeStart(string idTable)
         {
             string query = $"select dateCheckIn from bill where idTable = '{idTable}' and status = 0";
 
-            return DataManager.Instance.ExecuteOuery(query);
+            return (DateTime) DataManager.Instance.ExecuteOuery(query).Rows[0]["dateCheckIn"];
+        }
+
+        public string GetIdCurrent(string idTable)
+        {
+            string query = $"select id from bill where idTable = '{idTable}' and status = 0";
+
+            return DataManager.Instance.ExecuteOuery(query).Rows[0]["id"].ToString();
         }
     }
 }

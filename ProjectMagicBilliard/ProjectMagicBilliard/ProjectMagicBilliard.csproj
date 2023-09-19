@@ -53,12 +53,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CallSQL\BillCallSQL.cs" />
+    <Compile Include="CallSQL\BillInfoCallSQL.cs" />
+    <Compile Include="CallSQL\FoodCallSQL.cs" />
     <Compile Include="CallSQL\LoginCallSQL.cs" />
     <Compile Include="CallSQL\TablePlayCallSQL.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="Data\AccountData.cs" />
     <Compile Include="Data\BillInfo.cs" />
     <Compile Include="Data\DataEnum.cs" />
+    <Compile Include="Data\Food.cs" />
     <Compile Include="Data\StringValueAttribute.cs" />
     <Compile Include="Data\TablePlay.cs" />
     <Compile Include="Program.cs" />

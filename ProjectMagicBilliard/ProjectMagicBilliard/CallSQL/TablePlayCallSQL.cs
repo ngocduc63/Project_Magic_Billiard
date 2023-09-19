@@ -28,7 +28,7 @@ namespace ProjectMagicBilliard.CallSQL
 
         public DataTable GetBillOfTable(string id)
         {
-            string query = string.Format("select bill.id, food.name, food.price, billInfo.quantityFood from bill "
+            string query = string.Format("select billInfo.id, food.name, food.price, billInfo.quantityFood from bill "
                             + "join billInfo on billInfo.idBill = bill.id "
                             + "join food on billInfo.idFood = food.id "
                             + "where idTable = '{0}'", id);
