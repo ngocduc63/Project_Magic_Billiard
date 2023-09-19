@@ -80,13 +80,12 @@ namespace ProjectMagicBilliard.Scene
 
         private void timePlay_Tick(object sender, EventArgs e)
         {
-            txtTimePlay.Text = FormatTimeSpan(_timeStart.TotalSeconds, DateTime.Now.ToLocalTime().TimeOfDay.TotalSeconds);
+            txtTimePlay.Text = FormatTimeSpan(_timeStart.TotalSeconds, DateTime.Now.TimeOfDay.TotalSeconds);
         }
 
         private string FormatTimeSpan(double start, double end)
         {
-            double offSet = 17 * 60 * 60;
-            double resultTime = end - start - offSet;
+            double resultTime = end - start;
 
             // return resultTime.Hours.ToString("00") + ":" + resultTime.Minutes.ToString("00") + ":" + resultTime.Seconds.ToString("00");
             return ConvertSecondToTime(resultTime);

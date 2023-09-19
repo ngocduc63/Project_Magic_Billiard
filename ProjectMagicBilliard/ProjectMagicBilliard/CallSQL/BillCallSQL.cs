@@ -26,7 +26,7 @@ namespace ProjectMagicBilliard.CallSQL
 
         public DataTable GetTimeStart(string idTable)
         {
-            string query = $"select dateCheckIn from bill where idTable = '{idTable}'";
+            string query = $"select dateCheckIn from bill where idTable = '{idTable}' and status = 0";
 
             return DataManager.Instance.ExecuteOuery(query);
         }

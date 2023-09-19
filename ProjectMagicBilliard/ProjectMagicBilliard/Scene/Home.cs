@@ -111,8 +111,8 @@ namespace ProjectMagicBilliard.Scene
 
                 if (table.Status == StatusTableEnum.Full)
                 {
-                    DateTime timeStart = (DateTime) BillCallSQL.Instance.GetTimeStart(table.Id).Rows[0]["dateCheckIn"];
-                    itemTable.LoadTimePlay(timeStart.ToLocalTime().TimeOfDay);
+                    DateTime timeStart = Convert.ToDateTime(BillCallSQL.Instance.GetTimeStart(table.Id).Rows[0]["dateCheckIn"]);
+                    itemTable.LoadTimePlay(timeStart.TimeOfDay);
                 }
                 else itemTable.StopTimePlay();
 
