@@ -30,5 +30,12 @@ namespace ProjectMagicBilliard.CallSQL
 
             return DataManager.Instance.ExecuteNonOuery(query);
         }
+
+        public bool UpdateToBillInfo(string id, string idFood, int quantityFood)
+        {
+            string query = $"update billInfo set idFood = '{idFood}', quantityFood = '{quantityFood}' where id = '{id}'";
+
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
     }
 }

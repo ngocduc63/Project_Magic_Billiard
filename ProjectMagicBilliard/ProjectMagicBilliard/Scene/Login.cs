@@ -24,7 +24,7 @@ namespace ProjectMagicBilliard.Scene
 
             if(CallSQL.LoginCallSQL.Instance.LoginCheck(usetName, passWord))
             {
-                Scene.Home home = new Home();
+                Home home = new Home();
                 this.Hide();
                 home.Show();
             }
@@ -43,7 +43,7 @@ namespace ProjectMagicBilliard.Scene
         {
             var result = MessageBox.Show("Bạn có muốn thoát hệ thống?", "Thông báo", MessageBoxButtons.OKCancel);
 
-            if (result != System.Windows.Forms.DialogResult.OK) e.Cancel = true;
+            if (result != DialogResult.OK) e.Cancel = true;
         }
     }
 }

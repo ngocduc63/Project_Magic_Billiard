@@ -30,8 +30,8 @@ namespace ProjectMagicBilliard.Scene
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,6 +39,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel11 = new System.Windows.Forms.Panel();
+            this.dgvBillInfo = new System.Windows.Forms.DataGridView();
             this.txtTitleBillInfo = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -54,13 +55,15 @@ namespace ProjectMagicBilliard.Scene
             this.label7 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.ListTablePlayPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.dgvBillInfo = new System.Windows.Forms.DataGridView();
             this.txtTitleIdBill = new System.Windows.Forms.Label();
             this.panelDetail = new System.Windows.Forms.Panel();
+            this.btnUpdate = new MetroFramework.Controls.MetroButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalBIllInfo = new System.Windows.Forms.Label();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
+            this.panel13.SuspendLayout();
             this.panelDetail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,6 +138,28 @@ namespace ProjectMagicBilliard.Scene
             this.panel11.Size = new System.Drawing.Size(465, 347);
             this.panel11.TabIndex = 4;
             // 
+            // dgvBillInfo
+            // 
+            this.dgvBillInfo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvBillInfo.Location = new System.Drawing.Point(-2, 48);
+            this.dgvBillInfo.Name = "dgvBillInfo";
+            this.dgvBillInfo.ReadOnly = true;
+            this.dgvBillInfo.RowHeadersWidth = 62;
+            this.dgvBillInfo.RowTemplate.Height = 28;
+            this.dgvBillInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBillInfo.Size = new System.Drawing.Size(465, 298);
+            this.dgvBillInfo.TabIndex = 8;
+            this.dgvBillInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBillInfo_CellClick);
+            // 
             // txtTitleBillInfo
             // 
             this.txtTitleBillInfo.AutoSize = true;
@@ -156,6 +181,7 @@ namespace ProjectMagicBilliard.Scene
             // panel13
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.btnUpdate);
             this.panel13.Controls.Add(this.btnEndTimePlay);
             this.panel13.Controls.Add(this.btnDelete);
             this.panel13.Controls.Add(this.label9);
@@ -194,7 +220,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnDelete.ForeColor = System.Drawing.Color.Crimson;
-            this.btnDelete.Location = new System.Drawing.Point(426, 84);
+            this.btnDelete.Location = new System.Drawing.Point(426, 90);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 37);
             this.btnDelete.TabIndex = 16;
@@ -269,7 +295,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPay.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnPay.ForeColor = System.Drawing.Color.Crimson;
-            this.btnPay.Location = new System.Drawing.Point(551, 42);
+            this.btnPay.Location = new System.Drawing.Point(544, 28);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(150, 70);
             this.btnPay.TabIndex = 12;
@@ -284,7 +310,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnInsert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInsert.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnInsert.ForeColor = System.Drawing.Color.Crimson;
-            this.btnInsert.Location = new System.Drawing.Point(426, 31);
+            this.btnInsert.Location = new System.Drawing.Point(426, 5);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(97, 37);
             this.btnInsert.TabIndex = 8;
@@ -339,27 +365,6 @@ namespace ProjectMagicBilliard.Scene
             this.ListTablePlayPanel.Size = new System.Drawing.Size(454, 481);
             this.ListTablePlayPanel.TabIndex = 7;
             // 
-            // dgvBillInfo
-            // 
-            this.dgvBillInfo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBillInfo.Location = new System.Drawing.Point(-2, 48);
-            this.dgvBillInfo.Name = "dgvBillInfo";
-            this.dgvBillInfo.ReadOnly = true;
-            this.dgvBillInfo.RowHeadersWidth = 62;
-            this.dgvBillInfo.RowTemplate.Height = 28;
-            this.dgvBillInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBillInfo.Size = new System.Drawing.Size(465, 298);
-            this.dgvBillInfo.TabIndex = 8;
-            // 
             // txtTitleIdBill
             // 
             this.txtTitleIdBill.AutoSize = true;
@@ -373,11 +378,51 @@ namespace ProjectMagicBilliard.Scene
             // panelDetail
             // 
             this.panelDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDetail.Controls.Add(this.txtTotalBIllInfo);
+            this.panelDetail.Controls.Add(this.label2);
             this.panelDetail.Controls.Add(this.txtTitleIdBill);
             this.panelDetail.Location = new System.Drawing.Point(939, 88);
             this.panelDetail.Name = "panelDetail";
             this.panelDetail.Size = new System.Drawing.Size(235, 349);
             this.panelDetail.TabIndex = 9;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnUpdate.ForeColor = System.Drawing.Color.Crimson;
+            this.btnUpdate.Location = new System.Drawing.Point(426, 47);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(97, 37);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.UseCustomBackColor = true;
+            this.btnUpdate.UseCustomForeColor = true;
+            this.btnUpdate.UseSelectable = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label2.Location = new System.Drawing.Point(2, 296);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 32);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Tổng tiền:";
+            // 
+            // txtTotalBIllInfo
+            // 
+            this.txtTotalBIllInfo.AutoSize = true;
+            this.txtTotalBIllInfo.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalBIllInfo.Location = new System.Drawing.Point(94, 294);
+            this.txtTotalBIllInfo.Name = "txtTotalBIllInfo";
+            this.txtTotalBIllInfo.Size = new System.Drawing.Size(126, 41);
+            this.txtTotalBIllInfo.TabIndex = 10;
+            this.txtTotalBIllInfo.Text = "000000";
+            this.txtTotalBIllInfo.Click += new System.EventHandler(this.label3_Click);
             // 
             // Home
             // 
@@ -402,9 +447,9 @@ namespace ProjectMagicBilliard.Scene
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).EndInit();
             this.panelDetail.ResumeLayout(false);
             this.panelDetail.PerformLayout();
             this.ResumeLayout(false);
@@ -438,5 +483,8 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.DataGridView dgvBillInfo;
         private System.Windows.Forms.Label txtTitleIdBill;
         private System.Windows.Forms.Panel panelDetail;
+        private MetroFramework.Controls.MetroButton btnUpdate;
+        private System.Windows.Forms.Label txtTotalBIllInfo;
+        private System.Windows.Forms.Label label2;
     }
 }
