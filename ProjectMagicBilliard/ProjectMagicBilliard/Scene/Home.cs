@@ -132,7 +132,7 @@ namespace ProjectMagicBilliard.Scene
                 if (table.Status == StatusTableEnum.Full)
                 {
                     DateTime timeStart = BillCallSQL.Instance.GetTimeStart(table.Id);
-                    itemTable.LoadTimePlay(timeStart.TimeOfDay);
+                    itemTable.LoadTimePlay(timeStart);
                 }
                 else itemTable.StopTimePlay();
 

@@ -19,7 +19,7 @@ namespace ProjectMagicBilliard.Scene
         {
             InitializeComponent();
         }
-        private TimeSpan _timeStart;
+        private DateTime _timeStart;
 
         private void TableItem_Load(object sender, EventArgs e)
         {
@@ -67,7 +67,7 @@ namespace ProjectMagicBilliard.Scene
 
         }
 
-        public void LoadTimePlay(TimeSpan timeStart)
+        public void LoadTimePlay(DateTime timeStart)
         {
             timePlay.Start();
             _timeStart = timeStart;
@@ -80,14 +80,16 @@ namespace ProjectMagicBilliard.Scene
 
         private void timePlay_Tick(object sender, EventArgs e)
         {
-            txtTimePlay.Text = FormatTimeSpan(_timeStart.TotalSeconds, DateTime.Now.TimeOfDay.TotalSeconds);
+            txtTimePlay.Text = FormatTimeSpan(_timeStart, DateTime.Now);
         }
 
-        private string FormatTimeSpan(double start, double end)
+        private string FormatTimeSpan(DateTime startTime, DateTime endTime)
         {
-            double resultTime = end - start;
+            double offSetTime = 0;
+            if(endTime.Day - startTime.Day > 0) offSetTime += (endTime.Day - startTime.Day) * 3600 * 24;
 
-            // return resultTime.Hours.ToString("00") + ":" + resultTime.Minutes.ToString("00") + ":" + resultTime.Seconds.ToString("00");
+            double resultTime = endTime.TimeOfDay.TotalSeconds - startTime.TimeOfDay.TotalSeconds + offSetTime;
+            
             return ConvertSecondToTime(resultTime);
         }
 
