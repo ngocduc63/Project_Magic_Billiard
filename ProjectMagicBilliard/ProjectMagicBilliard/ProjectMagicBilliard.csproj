@@ -78,6 +78,12 @@
     <Compile Include="Scene\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scene\SelectFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scene\SelectFood.Designer.cs">
+      <DependentUpon>SelectFood.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scene\TableItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Scene\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scene\SelectFood.resx">
+      <DependentUpon>SelectFood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scene\TableItem.resx">
       <DependentUpon>TableItem.cs</DependentUpon>

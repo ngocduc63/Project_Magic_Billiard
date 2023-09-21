@@ -59,12 +59,19 @@ namespace ProjectMagicBilliard.Scene
             set { txtPrice.Text = "Giá : " + value; }
         }
 
+        public void SetClickItem(EventHandler eventClick)
+        {
+            txtId.Click += eventClick;
+            txtName.Click += eventClick;
+            txtTimePlay.Click += eventClick;
+            txtPrice.Click += eventClick;
+            txtStatus.Click += eventClick;
+        }
 
         public void SetBackGround(StatusTableEnum status)
         {
             if (status == StatusTableEnum.Empty) BackColor = Color.LimeGreen;
             else BackColor = Color.OrangeRed;
-
         }
 
         public void LoadTimePlay(DateTime timeStart)

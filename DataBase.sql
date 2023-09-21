@@ -111,6 +111,34 @@ BEGIN
 		UPDATE tablePlay SET status = 1 WHERE id = @idTable
 END
 go
+CREATE TRIGGER InsertBillInfo
+ON billInfo for Insert
+AS
+BEGIN
+	DECLARE @idBillInfoLast int
+	DECLARE @idBillInfo int
+	DECLARE @idFood int
+	DECLARE @quantity int
+	DECLARE @idBill int
+
+	SELECT @idBillInfoLast = id, @idFood = idFood,  @quantity = quantityFood, @idBill = idBill
+	FROM Inserted	
+	
+	SELECT top 1  @idBillInfo = billInfo.id FROM bill join billInfo on bill.id = billInfo.idBill
+	where idFood = @idFood and status = 0 and @idBill = bill.id
+
+	DECLARE @count int
+	select @count = count(*) from billInfo where idBill = @idBill
+
+	IF (@idBillInfo is not null and @count > 1)
+		begin
+			update billInfo set quantityFood = quantityFood + @quantity
+			where id = @idBillInfo
+			
+			Delete from billInfo where id = @idBillInfoLast
+		end
+END
+go
 CREATE TRIGGER UpdateBill
 ON bill FOR UPDATE
 AS
@@ -133,6 +161,7 @@ END
 GO
 --DROP TRIGGER UpdateBill 
 --DROP TRIGGER InsertBill
+--DROP TRIGGER InsertBillInfo
 
 insert into position values('giam doc'), ('nhan vien')
 go

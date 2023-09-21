@@ -134,6 +134,7 @@ namespace ProjectMagicBilliard.Scene
                 itemTable.TxtPrice = table.Price;
 
                 itemTable.Click += ItemTablePlay_Click;
+                itemTable.SetClickItem(ItemTablePlay_Click);
                 ListTablePlayPanel.Controls.Add(itemTable);
 
                 if (table.Status == StatusTableEnum.Full)
@@ -188,8 +189,10 @@ namespace ProjectMagicBilliard.Scene
         private void ItemTablePlay_Click(object sender, EventArgs e)
         {
             panelDetail.Visible = true;
-            TableItem itemTable = (TableItem) sender;
+            TableItem itemTable = sender as TableItem;
+            if(itemTable == null)   itemTable = (sender as Label).Parent as TableItem; 
             TablePlay dataTable = itemTable.Table;
+
             if (_currentTableData != null &&  _currentTableData.Id.Equals(dataTable.Id))
             {
                 MessageBox.Show($"Bạn đang xem hóa đơn bàn {dataTable.Id} rồi!!!");
@@ -230,6 +233,7 @@ namespace ProjectMagicBilliard.Scene
             btnDelete.Enabled = isEnable;
             btnPay.Enabled = isEnable;
             btnUpdate.Enabled = isEnable;
+            btnSelectFood.Enabled = isEnable;
         }
 
         public void LoadChooseFood()
@@ -296,6 +300,12 @@ namespace ProjectMagicBilliard.Scene
             var rs = string.Format("{0:#,#}", number);
 
             return string.IsNullOrWhiteSpace(rs) ? "0" : rs;
+        }
+
+        private void btnSelectFood_Click(object sender, EventArgs e)
+        {
+            SelectFood selectFoodForm = new SelectFood();
+            selectFoodForm.ShowDialog();
         }
     }
 }

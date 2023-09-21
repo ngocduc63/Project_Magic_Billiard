@@ -30,7 +30,7 @@ namespace ProjectMagicBilliard.Scene
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -43,6 +43,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTitleBillInfo = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.btnUpdate = new MetroFramework.Controls.MetroButton();
             this.btnEndTimePlay = new MetroFramework.Controls.MetroButton();
             this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,9 +58,9 @@ namespace ProjectMagicBilliard.Scene
             this.ListTablePlayPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.txtTitleIdBill = new System.Windows.Forms.Label();
             this.panelDetail = new System.Windows.Forms.Panel();
-            this.btnUpdate = new MetroFramework.Controls.MetroButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtTotalBIllInfo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSelectFood = new MetroFramework.Controls.MetroButton();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
@@ -130,6 +131,7 @@ namespace ProjectMagicBilliard.Scene
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.btnSelectFood);
             this.panel11.Controls.Add(this.dgvBillInfo);
             this.panel11.Controls.Add(this.txtTitleBillInfo);
             this.panel11.Controls.Add(this.panel12);
@@ -142,14 +144,14 @@ namespace ProjectMagicBilliard.Scene
             // 
             this.dgvBillInfo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBillInfo.Location = new System.Drawing.Point(-2, 48);
             this.dgvBillInfo.Name = "dgvBillInfo";
             this.dgvBillInfo.ReadOnly = true;
@@ -197,6 +199,22 @@ namespace ProjectMagicBilliard.Scene
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(706, 132);
             this.panel13.TabIndex = 6;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnUpdate.ForeColor = System.Drawing.Color.Crimson;
+            this.btnUpdate.Location = new System.Drawing.Point(426, 47);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(97, 37);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.UseCustomBackColor = true;
+            this.btnUpdate.UseCustomForeColor = true;
+            this.btnUpdate.UseSelectable = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnEndTimePlay
             // 
@@ -386,21 +404,16 @@ namespace ProjectMagicBilliard.Scene
             this.panelDetail.Size = new System.Drawing.Size(235, 349);
             this.panelDetail.TabIndex = 9;
             // 
-            // btnUpdate
+            // txtTotalBIllInfo
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnUpdate.ForeColor = System.Drawing.Color.Crimson;
-            this.btnUpdate.Location = new System.Drawing.Point(426, 47);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(97, 37);
-            this.btnUpdate.TabIndex = 18;
-            this.btnUpdate.Text = "Sửa";
-            this.btnUpdate.UseCustomBackColor = true;
-            this.btnUpdate.UseCustomForeColor = true;
-            this.btnUpdate.UseSelectable = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.txtTotalBIllInfo.AutoSize = true;
+            this.txtTotalBIllInfo.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalBIllInfo.Location = new System.Drawing.Point(94, 294);
+            this.txtTotalBIllInfo.Name = "txtTotalBIllInfo";
+            this.txtTotalBIllInfo.Size = new System.Drawing.Size(126, 41);
+            this.txtTotalBIllInfo.TabIndex = 10;
+            this.txtTotalBIllInfo.Text = "000000";
+            this.txtTotalBIllInfo.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -413,16 +426,21 @@ namespace ProjectMagicBilliard.Scene
             this.label2.TabIndex = 9;
             this.label2.Text = "Tổng tiền:";
             // 
-            // txtTotalBIllInfo
+            // btnSelectFood
             // 
-            this.txtTotalBIllInfo.AutoSize = true;
-            this.txtTotalBIllInfo.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalBIllInfo.Location = new System.Drawing.Point(94, 294);
-            this.txtTotalBIllInfo.Name = "txtTotalBIllInfo";
-            this.txtTotalBIllInfo.Size = new System.Drawing.Size(126, 41);
-            this.txtTotalBIllInfo.TabIndex = 10;
-            this.txtTotalBIllInfo.Text = "000000";
-            this.txtTotalBIllInfo.Click += new System.EventHandler(this.label3_Click);
+            this.btnSelectFood.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSelectFood.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelectFood.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnSelectFood.ForeColor = System.Drawing.Color.Crimson;
+            this.btnSelectFood.Location = new System.Drawing.Point(336, 4);
+            this.btnSelectFood.Name = "btnSelectFood";
+            this.btnSelectFood.Size = new System.Drawing.Size(120, 37);
+            this.btnSelectFood.TabIndex = 19;
+            this.btnSelectFood.Text = "Chọn dịch vụ";
+            this.btnSelectFood.UseCustomBackColor = true;
+            this.btnSelectFood.UseCustomForeColor = true;
+            this.btnSelectFood.UseSelectable = true;
+            this.btnSelectFood.Click += new System.EventHandler(this.btnSelectFood_Click);
             // 
             // Home
             // 
@@ -486,5 +504,6 @@ namespace ProjectMagicBilliard.Scene
         private MetroFramework.Controls.MetroButton btnUpdate;
         private System.Windows.Forms.Label txtTotalBIllInfo;
         private System.Windows.Forms.Label label2;
+        private MetroFramework.Controls.MetroButton btnSelectFood;
     }
 }
