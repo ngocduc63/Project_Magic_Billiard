@@ -128,7 +128,8 @@ BEGIN
 	where idFood = @idFood and status = 0 and @idBill = bill.id
 
 	DECLARE @count int
-	select @count = count(*) from billInfo where idBill = @idBill
+	select @count = count(*) FROM bill join billInfo on bill.id = billInfo.idBill
+	where idFood = @idFood and status = 0 and @idBill = bill.id
 
 	IF (@idBillInfo is not null and @count > 1)
 		begin

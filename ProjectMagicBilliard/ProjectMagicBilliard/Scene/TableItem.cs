@@ -87,32 +87,15 @@ namespace ProjectMagicBilliard.Scene
 
         private void timePlay_Tick(object sender, EventArgs e)
         {
-            txtTimePlay.Text = FormatTimeSpan(_timeStart, DateTime.Now);
+            double totalTime = Home.Instance.CountTime(_timeStart, DateTime.Now);
+
+            txtTimePlay.Text = Home.Instance.ConvertSecondToTime(totalTime);
         }
 
-        private string FormatTimeSpan(DateTime startTime, DateTime endTime)
-        {
-            double offSetTime = 0;
-            if(endTime.Day - startTime.Day > 0) offSetTime += (endTime.Day - startTime.Day) * 3600 * 24;
-
-            double resultTime = endTime.TimeOfDay.TotalSeconds - startTime.TimeOfDay.TotalSeconds + offSetTime;
-            
-            return ConvertSecondToTime(resultTime);
-        }
 
         private void TableItem_Click(object sender, EventArgs e)
         {
             
-        }
-
-        public string ConvertSecondToTime(double totalSeconds)
-        {
-            int hours = (int) totalSeconds / 3600;
-            int remainingSeconds =(int) totalSeconds % 3600;
-            int minutes = remainingSeconds / 60;
-            int seconds = remainingSeconds % 60;
-
-            return $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
     }
 }

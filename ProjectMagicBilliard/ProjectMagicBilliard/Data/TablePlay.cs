@@ -12,7 +12,7 @@ namespace ProjectMagicBilliard.Data
         public string Id { get; set; }
         public string Name { get; set; }
         public StatusTableEnum Status { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
 
         public TablePlay()
         {
@@ -24,7 +24,7 @@ namespace ProjectMagicBilliard.Data
             this.Id = row["id"].ToString();
             this.Name = row["name"].ToString();
             this.Status = (StatusTableEnum) row["status"];
-            this.Price = row["price"].ToString();
+            this.Price = (double) row["price"];
         }
     }
 }

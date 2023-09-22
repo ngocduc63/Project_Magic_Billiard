@@ -31,7 +31,7 @@ namespace ProjectMagicBilliard.CallSQL
             string query = string.Format("select billInfo.id, food.name, food.price, billInfo.quantityFood from bill "
                             + "join billInfo on billInfo.idBill = bill.id "
                             + "join food on billInfo.idFood = food.id "
-                            + "where idTable = '{0}'", id);
+                            + "where idTable = '{0}' and bill.status = 0", id);
 
             DataTable result = DataManager.Instance.ExecuteOuery(query);
 
