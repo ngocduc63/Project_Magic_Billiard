@@ -32,6 +32,7 @@ namespace ProjectMagicBilliard.Scene
         private string _idSelectedBillInfo;
         private bool _isFirstOpenForm = true;
         private double _priceTimePlay = 0;
+        private bool _isWaitPaying = false;
 
 
         public Home()
@@ -98,6 +99,8 @@ namespace ProjectMagicBilliard.Scene
                     txtTitleIdBill.ForeColor = Color.Black;
                     EnableAllButton();
                     setTimeBillText();
+                    _isWaitPaying = false;
+                    LoadBillInfo(_currentTableData);
                 }
                 else MessageBox.Show($"Tính giờ bàn {_currentTableData.Id} lỗi!!!");
             }
@@ -195,9 +198,9 @@ namespace ProjectMagicBilliard.Scene
             dgvBillInfo.DataSource = lstBillInfo;
             dgvBillInfo.Columns["Id"].Visible = false;
             dgvBillInfo.ReadOnly = true;
-            if (_currentTableData != null) txtTitleBillInfo.Text = "Hóa đơn bàn " + _currentTableData.Id;
+            txtTitleBillInfo.Text = "Hóa đơn bàn " + _currentTableData.Id;
 
-            if (lstBillInfo.Count == 0)
+            if (lstBillInfo.Count == 0 || _isWaitPaying)
             {
                 btnUpdate.Enabled = false;
                 btnDelete.Enabled = false;
@@ -224,6 +227,7 @@ namespace ProjectMagicBilliard.Scene
         {
             panelDetail.Visible = true;
             _priceTimePlay = 0;
+            _isWaitPaying = false;
 
             TablePlay dataTable;
             if (sender != null)
@@ -263,7 +267,7 @@ namespace ProjectMagicBilliard.Scene
 
             setTimeBillText();
 
-            LoadBillInfo(dataTable);
+            LoadBillInfo(_currentTableData);
         }
 
         public string GetNumberFromId(string id)
@@ -384,6 +388,7 @@ namespace ProjectMagicBilliard.Scene
                 EnableAllButton(false);
                 btnPay.Enabled = true;
                 btnStartTimePlay.Enabled = false;
+                _isWaitPaying = true;
             }
         }
 
