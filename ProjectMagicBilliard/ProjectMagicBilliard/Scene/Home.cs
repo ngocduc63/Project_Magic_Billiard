@@ -271,6 +271,7 @@ namespace ProjectMagicBilliard.Scene
             setTimeBillText();
 
             LoadBillInfo(_currentTableData);
+            _isFirstOpenForm = false;
         }
 
         public string GetNumberFromId(string id)
