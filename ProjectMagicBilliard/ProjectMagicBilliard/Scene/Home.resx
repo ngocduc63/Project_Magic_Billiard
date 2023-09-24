@@ -633,4 +633,11 @@
         miqWcdKlWZh15rrhik9JATmimrIrdD+FFdKkpK6Gf//Z
 </value>
   </data>
+  <data name="btnMenu.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAABBSURBVGhD7daxCQAgDEXB7D+WDqaxErHSRoQ7eH3S/QAA
+        VjVrnzVu3vz4SMkAAOCcGf8wMx4AgDtm/MPMeACYIjrE9RApcX409AAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

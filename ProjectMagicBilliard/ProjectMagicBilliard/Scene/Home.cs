@@ -53,6 +53,7 @@ namespace ProjectMagicBilliard.Scene
             ItemTablePlay_Click();
             LoadChooseFood();
             _isFirstOpenForm = false;
+            PanelMenu.Visible = false;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -230,6 +231,7 @@ namespace ProjectMagicBilliard.Scene
         private void ItemTablePlay_Click(object sender = null, EventArgs e = null)
         {
             panelDetail.Visible = true;
+            PanelMenu.Visible = false;
             _priceTimePlay = 0;
             _isWaitPaying = false;
 
@@ -452,6 +454,28 @@ namespace ProjectMagicBilliard.Scene
                 }
             }
             else MessageBox.Show("Vui lòng tính giờ chơi !!!");
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            PanelMenu.Visible = !PanelMenu.Visible;
+        }
+
+        private void DisablePanelMenu_Click(object sender, EventArgs e)
+        {
+            PanelMenu.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnOpenFormAdmin_Click(object sender, EventArgs e)
+        {
+            Admin adminForm = new Admin();
+            adminForm.Show();
+            this.Close();
         }
     }
 }

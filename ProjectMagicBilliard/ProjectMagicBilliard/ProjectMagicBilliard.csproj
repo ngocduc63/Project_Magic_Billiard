@@ -66,6 +66,12 @@
     <Compile Include="Data\TablePlay.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scene\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scene\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scene\BillPay.cs">
       <SubType>Form</SubType>
     </Compile>
