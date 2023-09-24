@@ -33,6 +33,7 @@ namespace ProjectMagicBilliard.Scene
         private bool _isFirstOpenForm = true;
         private double _priceTimePlay = 0;
         private bool _isWaitPaying = false;
+        private string _totalTimePlay;
 
 
         public Home()
@@ -93,14 +94,17 @@ namespace ProjectMagicBilliard.Scene
                 if (BillCallSQL.Instance.InsertToBill(DateTime.Now.ToLocalTime(), _currentTableData.Id))
                 {
                     MessageBox.Show($"Bắt đầu tính giờ bàn {_currentTableData.Id}");
-                    GetTablePlay();
-                    _idCurrentBill = BillCallSQL.Instance.GetIdCurrent(_currentTableData.Id);
-                    txtTitleIdBill.Text = "Hóa đơn số: " + _idCurrentBill;
                     txtTitleIdBill.ForeColor = Color.Black;
+
+                    GetTablePlay();
                     EnableAllButton();
                     setTimeBillText();
-                    _isWaitPaying = false;
                     LoadBillInfo(_currentTableData);
+
+                    _isWaitPaying = false;
+
+                    _idCurrentBill = BillCallSQL.Instance.GetIdCurrent(_currentTableData.Id);
+                    txtTitleIdBill.Text = "Hóa đơn số: " + _idCurrentBill;
                 }
                 else MessageBox.Show($"Tính giờ bàn {_currentTableData.Id} lỗi!!!");
             }
@@ -146,7 +150,7 @@ namespace ProjectMagicBilliard.Scene
                 lstTable.Add(table);
             }
 
-            _currentTableData = lstTable.FirstOrDefault();
+            if(_currentTableData == null) _currentTableData = lstTable.FirstOrDefault();
             LoadAllTable();
         }
 
@@ -242,12 +246,11 @@ namespace ProjectMagicBilliard.Scene
             }
 
             if (_currentTableData != null && _currentTableData.Id.Equals(dataTable.Id) && !_isFirstOpenForm)
-            {
-                MessageBox.Show($"Bạn đang xem hóa đơn bàn {dataTable.Id} rồi!!!");
-                return;
-            }
+                MessageBox.Show($"Tải lại dữ liệu hóa đơn bàn {dataTable.Id}...");
 
             _currentTableData = dataTable;
+
+            if (_currentTableData == null) MessageBox.Show("Lỗi");
 
             if (dataTable.Status == StatusTableEnum.Full)
             {
@@ -384,6 +387,7 @@ namespace ProjectMagicBilliard.Scene
 
                 double totalTime = CountTime((DateTime)timeStart, (DateTime)timeEnd);
                 _priceTimePlay = ConvertSecondToDouble(totalTime) * _currentTableData.Price;
+                _totalTimePlay = ConvertSecondToTime(totalTime);
 
                 EnableAllButton(false);
                 btnPay.Enabled = true;
@@ -427,5 +431,26 @@ namespace ProjectMagicBilliard.Scene
             return resultTime;
         }
 
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (_isWaitPaying)
+            {
+                using (BillPay billPay = new BillPay())
+                {
+                    billPay.IdCurrentBill = _idCurrentBill;
+                    billPay.LoadBillPay(lstBillInfo);
+                    billPay.LoadTotalTimeAndPrice(_totalTimePlay, txtTotalBIllInfo.Text);
+
+                    if (billPay.ShowDialog() == DialogResult.OK)
+                    {
+                        _isFirstOpenForm = true;
+                        _currentTableData = null;
+                        GetTablePlay();
+                        ItemTablePlay_Click();
+                    }
+                }
+            }
+            else MessageBox.Show("Vui lòng tính giờ chơi !!!");
+        }
     }
 }

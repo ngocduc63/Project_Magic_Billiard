@@ -17,3 +17,4 @@ D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\Pr
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\vi\ProjectMagicBilliard.resources.dll
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.Scene.TableItem.resources
 D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.Scene.SelectFood.resources
+D:\LT_NET\do an\DoAnMagicBilliard\Project_Magic_Billiard\ProjectMagicBilliard\ProjectMagicBilliard\obj\Debug\ProjectMagicBilliard.Scene.BillPay.resources
