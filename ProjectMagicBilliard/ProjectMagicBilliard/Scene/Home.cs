@@ -443,6 +443,7 @@ namespace ProjectMagicBilliard.Scene
                     billPay.IdCurrentBill = _idCurrentBill;
                     billPay.LoadBillPay(lstBillInfo);
                     billPay.LoadTotalTimeAndPrice(_totalTimePlay, txtTotalBIllInfo.Text);
+                    billPay.LoadNameTxt(txtStaff.Text);
 
                     if (billPay.ShowDialog() == DialogResult.OK)
                     {
@@ -476,6 +477,12 @@ namespace ProjectMagicBilliard.Scene
             Admin adminForm = new Admin();
             adminForm.Show();
             this.Close();
+        }
+
+        public void SetTextStaff(string name)
+        {
+            txtStaff.Text = name;
+            btnOpenFormAdmin.Visible = name.ToLower().Equals("admin");
         }
     }
 }

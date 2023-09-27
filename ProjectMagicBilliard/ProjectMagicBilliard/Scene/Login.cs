@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectMagicBilliard.CallSQL;
 
 namespace ProjectMagicBilliard.Scene
 {
@@ -22,9 +23,13 @@ namespace ProjectMagicBilliard.Scene
             string usetName = txtUserName.Text;
             string passWord = txtPassWord.Text;
 
-            if(CallSQL.LoginCallSQL.Instance.LoginCheck(usetName, passWord))
+            if(LoginCallSQL.Instance.LoginCheck(usetName, passWord))
             {
                 Home home = new Home();
+
+                string name = LoginCallSQL.Instance.GetDisplayName(usetName, passWord);
+                home.SetTextStaff(name);
+
                 this.Hide();
                 home.Show();
             }

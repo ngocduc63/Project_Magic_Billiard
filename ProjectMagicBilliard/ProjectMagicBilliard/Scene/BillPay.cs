@@ -46,6 +46,11 @@ namespace ProjectMagicBilliard.Scene
             txtTotalPay.Text = totalPrice;
         }
 
+        public void LoadNameTxt(string nameStaff)
+        {
+            txtNameStaff.Text = "Tên nhân viên: " + nameStaff;
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

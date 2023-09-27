@@ -30,11 +30,11 @@ namespace ProjectMagicBilliard.Scene
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtStaff = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -66,9 +66,9 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalBIllInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelMenu = new System.Windows.Forms.Panel();
-            this.btnMenu = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnOpenFormAdmin = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
@@ -93,7 +93,7 @@ namespace ProjectMagicBilliard.Scene
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.txtStaff);
             this.panel10.Controls.Add(this.label4);
             this.panel10.Location = new System.Drawing.Point(8, 52);
             this.panel10.Name = "panel10";
@@ -101,16 +101,16 @@ namespace ProjectMagicBilliard.Scene
             this.panel10.TabIndex = 2;
             this.panel10.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
-            // label5
+            // txtStaff
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this.label5.Location = new System.Drawing.Point(207, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 36);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "admin";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.txtStaff.AutoSize = true;
+            this.txtStaff.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.txtStaff.Location = new System.Drawing.Point(207, 2);
+            this.txtStaff.Name = "txtStaff";
+            this.txtStaff.Size = new System.Drawing.Size(92, 36);
+            this.txtStaff.TabIndex = 1;
+            this.txtStaff.Text = "admin";
+            this.txtStaff.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -172,14 +172,14 @@ namespace ProjectMagicBilliard.Scene
             // 
             this.dgvBillInfo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBillInfo.Location = new System.Drawing.Point(-2, 48);
             this.dgvBillInfo.Name = "dgvBillInfo";
             this.dgvBillInfo.ReadOnly = true;
@@ -515,16 +515,18 @@ namespace ProjectMagicBilliard.Scene
             this.PanelMenu.Size = new System.Drawing.Size(236, 150);
             this.PanelMenu.TabIndex = 10;
             // 
-            // btnMenu
+            // btnOpenFormAdmin
             // 
-            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.Location = new System.Drawing.Point(1121, 8);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(50, 50);
-            this.btnMenu.TabIndex = 11;
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.btnOpenFormAdmin.BackColor = System.Drawing.Color.White;
+            this.btnOpenFormAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpenFormAdmin.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenFormAdmin.Location = new System.Drawing.Point(10, 86);
+            this.btnOpenFormAdmin.Name = "btnOpenFormAdmin";
+            this.btnOpenFormAdmin.Size = new System.Drawing.Size(215, 42);
+            this.btnOpenFormAdmin.TabIndex = 1;
+            this.btnOpenFormAdmin.Text = "Quản lí quán";
+            this.btnOpenFormAdmin.UseVisualStyleBackColor = false;
+            this.btnOpenFormAdmin.Click += new System.EventHandler(this.btnOpenFormAdmin_Click);
             // 
             // btnExit
             // 
@@ -539,18 +541,16 @@ namespace ProjectMagicBilliard.Scene
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnOpenFormAdmin
+            // btnMenu
             // 
-            this.btnOpenFormAdmin.BackColor = System.Drawing.Color.White;
-            this.btnOpenFormAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpenFormAdmin.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenFormAdmin.Location = new System.Drawing.Point(10, 86);
-            this.btnOpenFormAdmin.Name = "btnOpenFormAdmin";
-            this.btnOpenFormAdmin.Size = new System.Drawing.Size(215, 42);
-            this.btnOpenFormAdmin.TabIndex = 1;
-            this.btnOpenFormAdmin.Text = "Quản lí quán";
-            this.btnOpenFormAdmin.UseVisualStyleBackColor = false;
-            this.btnOpenFormAdmin.Click += new System.EventHandler(this.btnOpenFormAdmin_Click);
+            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Location = new System.Drawing.Point(1121, 8);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(50, 50);
+            this.btnMenu.TabIndex = 11;
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // Home
             // 
@@ -594,7 +594,7 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label txtStaff;
         private System.Windows.Forms.Label txtTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel11;

@@ -37,6 +37,11 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalTimePlay = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotalPay = new System.Windows.Forms.Label();
+            this.txtNameStaff = new System.Windows.Forms.Label();
+            this.txtGuest = new System.Windows.Forms.TextBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +50,10 @@ namespace ProjectMagicBilliard.Scene
             this.btnCancel.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnCancel.Location = new System.Drawing.Point(52, 421);
+            this.btnCancel.Location = new System.Drawing.Point(46, 514);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(122, 48);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Quay lại";
             this.btnCancel.UseCustomBackColor = true;
             this.btnCancel.UseCustomForeColor = true;
@@ -61,10 +66,10 @@ namespace ProjectMagicBilliard.Scene
             this.btnPay.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPay.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnPay.Location = new System.Drawing.Point(253, 421);
+            this.btnPay.Location = new System.Drawing.Point(247, 514);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(179, 48);
-            this.btnPay.TabIndex = 2;
+            this.btnPay.TabIndex = 4;
             this.btnPay.Text = "Thanh toán";
             this.btnPay.UseCustomBackColor = true;
             this.btnPay.UseCustomForeColor = true;
@@ -75,14 +80,14 @@ namespace ProjectMagicBilliard.Scene
             // dgvBillInfo
             // 
             this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBillInfo.Location = new System.Drawing.Point(5, 95);
+            this.dgvBillInfo.Location = new System.Drawing.Point(5, 118);
             this.dgvBillInfo.Name = "dgvBillInfo";
             this.dgvBillInfo.ReadOnly = true;
             this.dgvBillInfo.RowHeadersWidth = 62;
             this.dgvBillInfo.RowTemplate.Height = 28;
             this.dgvBillInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBillInfo.Size = new System.Drawing.Size(463, 247);
-            this.dgvBillInfo.TabIndex = 3;
+            this.dgvBillInfo.TabIndex = 10;
             // 
             // txtIdBill
             // 
@@ -97,30 +102,30 @@ namespace ProjectMagicBilliard.Scene
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 355);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 460);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 33);
+            this.label1.Size = new System.Drawing.Size(190, 34);
             this.label1.TabIndex = 5;
             this.label1.Text = "Tổng giờ chơi:";
             // 
             // txtTotalTimePlay
             // 
             this.txtTotalTimePlay.AutoSize = true;
-            this.txtTotalTimePlay.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalTimePlay.Location = new System.Drawing.Point(147, 355);
+            this.txtTotalTimePlay.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalTimePlay.Location = new System.Drawing.Point(126, 459);
             this.txtTotalTimePlay.Name = "txtTotalTimePlay";
-            this.txtTotalTimePlay.Size = new System.Drawing.Size(84, 33);
+            this.txtTotalTimePlay.Size = new System.Drawing.Size(102, 39);
             this.txtTotalTimePlay.TabIndex = 6;
             this.txtTotalTimePlay.Text = "1g30p";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(275, 355);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(227, 459);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 32);
+            this.label3.Size = new System.Drawing.Size(165, 36);
             this.label3.TabIndex = 7;
             this.label3.Text = "Tổng tiền :";
             // 
@@ -128,20 +133,77 @@ namespace ProjectMagicBilliard.Scene
             // 
             this.txtTotalPay.AutoSize = true;
             this.txtTotalPay.BackColor = System.Drawing.Color.Transparent;
-            this.txtTotalPay.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPay.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPay.ForeColor = System.Drawing.Color.Red;
-            this.txtTotalPay.Location = new System.Drawing.Point(369, 352);
+            this.txtTotalPay.Location = new System.Drawing.Point(333, 456);
             this.txtTotalPay.Name = "txtTotalPay";
-            this.txtTotalPay.Size = new System.Drawing.Size(180, 41);
+            this.txtTotalPay.Size = new System.Drawing.Size(200, 45);
             this.txtTotalPay.TabIndex = 8;
             this.txtTotalPay.Text = "10,000,000";
+            // 
+            // txtNameStaff
+            // 
+            this.txtNameStaff.AutoSize = true;
+            this.txtNameStaff.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameStaff.Location = new System.Drawing.Point(9, 75);
+            this.txtNameStaff.Name = "txtNameStaff";
+            this.txtNameStaff.Size = new System.Drawing.Size(115, 33);
+            this.txtNameStaff.TabIndex = 9;
+            this.txtNameStaff.Text = "nhanvien";
+            // 
+            // txtGuest
+            // 
+            this.txtGuest.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuest.Location = new System.Drawing.Point(217, 68);
+            this.txtGuest.Name = "txtGuest";
+            this.txtGuest.Size = new System.Drawing.Size(173, 40);
+            this.txtGuest.TabIndex = 0;
+            this.txtGuest.Text = "Tên khách hàng";
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.metroButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton1.Location = new System.Drawing.Point(396, 61);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(74, 40);
+            this.metroButton1.TabIndex = 1;
+            this.metroButton1.Text = "Chọn";
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseCustomForeColor = true;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 391);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 33);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Mã giảm giá:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(124, 384);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(268, 40);
+            this.textBox1.TabIndex = 3;
             // 
             // BillPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 480);
+            this.ClientSize = new System.Drawing.Size(480, 580);
             this.ControlBox = false;
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.txtGuest);
+            this.Controls.Add(this.txtNameStaff);
             this.Controls.Add(this.txtTotalPay);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTotalTimePlay);
@@ -170,5 +232,10 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.Label txtTotalTimePlay;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txtTotalPay;
+        private System.Windows.Forms.Label txtNameStaff;
+        private System.Windows.Forms.TextBox txtGuest;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
