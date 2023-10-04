@@ -427,7 +427,8 @@ namespace ProjectMagicBilliard.Scene
         public double CountTime(DateTime startTime, DateTime endTime)
         {
             double offSetTime = 0;
-            if (endTime.Day - startTime.Day > 0) offSetTime += (endTime.Day - startTime.Day) * 3600 * 24;
+            double day = (endTime - startTime).TotalDays;
+            if (endTime.Day != startTime.Day || endTime.Month != startTime.Month) offSetTime += day * 3600 * 24;
 
             double resultTime = endTime.TimeOfDay.TotalSeconds - startTime.TimeOfDay.TotalSeconds + offSetTime;
 

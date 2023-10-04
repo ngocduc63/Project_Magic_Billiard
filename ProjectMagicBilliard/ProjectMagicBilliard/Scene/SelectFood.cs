@@ -48,10 +48,12 @@ namespace ProjectMagicBilliard.Scene
             }
         }
 
-        public void LoadListFood()
+        public void LoadListFood(List<Food> LstFood = null)
         {
+            if (LstFood == null) LstFood = _lstFood;
             panelListFood.Controls.Clear();
-            foreach (Food food in _lstFood)
+
+            foreach (Food food in LstFood)
             {
                 Button btnFood = new Button();
 
@@ -97,6 +99,12 @@ namespace ProjectMagicBilliard.Scene
         private void panelListFood_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            List<Food> LstFood = _lstFood.FindAll((food) => food.Name.Contains(txtName.Text));
+            LoadListFood(LstFood);
         }
     }
 }
