@@ -125,7 +125,7 @@ namespace ProjectMagicBilliard.Scene
                     btnPay.Enabled = true;
                     setTimeBillText();
                     SetTextTotalPrice();
-                    LoadAllTable();
+                    GetTablePlay();
                 }
                 else MessageBox.Show($"Tính tiền bàn {_currentTableData.Id} thất bại!!!!");
             }
@@ -151,7 +151,7 @@ namespace ProjectMagicBilliard.Scene
                 lstTable.Add(table);
             }
 
-            if(_currentTableData == null) _currentTableData = lstTable.FirstOrDefault();
+            if (_currentTableData == null) _currentTableData = lstTable.FirstOrDefault();
             LoadAllTable();
         }
 
@@ -165,7 +165,7 @@ namespace ProjectMagicBilliard.Scene
                 TableItem itemTable = new TableItem();
 
                 itemTable.TxtId = GetNumberFromId(table.Id);
-                itemTable.TxtName = table.Name;
+                itemTable.TxtName = table.IdCategpory.GetStringValue();
                 itemTable.TxtTime = "00:00:00";
                 itemTable.TxtStatus = table.Status.GetStringValue();
                 itemTable.TxtPrice = table.Price.ToString();
@@ -174,14 +174,14 @@ namespace ProjectMagicBilliard.Scene
                 itemTable.SetClickItem(ItemTablePlay_Click);
                 ListTablePlayPanel.Controls.Add(itemTable);
 
-                if (table.Status == StatusTableEnum.Full && BillCallSQL.Instance.GetTimeEnd(table.Id) == null)
+                if (table.Status == StatusTableEnum.Full)
                 {
                     DateTime? timeStart = BillCallSQL.Instance.GetTimeStart(table.Id);
                     itemTable.LoadTimePlay((DateTime)timeStart);
                 }
                 else itemTable.StopTimePlay();
 
-                itemTable.SetBackGround(table.Status);
+                itemTable.SetBackGround(table.Status, table.IdCategpory);
 
                 itemTable.Table = table;
             }
@@ -225,7 +225,11 @@ namespace ProjectMagicBilliard.Scene
 
         public void SetTextTotalPrice()
         {
-            txtTotalBIllInfo.Text = NumberFormatter(lstBillInfo.Sum(value => value.TotalPrice) + _priceTimePlay) + "đ";
+            double totalPriceFood = lstBillInfo.Sum(value => value.TotalPrice);
+
+            txtTotalBIllInfo.Text = NumberFormatter(totalPriceFood + _priceTimePlay) + "đ";
+            txtTotalPriceFood.Text = NumberFormatter(totalPriceFood) + "đ";
+            txtTotalTablePlay.Text = NumberFormatter(_priceTimePlay) + "đ";
         }
 
         private void ItemTablePlay_Click(object sender = null, EventArgs e = null)
@@ -239,7 +243,9 @@ namespace ProjectMagicBilliard.Scene
             if (sender != null)
             {
                 TableItem itemTable = sender as TableItem;
-                if (itemTable == null) itemTable = (sender as Label).Parent as TableItem;
+                if (itemTable == null)
+                    itemTable = ((sender is Label) ? (sender as Label).Parent : (sender as TextBox).Parent) as TableItem;
+
                 dataTable = itemTable.Table;
             }
             else
@@ -248,13 +254,13 @@ namespace ProjectMagicBilliard.Scene
             }
 
             if (_currentTableData != null && _currentTableData.Id.Equals(dataTable.Id) && !_isFirstOpenForm)
-                MessageBox.Show($"Tải lại dữ liệu hóa đơn bàn {dataTable.Id}...");
+                MessageBox.Show($"Đã tải lại dữ liệu hóa đơn bàn {dataTable.Id}...");
 
             _currentTableData = dataTable;
 
             if (_currentTableData == null) MessageBox.Show("Lỗi");
 
-            if (dataTable.Status == StatusTableEnum.Full)
+            if (dataTable.Status != StatusTableEnum.Empty)
             {
                 _idCurrentBill = BillCallSQL.Instance.GetIdCurrent(_currentTableData.Id);
                 txtTitleIdBill.Text = "Mã hóa đơn: " + _idCurrentBill;
@@ -385,7 +391,7 @@ namespace ProjectMagicBilliard.Scene
 
             if (timeEnd == null) txtEndTime.Text = "Chưa tính tiền giờ";
             else
-            { 
+            {
                 txtEndTime.Text = FormatTime((DateTime)timeEnd);
 
                 double totalTime = CountTime((DateTime)timeStart, (DateTime)timeEnd);
@@ -427,7 +433,8 @@ namespace ProjectMagicBilliard.Scene
         public double CountTime(DateTime startTime, DateTime endTime)
         {
             double offSetTime = 0;
-            double day = (endTime - startTime).TotalDays;
+            double
+                day = (endTime - startTime).TotalDays;
             if (endTime.Day != startTime.Day || endTime.Month != startTime.Month) offSetTime += day * 3600 * 24;
 
             double resultTime = endTime.TimeOfDay.TotalSeconds - startTime.TimeOfDay.TotalSeconds + offSetTime;

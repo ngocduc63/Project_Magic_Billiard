@@ -158,6 +158,9 @@ BEGIN
 	
 	IF (@count = 0)
 		UPDATE tablePlay SET status = 0 WHERE id = @idTable
+	else
+		Update tablePLay set status = 2 where id = @idTable
+
 END
 GO
 --DROP TRIGGER UpdateBill 

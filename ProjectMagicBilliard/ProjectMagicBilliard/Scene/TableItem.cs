@@ -10,14 +10,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectMagicBilliard.Data;
 using ProjectMagicBilliard.CallSQL;
+using System.Runtime.InteropServices;
 
 namespace ProjectMagicBilliard.Scene
 {
     public partial class TableItem : UserControl
     {
+        [DllImport("user32.dll")]
+        static extern bool HideCaret(IntPtr hWnd);
+
         public TableItem()
         {
             InitializeComponent();
+            txtStatus.GotFocus += (s1, e1) => { HideCaret(txtStatus.Handle); }; // disable caret in text box
         }
         private DateTime _timeStart;
 
@@ -35,9 +40,9 @@ namespace ProjectMagicBilliard.Scene
             set { txtId.Text = value; }
         }
 
-        public string TxtName 
-        { 
-            get { return txtName.Text; } 
+        public string TxtName
+        {
+            get { return txtName.Text; }
             set { txtName.Text = value; }
         }
 
@@ -65,13 +70,43 @@ namespace ProjectMagicBilliard.Scene
             txtName.Click += eventClick;
             txtTimePlay.Click += eventClick;
             txtPrice.Click += eventClick;
+            txtStatus.Controls.Clear();
             txtStatus.Click += eventClick;
         }
 
-        public void SetBackGround(StatusTableEnum status)
+        public void SetBackGround(StatusTableEnum status, TableCategory idTableCategory)
         {
-            if (status == StatusTableEnum.Empty) BackColor = Color.LimeGreen;
-            else BackColor = Color.OrangeRed;
+            if (status == StatusTableEnum.Empty)
+            {
+                if (idTableCategory == TableCategory.aplus)
+                {
+                    BackColor = Color.LimeGreen;
+                    txtStatus.BackColor = Color.LimeGreen;
+                }
+                else if (idTableCategory == TableCategory.mrsung)
+                {
+                    BackColor = Color.Silver;
+                    txtStatus.BackColor = Color.Silver;
+
+                }
+                else if (idTableCategory == TableCategory.kking)
+                {
+                    BackColor = Color.CornflowerBlue;
+                    txtStatus.BackColor = Color.CornflowerBlue;
+                }
+            }
+            else if (status == StatusTableEnum.Full)
+            {
+                BackColor = Color.OrangeRed;
+                txtStatus.BackColor = Color.OrangeRed;
+
+            }
+            else if (status == StatusTableEnum.WaitPay)
+            {
+                BackColor = Color.Orange;
+                txtStatus.BackColor = Color.Orange;
+                txtStatus.ForeColor = Color.White;
+            }
         }
 
         public void LoadTimePlay(DateTime timeStart)
@@ -95,7 +130,12 @@ namespace ProjectMagicBilliard.Scene
 
         private void TableItem_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void txtStatus_EnabledChanged(object sender, EventArgs e)
+        {
+            //((TextBox)sender).ForeColor = Color.Wh;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ProjectMagicBilliard.Data
     public class TablePlay
     {
         public string Id { get; set; }
-        public string Name { get; set; }
+        public TableCategory IdCategpory { get; set; }
         public StatusTableEnum Status { get; set; }
         public double Price { get; set; }
 
@@ -22,8 +22,8 @@ namespace ProjectMagicBilliard.Data
         public TablePlay(DataRow row)
         {
             this.Id = row["id"].ToString();
-            this.Name = row["name"].ToString();
             this.Status = (StatusTableEnum) row["status"];
+            this.IdCategpory = (TableCategory) row["idCategory"];
             this.Price = (double) row["price"];
         }
     }
