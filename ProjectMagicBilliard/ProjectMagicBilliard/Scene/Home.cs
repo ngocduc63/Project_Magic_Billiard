@@ -25,6 +25,7 @@ namespace ProjectMagicBilliard.Scene
         }
 
         private List<TablePlay> lstTable;
+        List<TablePlay> newListTable = new List<TablePlay>();
         List<BillInfo> lstBillInfo;
         private List<Food> lstFood = new List<Food>();
         private TablePlay _currentTableData;
@@ -81,10 +82,7 @@ namespace ProjectMagicBilliard.Scene
             }
         }
 
-        private void cbFood_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnStartTimePlay_Click(object sender, EventArgs e)
         {
@@ -151,16 +149,17 @@ namespace ProjectMagicBilliard.Scene
                 lstTable.Add(table);
             }
 
-            if (_currentTableData == null) _currentTableData = lstTable.FirstOrDefault();
+            if (_currentTableData == null) _currentTableData = lstTable.First();
             LoadAllTable();
         }
 
-
-        public void LoadAllTable()
+        public void LoadAllTable(List<TablePlay> tablePlays = null)
         {
             ListTablePlayPanel.Controls.Clear();
 
-            foreach (var table in lstTable)
+            List<TablePlay> LstTable = tablePlays == null ? lstTable : tablePlays;
+
+            foreach (var table in LstTable)
             {
                 TableItem itemTable = new TableItem();
 
@@ -352,10 +351,7 @@ namespace ProjectMagicBilliard.Scene
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
-        }
 
         public string NumberFormatter(object number)
         {
@@ -491,6 +487,200 @@ namespace ProjectMagicBilliard.Scene
         {
             txtStaff.Text = name;
             btnOpenFormAdmin.Visible = name.ToLower().Equals("admin");
+        }
+
+        #region empty
+        private void ckbMrSung_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ckbKKing_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+        private void ckbPlaying_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ckbAplus_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ckbEmpty_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void cbFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void btnSearchAplus_Click(object sender, EventArgs e)
+        {
+            ckbAplus.Checked = !ckbAplus.Checked;
+            Filter();
+        }
+
+        private void btnSrearchMrSung_Click(object sender, EventArgs e)
+        {
+            ckbMrSung.Checked = !ckbMrSung.Checked;
+            Filter();
+            if (newListTable.Count == 0) ckbMrSung.Checked = false;
+        }
+
+        private void btnSearchKKing_Click(object sender, EventArgs e)
+        {
+            ckbKKing.Checked = !ckbKKing.Checked;
+            Filter();
+            if (newListTable.Count == 0) ckbKKing.Checked = false;
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            ckbPlaying.Checked = !ckbPlaying.Checked;
+            Filter();
+            if (newListTable.Count == 0) ckbPlaying.Checked = false;
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            ckbWaitPay.Checked = !ckbWaitPay.Checked;
+            Filter();
+            if (newListTable.Count == 0) ckbWaitPay.Checked = false;
+        }
+        private void btnEmpty_Click(object sender, EventArgs e)
+        {
+            ckbEmpty.Checked = !ckbEmpty.Checked;
+            Filter();
+            if (newListTable.Count == 0) ckbEmpty.Checked = false;
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            ckbEmpty.Checked = false;
+            ckbWaitPay.Checked = false;
+            ckbPlaying.Checked = false;
+            ckbKKing.Checked = false;
+            ckbAplus.Checked = false;
+            ckbMrSung.Checked = false;
+            GetTablePlay();
+        }
+
+        public void Filter()
+        {
+            newListTable = lstTable;
+
+            //check staus
+            if (ckbEmpty.Checked && ckbPlaying.Checked && ckbWaitPay.Checked)
+            {
+                newListTable = newListTable.Where(table => table.Status == StatusTableEnum.Full || table.Status == StatusTableEnum.WaitPay || table.Status == StatusTableEnum.Empty).ToList();
+            }
+            else if (ckbPlaying.Checked && ckbWaitPay.Checked)
+            {
+                newListTable = newListTable.Where(table => table.Status == StatusTableEnum.Full || table.Status == StatusTableEnum.WaitPay).ToList();
+            }
+            else if (ckbEmpty.Checked && ckbPlaying.Checked)
+            {
+                newListTable = newListTable.Where(table => table.Status == StatusTableEnum.Empty || table.Status == StatusTableEnum.Full).ToList();
+
+            }
+            else if (ckbEmpty.Checked && ckbWaitPay.Checked)
+            {
+                newListTable = newListTable.Where(table => table.Status == StatusTableEnum.Empty || table.Status == StatusTableEnum.WaitPay).ToList();
+            }
+            else
+            {
+
+                if (ckbEmpty.Checked) newListTable = newListTable.Where(table => table.Status == StatusTableEnum.Empty).ToList();
+
+                if (ckbPlaying.Checked) newListTable = newListTable.Where(table => table.Status == StatusTableEnum.Full).ToList();
+
+                if (ckbWaitPay.Checked) newListTable = newListTable.Where(table => table.Status == StatusTableEnum.WaitPay).ToList();
+            }
+
+            //check category table
+            if (ckbAplus.Checked && ckbMrSung.Checked && ckbKKing.Checked)
+            {
+                newListTable = newListTable.Where(table => table.IdCategpory == TableCategory.aplus || table.IdCategpory == TableCategory.mrsung || table.IdCategpory == TableCategory.kking).ToList();
+            }
+            else if (ckbAplus.Checked && ckbMrSung.Checked)
+            {
+                newListTable = newListTable.Where(table => table.IdCategpory == TableCategory.aplus || table.IdCategpory == TableCategory.mrsung).ToList();
+            }
+            else if (ckbMrSung.Checked && ckbKKing.Checked)
+            {
+                newListTable = newListTable.Where(table => table.IdCategpory == TableCategory.mrsung || table.IdCategpory == TableCategory.kking).ToList();
+
+            }
+            else if (ckbAplus.Checked && ckbKKing.Checked)
+            {
+                newListTable = newListTable.Where(table => table.IdCategpory == TableCategory.aplus || table.IdCategpory == TableCategory.kking).ToList();
+            }
+            else
+            {
+                if (ckbAplus.Checked) newListTable = newListTable.Where(table => table.IdCategpory == TableCategory.aplus).ToList();
+
+                if (ckbMrSung.Checked) newListTable = newListTable.Where(table => table.IdCategpory == TableCategory.mrsung).ToList();
+
+                if (ckbKKing.Checked) newListTable = newListTable.Where(table => table.IdCategpory == TableCategory.kking).ToList();
+            }
+
+            if (newListTable.Count == 0)
+            {
+                MessageBox.Show("Không có bàn cần tìm ");
+                return;
+            }
+            LoadAllTable(newListTable);
+            _currentTableData = newListTable.First();
+            ItemTablePlay_Click();
+        }
+
+        private void ckbWaitPay_Click(object sender, EventArgs e)
+        {
+            Filter();
+            if (newListTable.Count == 0) ckbWaitPay.Checked = false;
+        }
+
+        private void ckbPlaying_Click(object sender, EventArgs e)
+        {
+            Filter();
+            if (newListTable.Count == 0) ckbPlaying.Checked = false;
+        }
+
+        private void ckbEmpty_Click(object sender, EventArgs e)
+        {
+            Filter();
+            if (newListTable.Count == 0) ckbEmpty.Checked = false;
+        }
+
+        private void ckbAplus_Click(object sender, EventArgs e)
+        {
+            Filter();
+            if (newListTable.Count == 0) ckbAplus.Checked = false;
+        }
+
+        private void ckbMrSung_Click(object sender, EventArgs e)
+        {
+            Filter();
+            if (newListTable.Count == 0) ckbMrSung.Checked = false;
+        }
+        private void ckbKKing_Click(object sender, EventArgs e)
+        {
+            Filter();
+            if (newListTable.Count == 0) ckbKKing.Checked = false;
         }
     }
 }
