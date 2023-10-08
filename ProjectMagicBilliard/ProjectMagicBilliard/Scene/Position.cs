@@ -37,7 +37,7 @@ namespace ProjectMagicBilliard.Scene
             if (PositionCallSQL.Instance.insertPosition(txtName.Text))
             {
                 MessageBox.Show($"Thêm nhân viên thành công!!");
-                //Loadstaff();
+                Loadstaff();
             }
             else
             {

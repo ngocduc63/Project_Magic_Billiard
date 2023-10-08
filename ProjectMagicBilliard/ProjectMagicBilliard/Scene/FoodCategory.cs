@@ -33,7 +33,7 @@ namespace ProjectMagicBilliard.Scene
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (FoodCategoryCallSQL.Instance.insertFoodCategory(txtName.Text))
+            if (FoodCategoryCallSQL.Instance.insertFoodCategory(txtName.Text)
             {
                 MessageBox.Show($"Thêm Thực đơn thành công!!");
                 LoadFoodCategory();
