@@ -24,6 +24,13 @@ namespace ProjectMagicBilliard.CallSQL
 
             return result.Rows.Count > 0;
         }
+        public string GetDisplayName(string userName, string passWord)
+        {
+            string query = "SELECT displayName FROM account WHERE userName =N'" + userName + "' AND passWord = N'" + passWord + "'";
+            DataTable result = DataManager.Instance.ExecuteOuery(query);
+
+            return result.Rows[0][0].ToString();
+        }
 
         public DataTable GetAllAccount()
         {
