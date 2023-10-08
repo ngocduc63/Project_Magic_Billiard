@@ -24,5 +24,29 @@ namespace ProjectMagicBilliard.CallSQL
 
             return result.Rows.Count > 0;
         }
+
+        public DataTable GetAllAccount()
+        {
+            string query = "select * from account";
+
+            DataTable result = DataManager.Instance.ExecuteOuery(query);
+
+            return result;
+        }
+        public bool insertAccount(string usernameAccount, string passwordAccount, string displayNameAccount, string idStaff)
+        {
+            string query = $"insert into account (name, address, phoneNumber, idPosition) values ('{usernameAccount}','{passwordAccount}','{displayNameAccount}','{idStaff}')";
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
+        public bool deleteAccount(string usernameAccount)
+        {
+            string query = $"DELETE FROM account WHERE id='{usernameAccount}'";
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
+        public bool updateAccount(string usernameAccount, string passwordAccount, string displayNameAccount, string idStaff)
+        {
+            string query = $"UPDATE account SET password='{passwordAccount}', displayName='{displayNameAccount}', idStaff='{idStaff}' WHERE id='{usernameAccount}'";
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
     }
 }
