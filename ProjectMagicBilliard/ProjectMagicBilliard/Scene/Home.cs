@@ -482,11 +482,18 @@ namespace ProjectMagicBilliard.Scene
             adminForm.Show();
             this.Close();
         }
+        private void btnStatistical_Click(object sender, EventArgs e)
+        {
+            Statistical statisticalForm = new Statistical();
+            statisticalForm.Show();
+            this.Close();
+        }
 
         public void SetTextStaff(string name)
         {
             txtStaff.Text = name;
             btnOpenFormAdmin.Visible = name.ToLower().Equals("admin");
+            btnStatistical.Visible = name.ToLower().Equals("admin");
         }
 
         #region empty
@@ -682,5 +689,7 @@ namespace ProjectMagicBilliard.Scene
             Filter();
             if (newListTable.Count == 0) ckbKKing.Checked = false;
         }
+
+        
     }
 }

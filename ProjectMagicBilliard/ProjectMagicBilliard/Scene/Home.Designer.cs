@@ -30,7 +30,7 @@ namespace ProjectMagicBilliard.Scene
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -74,6 +74,8 @@ namespace ProjectMagicBilliard.Scene
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ckbEmpty = new System.Windows.Forms.CheckBox();
+            this.btnEmpty = new System.Windows.Forms.Label();
             this.ckbKKing = new System.Windows.Forms.CheckBox();
             this.ckbWaitPay = new System.Windows.Forms.CheckBox();
             this.ckbPlaying = new System.Windows.Forms.CheckBox();
@@ -91,8 +93,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnSearchAplus = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.ckbEmpty = new System.Windows.Forms.CheckBox();
-            this.btnEmpty = new System.Windows.Forms.Label();
+            this.btnStatistical = new System.Windows.Forms.Button();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
@@ -110,7 +111,7 @@ namespace ProjectMagicBilliard.Scene
             this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.label1.Location = new System.Drawing.Point(12, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(345, 31);
+            this.label1.Size = new System.Drawing.Size(497, 45);
             this.label1.TabIndex = 1;
             this.label1.Text = "Quản lí quán Magic Billiard";
             this.label1.Click += new System.EventHandler(this.DisablePanelMenu_Click);
@@ -132,7 +133,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtStaff.Font = new System.Drawing.Font("Times New Roman", 16F);
             this.txtStaff.Location = new System.Drawing.Point(207, 2);
             this.txtStaff.Name = "txtStaff";
-            this.txtStaff.Size = new System.Drawing.Size(65, 25);
+            this.txtStaff.Size = new System.Drawing.Size(92, 36);
             this.txtStaff.TabIndex = 1;
             this.txtStaff.Text = "admin";
             this.txtStaff.Click += new System.EventHandler(this.label5_Click);
@@ -143,7 +144,7 @@ namespace ProjectMagicBilliard.Scene
             this.label4.Font = new System.Drawing.Font("Times New Roman", 16F);
             this.label4.Location = new System.Drawing.Point(3, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 25);
+            this.label4.Size = new System.Drawing.Size(208, 36);
             this.label4.TabIndex = 0;
             this.label4.Text = "Tên nhân viên: ";
             // 
@@ -155,7 +156,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTime.ForeColor = System.Drawing.Color.Red;
             this.txtTime.Location = new System.Drawing.Point(635, 27);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(66, 27);
+            this.txtTime.Size = new System.Drawing.Size(99, 41);
             this.txtTime.TabIndex = 3;
             this.txtTime.Text = "18:05";
             this.txtTime.Click += new System.EventHandler(this.DisablePanelMenu_Click);
@@ -197,14 +198,14 @@ namespace ProjectMagicBilliard.Scene
             // 
             this.dgvBillInfo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBillInfo.Location = new System.Drawing.Point(-2, 48);
             this.dgvBillInfo.Name = "dgvBillInfo";
             this.dgvBillInfo.ReadOnly = true;
@@ -222,7 +223,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTitleBillInfo.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitleBillInfo.Location = new System.Drawing.Point(3, 7);
             this.txtTitleBillInfo.Name = "txtTitleBillInfo";
-            this.txtTitleBillInfo.Size = new System.Drawing.Size(186, 25);
+            this.txtTitleBillInfo.Size = new System.Drawing.Size(270, 36);
             this.txtTitleBillInfo.TabIndex = 7;
             this.txtTitleBillInfo.Text = "Hóa đơn bán hàng";
             this.txtTitleBillInfo.Click += new System.EventHandler(this.DisablePanelMenu_Click);
@@ -309,7 +310,7 @@ namespace ProjectMagicBilliard.Scene
             this.label9.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(174, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 25);
+            this.label9.Size = new System.Drawing.Size(121, 36);
             this.label9.TabIndex = 15;
             this.label9.Text = "Dịch vụ";
             // 
@@ -341,7 +342,7 @@ namespace ProjectMagicBilliard.Scene
             this.label8.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(193, 90);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 22);
+            this.label8.Size = new System.Drawing.Size(123, 32);
             this.label8.TabIndex = 13;
             this.label8.Text = "Số lượng";
             // 
@@ -416,7 +417,7 @@ namespace ProjectMagicBilliard.Scene
             this.label7.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(-1, -1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 25);
+            this.label7.Size = new System.Drawing.Size(165, 36);
             this.label7.TabIndex = 10;
             this.label7.Text = "Chức năng";
             // 
@@ -446,7 +447,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTitleIdBill.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitleIdBill.Location = new System.Drawing.Point(3, 6);
             this.txtTitleIdBill.Name = "txtTitleIdBill";
-            this.txtTitleIdBill.Size = new System.Drawing.Size(93, 25);
+            this.txtTitleIdBill.Size = new System.Drawing.Size(134, 36);
             this.txtTitleIdBill.TabIndex = 8;
             this.txtTitleIdBill.Text = "Hóa đơn";
             // 
@@ -476,7 +477,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalTablePlay.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalTablePlay.Location = new System.Drawing.Point(108, 265);
             this.txtTotalTablePlay.Name = "txtTotalTablePlay";
-            this.txtTotalTablePlay.Size = new System.Drawing.Size(84, 27);
+            this.txtTotalTablePlay.Size = new System.Drawing.Size(126, 41);
             this.txtTotalTablePlay.TabIndex = 18;
             this.txtTotalTablePlay.Text = "000000";
             // 
@@ -487,7 +488,7 @@ namespace ProjectMagicBilliard.Scene
             this.label12.ForeColor = System.Drawing.Color.SlateBlue;
             this.label12.Location = new System.Drawing.Point(0, 267);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 22);
+            this.label12.Size = new System.Drawing.Size(130, 32);
             this.label12.TabIndex = 17;
             this.label12.Text = "Tiền bàn:";
             // 
@@ -497,7 +498,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalPriceFood.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPriceFood.Location = new System.Drawing.Point(108, 233);
             this.txtTotalPriceFood.Name = "txtTotalPriceFood";
-            this.txtTotalPriceFood.Size = new System.Drawing.Size(84, 27);
+            this.txtTotalPriceFood.Size = new System.Drawing.Size(126, 41);
             this.txtTotalPriceFood.TabIndex = 16;
             this.txtTotalPriceFood.Text = "000000";
             // 
@@ -508,7 +509,7 @@ namespace ProjectMagicBilliard.Scene
             this.label6.ForeColor = System.Drawing.Color.SlateBlue;
             this.label6.Location = new System.Drawing.Point(0, 235);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 22);
+            this.label6.Size = new System.Drawing.Size(173, 32);
             this.label6.TabIndex = 15;
             this.label6.Text = "Tiền dịch vụ:";
             // 
@@ -519,7 +520,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtEndTime.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.txtEndTime.Location = new System.Drawing.Point(27, 173);
             this.txtEndTime.Name = "txtEndTime";
-            this.txtEndTime.Size = new System.Drawing.Size(90, 25);
+            this.txtEndTime.Size = new System.Drawing.Size(129, 36);
             this.txtEndTime.TabIndex = 14;
             this.txtEndTime.Text = "00:00:00";
             // 
@@ -529,7 +530,7 @@ namespace ProjectMagicBilliard.Scene
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(7, 145);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(148, 21);
+            this.label10.Size = new System.Drawing.Size(226, 33);
             this.label10.TabIndex = 13;
             this.label10.Text = "Thời gian kết thúc:";
             // 
@@ -540,7 +541,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTimeStart.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.txtTimeStart.Location = new System.Drawing.Point(23, 82);
             this.txtTimeStart.Name = "txtTimeStart";
-            this.txtTimeStart.Size = new System.Drawing.Size(90, 25);
+            this.txtTimeStart.Size = new System.Drawing.Size(129, 36);
             this.txtTimeStart.TabIndex = 12;
             this.txtTimeStart.Text = "00:00:00";
             // 
@@ -550,7 +551,7 @@ namespace ProjectMagicBilliard.Scene
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 21);
+            this.label3.Size = new System.Drawing.Size(218, 33);
             this.label3.TabIndex = 11;
             this.label3.Text = "Thời gian bắt đầu:";
             // 
@@ -560,7 +561,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalBIllInfo.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalBIllInfo.Location = new System.Drawing.Point(94, 307);
             this.txtTotalBIllInfo.Name = "txtTotalBIllInfo";
-            this.txtTotalBIllInfo.Size = new System.Drawing.Size(84, 27);
+            this.txtTotalBIllInfo.Size = new System.Drawing.Size(126, 41);
             this.txtTotalBIllInfo.TabIndex = 10;
             this.txtTotalBIllInfo.Text = "000000";
             this.txtTotalBIllInfo.Click += new System.EventHandler(this.label3_Click);
@@ -572,13 +573,14 @@ namespace ProjectMagicBilliard.Scene
             this.label2.ForeColor = System.Drawing.Color.OrangeRed;
             this.label2.Location = new System.Drawing.Point(2, 309);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 22);
+            this.label2.Size = new System.Drawing.Size(138, 32);
             this.label2.TabIndex = 9;
             this.label2.Text = "Tổng tiền:";
             // 
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.Silver;
+            this.PanelMenu.Controls.Add(this.btnStatistical);
             this.PanelMenu.Controls.Add(this.btnOpenFormAdmin);
             this.PanelMenu.Controls.Add(this.btnExit);
             this.PanelMenu.Location = new System.Drawing.Point(938, 57);
@@ -591,7 +593,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnOpenFormAdmin.BackColor = System.Drawing.Color.White;
             this.btnOpenFormAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpenFormAdmin.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenFormAdmin.Location = new System.Drawing.Point(10, 86);
+            this.btnOpenFormAdmin.Location = new System.Drawing.Point(10, 56);
             this.btnOpenFormAdmin.Name = "btnOpenFormAdmin";
             this.btnOpenFormAdmin.Size = new System.Drawing.Size(215, 42);
             this.btnOpenFormAdmin.TabIndex = 1;
@@ -605,7 +607,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(9, 16);
+            this.btnExit.Location = new System.Drawing.Point(9, 8);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(215, 42);
             this.btnExit.TabIndex = 0;
@@ -652,13 +654,37 @@ namespace ProjectMagicBilliard.Scene
             this.panel1.Size = new System.Drawing.Size(454, 99);
             this.panel1.TabIndex = 12;
             // 
+            // ckbEmpty
+            // 
+            this.ckbEmpty.AutoSize = true;
+            this.ckbEmpty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbEmpty.Location = new System.Drawing.Point(177, 25);
+            this.ckbEmpty.Name = "ckbEmpty";
+            this.ckbEmpty.Size = new System.Drawing.Size(22, 21);
+            this.ckbEmpty.TabIndex = 38;
+            this.ckbEmpty.UseVisualStyleBackColor = true;
+            this.ckbEmpty.CheckedChanged += new System.EventHandler(this.ckbEmpty_CheckedChanged);
+            this.ckbEmpty.Click += new System.EventHandler(this.ckbEmpty_Click);
+            // 
+            // btnEmpty
+            // 
+            this.btnEmpty.AutoSize = true;
+            this.btnEmpty.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpty.Location = new System.Drawing.Point(224, 23);
+            this.btnEmpty.Name = "btnEmpty";
+            this.btnEmpty.Size = new System.Drawing.Size(125, 33);
+            this.btnEmpty.TabIndex = 37;
+            this.btnEmpty.Text = "Bàn trống";
+            this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
+            // 
             // ckbKKing
             // 
             this.ckbKKing.AutoSize = true;
             this.ckbKKing.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbKKing.Location = new System.Drawing.Point(7, 78);
             this.ckbKKing.Name = "ckbKKing";
-            this.ckbKKing.Size = new System.Drawing.Size(15, 14);
+            this.ckbKKing.Size = new System.Drawing.Size(22, 21);
             this.ckbKKing.TabIndex = 35;
             this.ckbKKing.UseVisualStyleBackColor = true;
             this.ckbKKing.CheckedChanged += new System.EventHandler(this.ckbKKing_CheckedChanged);
@@ -670,7 +696,7 @@ namespace ProjectMagicBilliard.Scene
             this.ckbWaitPay.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbWaitPay.Location = new System.Drawing.Point(177, 78);
             this.ckbWaitPay.Name = "ckbWaitPay";
-            this.ckbWaitPay.Size = new System.Drawing.Size(15, 14);
+            this.ckbWaitPay.Size = new System.Drawing.Size(22, 21);
             this.ckbWaitPay.TabIndex = 34;
             this.ckbWaitPay.UseVisualStyleBackColor = true;
             this.ckbWaitPay.Click += new System.EventHandler(this.ckbWaitPay_Click);
@@ -681,7 +707,7 @@ namespace ProjectMagicBilliard.Scene
             this.ckbPlaying.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbPlaying.Location = new System.Drawing.Point(177, 49);
             this.ckbPlaying.Name = "ckbPlaying";
-            this.ckbPlaying.Size = new System.Drawing.Size(15, 14);
+            this.ckbPlaying.Size = new System.Drawing.Size(22, 21);
             this.ckbPlaying.TabIndex = 33;
             this.ckbPlaying.UseVisualStyleBackColor = true;
             this.ckbPlaying.CheckedChanged += new System.EventHandler(this.ckbPlaying_CheckedChanged);
@@ -693,7 +719,7 @@ namespace ProjectMagicBilliard.Scene
             this.ckbMrSung.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbMrSung.Location = new System.Drawing.Point(7, 55);
             this.ckbMrSung.Name = "ckbMrSung";
-            this.ckbMrSung.Size = new System.Drawing.Size(15, 14);
+            this.ckbMrSung.Size = new System.Drawing.Size(22, 21);
             this.ckbMrSung.TabIndex = 32;
             this.ckbMrSung.UseVisualStyleBackColor = true;
             this.ckbMrSung.CheckedChanged += new System.EventHandler(this.ckbMrSung_CheckedChanged);
@@ -705,7 +731,7 @@ namespace ProjectMagicBilliard.Scene
             this.ckbAplus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbAplus.Location = new System.Drawing.Point(7, 29);
             this.ckbAplus.Name = "ckbAplus";
-            this.ckbAplus.Size = new System.Drawing.Size(15, 14);
+            this.ckbAplus.Size = new System.Drawing.Size(22, 21);
             this.ckbAplus.TabIndex = 31;
             this.ckbAplus.UseVisualStyleBackColor = true;
             this.ckbAplus.CheckedChanged += new System.EventHandler(this.ckbAplus_CheckedChanged);
@@ -719,7 +745,7 @@ namespace ProjectMagicBilliard.Scene
             this.label11.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label11.Location = new System.Drawing.Point(317, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 22);
+            this.label11.Size = new System.Drawing.Size(191, 32);
             this.label11.TabIndex = 30;
             this.label11.Text = "Tất cả các bàn";
             this.label11.Click += new System.EventHandler(this.label11_Click);
@@ -731,7 +757,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnSearchKKing.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchKKing.Location = new System.Drawing.Point(52, 74);
             this.btnSearchKKing.Name = "btnSearchKKing";
-            this.btnSearchKKing.Size = new System.Drawing.Size(92, 21);
+            this.btnSearchKKing.Size = new System.Drawing.Size(142, 33);
             this.btnSearchKKing.TabIndex = 29;
             this.btnSearchKKing.Text = "Bàn KKing";
             this.btnSearchKKing.Click += new System.EventHandler(this.btnSearchKKing_Click);
@@ -743,7 +769,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnSearchWaitPay.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchWaitPay.Location = new System.Drawing.Point(224, 75);
             this.btnSearchWaitPay.Name = "btnSearchWaitPay";
-            this.btnSearchWaitPay.Size = new System.Drawing.Size(154, 21);
+            this.btnSearchWaitPay.Size = new System.Drawing.Size(232, 33);
             this.btnSearchWaitPay.TabIndex = 27;
             this.btnSearchWaitPay.Text = "Bàn chờ thanh toán";
             this.btnSearchWaitPay.Click += new System.EventHandler(this.label15_Click);
@@ -763,7 +789,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnSrearchPlaying.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrearchPlaying.Location = new System.Drawing.Point(224, 47);
             this.btnSrearchPlaying.Name = "btnSrearchPlaying";
-            this.btnSrearchPlaying.Size = new System.Drawing.Size(117, 21);
+            this.btnSrearchPlaying.Size = new System.Drawing.Size(177, 33);
             this.btnSrearchPlaying.TabIndex = 25;
             this.btnSrearchPlaying.Text = "Bàn đang chơi";
             this.btnSrearchPlaying.Click += new System.EventHandler(this.label14_Click);
@@ -793,7 +819,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnSrearchMrSung.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrearchMrSung.Location = new System.Drawing.Point(52, 50);
             this.btnSrearchMrSung.Name = "btnSrearchMrSung";
-            this.btnSrearchMrSung.Size = new System.Drawing.Size(104, 21);
+            this.btnSrearchMrSung.Size = new System.Drawing.Size(159, 33);
             this.btnSrearchMrSung.TabIndex = 23;
             this.btnSrearchMrSung.Text = "Bàn MrSung";
             this.btnSrearchMrSung.Click += new System.EventHandler(this.btnSrearchMrSung_Click);
@@ -813,7 +839,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnSearchAplus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchAplus.Location = new System.Drawing.Point(52, 26);
             this.btnSearchAplus.Name = "btnSearchAplus";
-            this.btnSearchAplus.Size = new System.Drawing.Size(87, 21);
+            this.btnSearchAplus.Size = new System.Drawing.Size(132, 33);
             this.btnSearchAplus.TabIndex = 21;
             this.btnSearchAplus.Text = "Bàn Aplus";
             this.btnSearchAplus.Click += new System.EventHandler(this.btnSearchAplus_Click);
@@ -832,37 +858,27 @@ namespace ProjectMagicBilliard.Scene
             this.label5.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(-1, -1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 25);
+            this.label5.Size = new System.Drawing.Size(119, 36);
             this.label5.TabIndex = 19;
             this.label5.Text = "Bộ lọc: ";
             // 
-            // ckbEmpty
+            // btnStatistical
             // 
-            this.ckbEmpty.AutoSize = true;
-            this.ckbEmpty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbEmpty.Location = new System.Drawing.Point(177, 25);
-            this.ckbEmpty.Name = "ckbEmpty";
-            this.ckbEmpty.Size = new System.Drawing.Size(15, 14);
-            this.ckbEmpty.TabIndex = 38;
-            this.ckbEmpty.UseVisualStyleBackColor = true;
-            this.ckbEmpty.CheckedChanged += new System.EventHandler(this.ckbEmpty_CheckedChanged);
-            this.ckbEmpty.Click += new System.EventHandler(this.ckbEmpty_Click);
-            // 
-            // btnEmpty
-            // 
-            this.btnEmpty.AutoSize = true;
-            this.btnEmpty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmpty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpty.Location = new System.Drawing.Point(224, 23);
-            this.btnEmpty.Name = "btnEmpty";
-            this.btnEmpty.Size = new System.Drawing.Size(83, 21);
-            this.btnEmpty.TabIndex = 37;
-            this.btnEmpty.Text = "Bàn trống";
-            this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
+            this.btnStatistical.BackColor = System.Drawing.Color.White;
+            this.btnStatistical.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatistical.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnStatistical.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistical.Location = new System.Drawing.Point(11, 104);
+            this.btnStatistical.Name = "btnStatistical";
+            this.btnStatistical.Size = new System.Drawing.Size(215, 42);
+            this.btnStatistical.TabIndex = 2;
+            this.btnStatistical.Text = "Thống kê";
+            this.btnStatistical.UseVisualStyleBackColor = false;
+            this.btnStatistical.Click += new System.EventHandler(this.btnStatistical_Click);
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1180, 580);
@@ -964,5 +980,6 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.CheckBox ckbAplus;
         private System.Windows.Forms.CheckBox ckbEmpty;
         private System.Windows.Forms.Label btnEmpty;
+        private System.Windows.Forms.Button btnStatistical;
     }
 }
