@@ -485,6 +485,7 @@ namespace ProjectMagicBilliard.Scene
         private void btnStatistical_Click(object sender, EventArgs e)
         {
             Statistical statisticalForm = new Statistical();
+            statisticalForm.Name = txtStaff.Text;
             statisticalForm.Show();
             this.Close();
         }
