@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using ProjectMagicBilliard.CallSQL;
 
 namespace ProjectMagicBilliard.Scene
@@ -30,6 +31,16 @@ namespace ProjectMagicBilliard.Scene
             chartRevenue.DataSource = StatisticalCallSQL.Instance.GetRevenueMonth();
             chartRevenue.Series["Doanh Thu"].XValueMember = "Thang";
             chartRevenue.Series["Doanh Thu"].YValueMembers = "Doanh Thu";
+
+            chartRevenue.Series["Doanh Thu"].IsValueShownAsLabel = true;
+            chartRevenue.Series["Doanh Thu"].LabelFormat = "#,##0.00" + "đ";
+            chartRevenue.FormatNumber += (sender, e) =>
+            {
+                if (e.ElementType == ChartElementType.AxisLabels && e.ValueType == ChartValueType.Double)
+                {
+                    e.LocalizedValue = Home.Instance.NumberFormatter(e.Value);
+                }
+            };
         }
 
         private void Statistical_FormClosing(object sender, FormClosingEventArgs e)

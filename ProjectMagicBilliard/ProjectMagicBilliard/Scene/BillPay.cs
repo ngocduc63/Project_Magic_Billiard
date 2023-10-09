@@ -20,8 +20,10 @@ namespace ProjectMagicBilliard.Scene
         }
 
         private string _idCurrentBill;
+        private double _priceBill;
 
         public string IdCurrentBill { get => _idCurrentBill; set => _idCurrentBill = value; }
+        public double PriceBill { get => _priceBill; set => _priceBill = value; }
 
         private void BillPay_Load(object sender, EventArgs e)
         {
@@ -58,7 +60,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            if (BillCallSQL.Instance.PayBill(_idCurrentBill))
+            if (BillCallSQL.Instance.PayBill(_idCurrentBill, PriceBill))
             {
                 MessageBox.Show($"Thanh toán hóa đơn {_idCurrentBill} thành công");
                 this.DialogResult = DialogResult.OK;

@@ -41,7 +41,7 @@ namespace ProjectMagicBilliard.CallSQL
 
         public DataTable GetDetailRevenue()
         {
-            string query = "select * from bill";
+            string query = "select bill.id, dateCheckIn, dateCheckOut, idTable as 'table', guest.name as 'guest' ,staff.name as 'staff', totalPrice, status from bill join staff on bill.idStaff = staff.id join guest on guest.id = bill.idGuest";
 
             return DataManager.Instance.ExecuteOuery(query);
         }

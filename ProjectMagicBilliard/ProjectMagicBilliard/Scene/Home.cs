@@ -30,6 +30,7 @@ namespace ProjectMagicBilliard.Scene
         private List<Food> lstFood = new List<Food>();
         private TablePlay _currentTableData;
         private string _idCurrentBill;
+        private double _currentTotalPrice;
         private string _idSelectedBillInfo;
         private bool _isFirstOpenForm = true;
         private double _priceTimePlay = 0;
@@ -226,7 +227,8 @@ namespace ProjectMagicBilliard.Scene
         {
             double totalPriceFood = lstBillInfo.Sum(value => value.TotalPrice);
 
-            txtTotalBIllInfo.Text = NumberFormatter(totalPriceFood + _priceTimePlay) + "đ";
+            _currentTotalPrice = totalPriceFood + _priceTimePlay;
+            txtTotalBIllInfo.Text = NumberFormatter(_currentTotalPrice) + "đ";
             txtTotalPriceFood.Text = NumberFormatter(totalPriceFood) + "đ";
             txtTotalTablePlay.Text = NumberFormatter(_priceTimePlay) + "đ";
         }
@@ -351,8 +353,6 @@ namespace ProjectMagicBilliard.Scene
             }
         }
 
-
-
         public string NumberFormatter(object number)
         {
             var rs = string.Format("{0:#,#}", number);
@@ -445,6 +445,7 @@ namespace ProjectMagicBilliard.Scene
                 using (BillPay billPay = new BillPay())
                 {
                     billPay.IdCurrentBill = _idCurrentBill;
+                    billPay.PriceBill = _currentTotalPrice;
                     billPay.LoadBillPay(lstBillInfo);
                     billPay.LoadTotalTimeAndPrice(_totalTimePlay, txtTotalBIllInfo.Text);
                     billPay.LoadNameTxt(txtStaff.Text);
@@ -691,6 +692,6 @@ namespace ProjectMagicBilliard.Scene
             if (newListTable.Count == 0) ckbKKing.Checked = false;
         }
 
-        
+
     }
 }
