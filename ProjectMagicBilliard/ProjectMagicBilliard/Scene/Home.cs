@@ -24,6 +24,7 @@ namespace ProjectMagicBilliard.Scene
             private set => instance = value;
         }
 
+
         private List<TablePlay> lstTable;
         List<TablePlay> newListTable = new List<TablePlay>();
         List<BillInfo> lstBillInfo;
@@ -36,6 +37,8 @@ namespace ProjectMagicBilliard.Scene
         private double _priceTimePlay = 0;
         private bool _isWaitPaying = false;
         private string _totalTimePlay;
+        private string _idStaffCurrent;
+        public string IdStaffCurrent { get => _idStaffCurrent; set => _idStaffCurrent = value; }
 
 
         public Home()
@@ -255,7 +258,7 @@ namespace ProjectMagicBilliard.Scene
             }
 
             if (_currentTableData != null && _currentTableData.Id.Equals(dataTable.Id) && !_isFirstOpenForm)
-                MessageBox.Show($"Đã tải lại dữ liệu hóa đơn bàn {dataTable.Id}...");
+                MessageBox.Show($"Tự động chọn hóa đơn bàn {dataTable.Id}...");
 
             _currentTableData = dataTable;
 
@@ -446,6 +449,7 @@ namespace ProjectMagicBilliard.Scene
                 {
                     billPay.IdCurrentBill = _idCurrentBill;
                     billPay.PriceBill = _currentTotalPrice;
+                    billPay.IdStaffCurrent = _idStaffCurrent;
                     billPay.LoadBillPay(lstBillInfo);
                     billPay.LoadTotalTimeAndPrice(_totalTimePlay, txtTotalBIllInfo.Text);
                     billPay.LoadNameTxt(txtStaff.Text);
@@ -480,13 +484,16 @@ namespace ProjectMagicBilliard.Scene
         private void btnOpenFormAdmin_Click(object sender, EventArgs e)
         {
             Admin adminForm = new Admin();
+            adminForm.NameStaff = txtStaff.Text;
+            adminForm.IdStaff = _idStaffCurrent;
             adminForm.Show();
             this.Close();
         }
         private void btnStatistical_Click(object sender, EventArgs e)
         {
             Statistical statisticalForm = new Statistical();
-            statisticalForm.Name = txtStaff.Text;
+            statisticalForm.NameStaff = txtStaff.Text;
+            statisticalForm.IdStaff = _idStaffCurrent;
             statisticalForm.Show();
             this.Close();
         }
@@ -691,7 +698,5 @@ namespace ProjectMagicBilliard.Scene
             Filter();
             if (newListTable.Count == 0) ckbKKing.Checked = false;
         }
-
-
     }
 }

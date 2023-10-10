@@ -21,9 +21,11 @@ namespace ProjectMagicBilliard.Scene
 
         private string _idCurrentBill;
         private double _priceBill;
+        private string _idStaffCurrent;
 
         public string IdCurrentBill { get => _idCurrentBill; set => _idCurrentBill = value; }
         public double PriceBill { get => _priceBill; set => _priceBill = value; }
+        public string IdStaffCurrent { get => _idStaffCurrent; set => _idStaffCurrent = value; }
 
         private void BillPay_Load(object sender, EventArgs e)
         {
@@ -60,12 +62,18 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            if (BillCallSQL.Instance.PayBill(_idCurrentBill, PriceBill))
+            //txtGuest.Text
+            if (BillCallSQL.Instance.PayBill(_idCurrentBill, PriceBill, IdStaffCurrent))
             {
                 MessageBox.Show($"Thanh toán hóa đơn {_idCurrentBill} thành công");
                 this.DialogResult = DialogResult.OK;
             }
             else MessageBox.Show("Lỗi thanh toán !!!");
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Comming soon....");
         }
     }
 }

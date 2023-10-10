@@ -63,7 +63,7 @@ create table guest
 	name nvarchar(50),
 	address nvarchar(50),
 	phoneNumber nvarchar(50),
-	totalPoint float,
+	totalPoint float default 0,
 )
 go 
 create table bill 
@@ -163,15 +163,40 @@ BEGIN
 
 END
 GO
+CREATE TRIGGER UpdatePointGuest
+ON bill FOR UPDATE
+AS
+BEGIN
+	DECLARE @idBill int
+	
+	SELECT @idBill = id FROM Inserted	
+	
+	DECLARE @idGuest int
+
+	DECLARE @totalPrice float
+	
+	SELECT @idGuest = idGuest, @totalPrice = totalPrice FROM bill WHERE id = @idBill
+	
+	IF (@totalPrice is not null)
+		UPDATE guest set totalPoint += @totalPrice / 1000 where @idGuest = id
+END
+GO
 --DROP TRIGGER UpdateBill 
 --DROP TRIGGER InsertBill
 --DROP TRIGGER InsertBillInfo
+--DROP TRIGGER UpdatePointGuest
 
 insert into position values('giam doc'), ('nhan vien')
 go
 insert into staff (name, idPosition) values ('admin', 1)
 go
+insert into staff (name, idPosition) values ('staff', 2)
+go
+insert into guest (name) values ('admin')
+go
 insert into account values('admin', '1', 'admin', 1)
+go
+insert into account values('staff', '1', 'staff', 2)
 go
 insert into tableCategory values('Aplus', 50000), ('MrSung', 60000), ('KKing', 40000)
 go

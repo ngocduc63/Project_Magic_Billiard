@@ -174,6 +174,7 @@ namespace ProjectMagicBilliard.Scene
             this.metroButton1.UseCustomForeColor = true;
             this.metroButton1.UseSelectable = true;
             this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // label2
             // 

@@ -20,9 +20,11 @@ namespace ProjectMagicBilliard.Scene
             LoadRevenue();
         }
 
-        private string _name;
+        private string _nameStaff;
+        private string _idStaff;
 
-        public string Name { get => _name; set => _name = value; }
+        public string NameStaff { get => _nameStaff; set => _nameStaff = value; }
+        public string IdStaff { get => _idStaff; set => _idStaff = value; }
 
         public void  LoadRevenue()
         {
@@ -47,9 +49,9 @@ namespace ProjectMagicBilliard.Scene
         {
             Home home = new Home();
 
-            home.SetTextStaff(_name);
+            home.SetTextStaff(_nameStaff);
+            home.IdStaffCurrent = _idStaff;
 
-            this.Hide();
             home.Show();
         }
 

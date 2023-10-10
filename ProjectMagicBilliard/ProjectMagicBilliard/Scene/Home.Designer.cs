@@ -30,7 +30,7 @@ namespace ProjectMagicBilliard.Scene
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -70,6 +70,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalBIllInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.btnStatistical = new System.Windows.Forms.Button();
             this.btnOpenFormAdmin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
@@ -93,7 +94,6 @@ namespace ProjectMagicBilliard.Scene
             this.btnSearchAplus = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnStatistical = new System.Windows.Forms.Button();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
@@ -133,9 +133,9 @@ namespace ProjectMagicBilliard.Scene
             this.txtStaff.Font = new System.Drawing.Font("Times New Roman", 16F);
             this.txtStaff.Location = new System.Drawing.Point(207, 2);
             this.txtStaff.Name = "txtStaff";
-            this.txtStaff.Size = new System.Drawing.Size(92, 36);
+            this.txtStaff.Size = new System.Drawing.Size(81, 36);
             this.txtStaff.TabIndex = 1;
-            this.txtStaff.Text = "admin";
+            this.txtStaff.Text = "name";
             this.txtStaff.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
@@ -198,14 +198,14 @@ namespace ProjectMagicBilliard.Scene
             // 
             this.dgvBillInfo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillInfo.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBillInfo.Location = new System.Drawing.Point(-2, 48);
             this.dgvBillInfo.Name = "dgvBillInfo";
             this.dgvBillInfo.ReadOnly = true;
@@ -588,6 +588,20 @@ namespace ProjectMagicBilliard.Scene
             this.PanelMenu.Size = new System.Drawing.Size(236, 150);
             this.PanelMenu.TabIndex = 10;
             // 
+            // btnStatistical
+            // 
+            this.btnStatistical.BackColor = System.Drawing.Color.White;
+            this.btnStatistical.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatistical.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnStatistical.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistical.Location = new System.Drawing.Point(11, 104);
+            this.btnStatistical.Name = "btnStatistical";
+            this.btnStatistical.Size = new System.Drawing.Size(215, 42);
+            this.btnStatistical.TabIndex = 2;
+            this.btnStatistical.Text = "Thống kê";
+            this.btnStatistical.UseVisualStyleBackColor = false;
+            this.btnStatistical.Click += new System.EventHandler(this.btnStatistical_Click);
+            // 
             // btnOpenFormAdmin
             // 
             this.btnOpenFormAdmin.BackColor = System.Drawing.Color.White;
@@ -861,20 +875,6 @@ namespace ProjectMagicBilliard.Scene
             this.label5.Size = new System.Drawing.Size(119, 36);
             this.label5.TabIndex = 19;
             this.label5.Text = "Bộ lọc: ";
-            // 
-            // btnStatistical
-            // 
-            this.btnStatistical.BackColor = System.Drawing.Color.White;
-            this.btnStatistical.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatistical.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnStatistical.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistical.Location = new System.Drawing.Point(11, 104);
-            this.btnStatistical.Name = "btnStatistical";
-            this.btnStatistical.Size = new System.Drawing.Size(215, 42);
-            this.btnStatistical.TabIndex = 2;
-            this.btnStatistical.Text = "Thống kê";
-            this.btnStatistical.UseVisualStyleBackColor = false;
-            this.btnStatistical.Click += new System.EventHandler(this.btnStatistical_Click);
             // 
             // Home
             // 

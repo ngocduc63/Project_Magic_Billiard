@@ -68,9 +68,9 @@ namespace ProjectMagicBilliard.CallSQL
             return DataManager.Instance.ExecuteOuery(query).Rows[0]["id"].ToString();
         }
 
-        public bool PayBill(string idBill, double totalPrice)
+        public bool PayBill(string idBill, double totalPrice, string idStaff, string idGuest = "1")
         {
-            string query = $"update bill set status = 1, totalPrice = {totalPrice} where id = {idBill}";
+            string query = $"update bill set status = 1, totalPrice = {totalPrice}, idStaff = '{idStaff}', idGuest = '{idGuest}' where id = {idBill}";
 
             return DataManager.Instance.ExecuteNonOuery(query);
         }
