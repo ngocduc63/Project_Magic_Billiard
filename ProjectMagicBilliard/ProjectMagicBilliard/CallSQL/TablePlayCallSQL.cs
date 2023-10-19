@@ -37,5 +37,34 @@ namespace ProjectMagicBilliard.CallSQL
 
             return result;
         }
+
+        public DataTable GetDataTablePlay()
+        {
+            string query = "SELECT dbo.tablePLay.id,dbo.tablePLay.status,dbo.tableCategory.name,dbo.tableCategory.price FROM dbo.tableCategory,dbo.tablePLay WHERE dbo.tablePLay.idCategory=dbo.tableCategory.id";
+
+            DataTable result = DataManager.Instance.ExecuteOuery(query);
+            return result;
+        }
+        public bool insertTable(string status,string idCategory)
+        {
+            string query = $"insert into tablePlay (status,idCategory) values ('{status}','{idCategory}')";
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
+        public bool deleteFoodCategory(string id)
+        {
+            string query = $"DELETE FROM tablePlay WHERE id='{id}'";
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
+        public bool updateFoodCategory(string id, string status,string idCategory)
+        {
+            string query = $"UPDATE tablePlay SET status ='{status}', idCategory = '{idCategory}' WHERE id='{id}'";
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
+        public DataTable searchTable(string name)
+        {
+            string query = $"SELECT * FROM tablePlay WHERE name LIKE '{name}'";
+            DataTable retult = DataManager.Instance.ExecuteOuery(query);
+            return retult;
+        }
     }
 }

@@ -146,6 +146,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnKH.TabIndex = 4;
             this.btnKH.Text = "Quản lý khách hàng";
             this.btnKH.UseVisualStyleBackColor = false;
+            this.btnKH.Click += new System.EventHandler(this.btnKH_Click);
             // 
             // btnDoAn
             // 

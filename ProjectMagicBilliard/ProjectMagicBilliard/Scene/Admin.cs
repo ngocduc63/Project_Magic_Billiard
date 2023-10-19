@@ -76,7 +76,8 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnDoAn_Click(object sender, EventArgs e)
         {
-            
+            OpenChildForm(new FoodScene());
+            label1.Text = btnDoAn.Text;
         }
 
         private void btnCV_Click(object sender, EventArgs e)
@@ -100,6 +101,12 @@ namespace ProjectMagicBilliard.Scene
         private void panel_body_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnKH_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GuestScene());
+            label1.Text = btnKH.Text;
         }
     }
 }

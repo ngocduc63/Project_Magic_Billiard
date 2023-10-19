@@ -37,5 +37,11 @@ namespace ProjectMagicBilliard.CallSQL
             string query = $"UPDATE foodCategory SET name='{nameFoodCategory}' WHERE id='{idFoodCategory}'";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
+        public DataTable searchFoodCategory(string name)
+        {
+            string query = $"SELECT * FROM foodCategory WHERE name LIKE '{name}'";
+            DataTable retult = DataManager.Instance.ExecuteOuery(query);
+            return retult;
+        }
     }
 }

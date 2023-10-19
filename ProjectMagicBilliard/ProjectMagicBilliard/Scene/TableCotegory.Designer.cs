@@ -42,6 +42,7 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvTableCategory = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableCategory)).BeginInit();
@@ -50,9 +51,9 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnThem.Location = new System.Drawing.Point(769, 320);
+            this.btnThem.Location = new System.Drawing.Point(750, 342);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(111, 38);
+            this.btnThem.Size = new System.Drawing.Size(120, 38);
             this.btnThem.TabIndex = 12;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -61,9 +62,9 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSua.Location = new System.Drawing.Point(769, 390);
+            this.btnSua.Location = new System.Drawing.Point(750, 412);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(111, 38);
+            this.btnSua.Size = new System.Drawing.Size(120, 38);
             this.btnSua.TabIndex = 13;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -72,9 +73,9 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoa.Location = new System.Drawing.Point(769, 461);
+            this.btnXoa.Location = new System.Drawing.Point(750, 483);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(111, 38);
+            this.btnXoa.Size = new System.Drawing.Size(120, 38);
             this.btnXoa.TabIndex = 14;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -88,7 +89,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(22, 283);
+            this.groupBox2.Location = new System.Drawing.Point(12, 282);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(712, 231);
             this.groupBox2.TabIndex = 10;
@@ -159,7 +160,7 @@
             this.groupBox1.Controls.Add(this.txtTimKiem);
             this.groupBox1.Controls.Add(this.btnTimKiem);
             this.groupBox1.Controls.Add(this.dgvTableCategory);
-            this.groupBox1.Location = new System.Drawing.Point(22, 26);
+            this.groupBox1.Location = new System.Drawing.Point(12, 25);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(878, 251);
             this.groupBox1.TabIndex = 11;
@@ -184,22 +185,39 @@
             this.btnTimKiem.TabIndex = 1;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvTableCategory
             // 
             this.dgvTableCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTableCategory.Location = new System.Drawing.Point(6, 76);
             this.dgvTableCategory.Name = "dgvTableCategory";
+            this.dgvTableCategory.ReadOnly = true;
             this.dgvTableCategory.RowHeadersWidth = 51;
             this.dgvTableCategory.RowTemplate.Height = 24;
+            this.dgvTableCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTableCategory.Size = new System.Drawing.Size(866, 169);
             this.dgvTableCategory.TabIndex = 0;
+            this.dgvTableCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableCategory_CellContentClick);
+            this.dgvTableCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableCategory_CellContentClick);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.Location = new System.Drawing.Point(750, 276);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 38);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Làm mới";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TableCotegory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 539);
+            this.ClientSize = new System.Drawing.Size(896, 539);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
@@ -233,5 +251,6 @@
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dgvTableCategory;
+        private System.Windows.Forms.Button button1;
     }
 }

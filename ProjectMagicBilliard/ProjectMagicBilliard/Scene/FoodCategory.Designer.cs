@@ -40,6 +40,7 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvFoodCategory = new System.Windows.Forms.DataGridView();
+            this.btnlammoi = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodCategory)).BeginInit();
@@ -48,7 +49,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnThem.Location = new System.Drawing.Point(757, 306);
+            this.btnThem.Location = new System.Drawing.Point(757, 332);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(111, 38);
             this.btnThem.TabIndex = 7;
@@ -59,7 +60,7 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSua.Location = new System.Drawing.Point(757, 376);
+            this.btnSua.Location = new System.Drawing.Point(757, 398);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(111, 38);
             this.btnSua.TabIndex = 8;
@@ -70,7 +71,7 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoa.Location = new System.Drawing.Point(757, 447);
+            this.btnXoa.Location = new System.Drawing.Point(757, 460);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(111, 38);
             this.btnXoa.TabIndex = 9;
@@ -102,6 +103,7 @@
             // 
             // txtID
             // 
+            this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtID.Location = new System.Drawing.Point(163, 37);
             this.txtID.Multiline = true;
@@ -159,23 +161,39 @@
             this.btnTimKiem.TabIndex = 1;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvFoodCategory
             // 
             this.dgvFoodCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFoodCategory.Location = new System.Drawing.Point(6, 76);
             this.dgvFoodCategory.Name = "dgvFoodCategory";
+            this.dgvFoodCategory.ReadOnly = true;
             this.dgvFoodCategory.RowHeadersWidth = 51;
             this.dgvFoodCategory.RowTemplate.Height = 24;
+            this.dgvFoodCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFoodCategory.Size = new System.Drawing.Size(866, 169);
             this.dgvFoodCategory.TabIndex = 0;
+            this.dgvFoodCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoodCategory_CellContentClick);
             this.dgvFoodCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoodCategory_CellContentClick);
+            // 
+            // btnlammoi
+            // 
+            this.btnlammoi.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnlammoi.Location = new System.Drawing.Point(757, 269);
+            this.btnlammoi.Name = "btnlammoi";
+            this.btnlammoi.Size = new System.Drawing.Size(111, 38);
+            this.btnlammoi.TabIndex = 10;
+            this.btnlammoi.Text = "Làm mới";
+            this.btnlammoi.UseVisualStyleBackColor = true;
+            this.btnlammoi.Click += new System.EventHandler(this.btnlammoi_Click);
             // 
             // FoodCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 513);
+            this.Controls.Add(this.btnlammoi);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
@@ -207,5 +225,6 @@
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dgvFoodCategory;
+        private System.Windows.Forms.Button btnlammoi;
     }
 }

@@ -38,6 +38,11 @@ namespace ProjectMagicBilliard.CallSQL
             DataTable retult = DataManager.Instance.ExecuteOuery(query);
             return retult;
         }
-
+        public DataTable searchStaff(string name)
+        {
+            string query = $"SELECT * FROM staff WHERE name LIKE '{name}'";
+            DataTable retult = DataManager.Instance.ExecuteOuery(query);
+            return retult;
+        }
     }
 }
