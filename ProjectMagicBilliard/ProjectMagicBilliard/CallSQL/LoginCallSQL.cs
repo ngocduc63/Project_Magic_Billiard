@@ -42,7 +42,7 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public bool insertAccount(string usernameAccount, string passwordAccount, string displayNameAccount, string idStaff)
         {
-            string query = $"insert into account (name, address, phoneNumber, idPosition) values ('{usernameAccount}','{passwordAccount}','{displayNameAccount}','{idStaff}')";
+            string query = $"insert into account (username, passWord, displayName, idStaff) values ('{usernameAccount}','{passwordAccount}','{displayNameAccount}','{idStaff}')";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
         public bool deleteAccount(string usernameAccount)
@@ -52,8 +52,14 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public bool updateAccount(string usernameAccount, string passwordAccount, string displayNameAccount, string idStaff)
         {
-            string query = $"UPDATE account SET password='{passwordAccount}', displayName='{displayNameAccount}', idStaff='{idStaff}' WHERE id='{usernameAccount}'";
+            string query = $"UPDATE account SET passWord='{passwordAccount}', displayName='{displayNameAccount}', idStaff='{idStaff}' WHERE username='{usernameAccount}'";
             return DataManager.Instance.ExecuteNonOuery(query);
+        }
+        public DataTable searchAccount(string usernameAccount)
+        {
+            string query = $"SELECT * FROM account WHERE username LIKE '{usernameAccount}'";
+            DataTable retult = DataManager.Instance.ExecuteOuery(query);
+            return retult;
         }
     }
 }

@@ -33,8 +33,10 @@ namespace ProjectMagicBilliard.Scene
         {
             dgvTableCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTableCategory.DataSource = TableCategoryCallSQL.Instance.GetAllTableCategory();
+            txtID.Text = "";
             txtName.Text = "";
-            txtPrice.Text = "";           
+            txtPrice.Text = "";
+            txtTimKiem.Text = "";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -74,6 +76,26 @@ namespace ProjectMagicBilliard.Scene
             {
                 MessageBox.Show($"Xóa nhân viên thất bại!!");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadTableCategory();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            dgvTableCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTableCategory.DataSource = TableCategoryCallSQL.Instance.searchTableCategory(txtTimKiem.Text);
+        }
+
+        private void dgvTableCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvTableCategory.CurrentCell.RowIndex;
+            txtID.Text = dgvTableCategory.Rows[i].Cells[0].Value.ToString();
+            txtName.Text = dgvTableCategory.Rows[i].Cells[1].Value.ToString();
+            txtPrice.Text = dgvTableCategory.Rows[i].Cells[2].Value.ToString();
+
         }
     }
 }

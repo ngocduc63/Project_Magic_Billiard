@@ -32,10 +32,12 @@ namespace ProjectMagicBilliard.Scene
         {
             dgvStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStaff.DataSource = StaffCallSQL.Instance.GetAllStaff();
+            txtID.Text = "";
             txtName.Text = "";
             txtAddress.Text = "";
             txtPhoneNumber.Text = "";
             txtIDPosition.Text = "";
+            txttimkiem.Text = "";
         }
         private void btnthem_Click(object sender, EventArgs e)
         {
@@ -90,6 +92,17 @@ namespace ProjectMagicBilliard.Scene
             txtPhoneNumber.Text = dgvStaff.Rows[i].Cells[3].Value.ToString();
             txtIDPosition.Text = dgvStaff.Rows[i].Cells[4].Value.ToString();
 
+        }
+
+        private void btntimkiem_Click(object sender, EventArgs e)
+        {
+            dgvStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStaff.DataSource = StaffCallSQL.Instance.searchStaff(txttimkiem.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Loadstaff();
         }
     }
 }

@@ -46,6 +46,7 @@
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -83,14 +84,17 @@
             this.btntimkiem.Text = "Tìm kiếm";
             this.btntimkiem.UseVisualStyleBackColor = true;
             this.btntimkiem.UseWaitCursor = true;
+            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // dgvStaff
             // 
             this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStaff.Location = new System.Drawing.Point(16, 100);
             this.dgvStaff.Name = "dgvStaff";
+            this.dgvStaff.ReadOnly = true;
             this.dgvStaff.RowHeadersWidth = 51;
             this.dgvStaff.RowTemplate.Height = 24;
+            this.dgvStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStaff.Size = new System.Drawing.Size(877, 178);
             this.dgvStaff.TabIndex = 0;
             this.dgvStaff.UseWaitCursor = true;
@@ -101,7 +105,7 @@
             // 
             this.btnthem.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnthem.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnthem.Location = new System.Drawing.Point(758, 350);
+            this.btnthem.Location = new System.Drawing.Point(758, 373);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(126, 38);
             this.btnthem.TabIndex = 1;
@@ -113,7 +117,7 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(758, 420);
+            this.btnSua.Location = new System.Drawing.Point(758, 429);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(126, 38);
             this.btnSua.TabIndex = 2;
@@ -243,11 +247,25 @@
             this.txtID.Size = new System.Drawing.Size(194, 38);
             this.txtID.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.Location = new System.Drawing.Point(758, 314);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 38);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Làm mới";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.UseWaitCursor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 561);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSua);
@@ -285,5 +303,6 @@
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Button button1;
     }
 }

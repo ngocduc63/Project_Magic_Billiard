@@ -91,5 +91,16 @@ namespace ProjectMagicBilliard.Scene
             txtDisplayGame.Text = dgvAccount.Rows[i].Cells[2].Value.ToString();
             txtIDStaff.Text = dgvAccount.Rows[i].Cells[3].Value.ToString();
         }
+
+        private void btnlammoi_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            dgvAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAccount.DataSource = LoginCallSQL.Instance.searchAccount(txtTimKiem.Text);
+        }
     }
 }

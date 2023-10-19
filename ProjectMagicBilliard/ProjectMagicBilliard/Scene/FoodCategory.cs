@@ -76,5 +76,16 @@ namespace ProjectMagicBilliard.Scene
             txtID.Text = dgvFoodCategory.Rows[i].Cells[0].Value.ToString();
             txtName.Text = dgvFoodCategory.Rows[i].Cells[1].Value.ToString();
         }
+
+        private void btnlammoi_Click(object sender, EventArgs e)
+        {
+            LoadFoodCategory();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            dgvFoodCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFoodCategory.DataSource = FoodCategoryCallSQL.Instance.searchFoodCategory(txtTimKiem.Text);
+        }
     }
 }
