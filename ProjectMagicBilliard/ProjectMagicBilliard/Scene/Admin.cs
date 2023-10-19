@@ -18,6 +18,11 @@ namespace ProjectMagicBilliard.Scene
         }
 
         private Form currentFormChid;
+        private string _nameStaff;
+        private string _idStaff;
+
+        public string NameStaff { get => _nameStaff; set => _nameStaff = value; }
+        public string IdStaff { get => _idStaff; set => _idStaff = value; }
 
         private void OpenChildForm(Form ChildForm)
         {
@@ -107,6 +112,17 @@ namespace ProjectMagicBilliard.Scene
         {
             OpenChildForm(new GuestScene());
             label1.Text = btnKH.Text;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+
+            home.SetTextStaff(_nameStaff);
+            home.IdStaffCurrent = _idStaff;
+
+            home.Show();
+            this.Close();
         }
     }
 }
