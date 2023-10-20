@@ -32,9 +32,14 @@ namespace ProjectMagicBilliard.CallSQL
             string query = $"DELETE FROM position WHERE id='{idPosition}'";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
-        public bool updateStaff(string idPosition, string namePosition)
+        public bool updatePosition(string idPosition, string namePosition)
         {
             string query = $"UPDATE position SET name='{namePosition}' WHERE id='{idPosition}'";
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
+        public bool searchPosition(string name)
+        {
+            string query = $"SELECT * FROM position WHERE name LIKE '{name}'";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
     }

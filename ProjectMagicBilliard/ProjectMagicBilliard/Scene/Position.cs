@@ -36,28 +36,55 @@ namespace ProjectMagicBilliard.Scene
         {
             if (PositionCallSQL.Instance.insertPosition(txtName.Text))
             {
-                MessageBox.Show($"Thêm nhân viên thành công!!");
-                //Loadstaff();
+                MessageBox.Show($"Thêm chức vụ thành công!!");
+                loadPosition();
             }
             else
             {
-                MessageBox.Show($"Thêm nhân viên thất bại!!");
+                MessageBox.Show($"Thêm chức vụ thất bại!!");
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            if (PositionCallSQL.Instance.updatePosition(txtID.Text, txtName.Text))
+            {
+                MessageBox.Show($"Sửa chức vụ thành công!!");
+                loadPosition();
+            }
+            else
+            {
+                MessageBox.Show($"Sửa chức vụ thất bại!!");
+            }
         }
+            private void btnXoa_Click(object sender, EventArgs e)
+            {
+                if (PositionCallSQL.Instance.deletePosition(txtID.Text))
+                {
+                    MessageBox.Show($"Xóa chức vụ thành công!!");
+                    loadPosition();
+                }
+                else
+                {
+                    MessageBox.Show($"Xóa chức vụ thất bại!!");
+                }
+            }
+            private void dgvPosition_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            {
+                int i = dgvPosition.CurrentCell.RowIndex;
+                txtID.Text = dgvPosition.Rows[i].Cells[0].Value.ToString();
+                txtName.Text = dgvPosition.Rows[i].Cells[1].Value.ToString();
+            }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+            private void btnlammoi_Click(object sender, EventArgs e)
+            {
+                loadPosition();
+            }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dgvPosition_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            dgvPosition.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPosition.DataSource = PositionCallSQL.Instance.searchPosition(txtTimKiem.Text);
         }
     }
 }

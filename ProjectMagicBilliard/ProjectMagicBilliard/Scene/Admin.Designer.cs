@@ -42,6 +42,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnNV = new System.Windows.Forms.Button();
             this.btnTK = new System.Windows.Forms.Button();
             this.panel_body = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel_header.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,6 +51,7 @@ namespace ProjectMagicBilliard.Scene
             // panel_header
             // 
             this.panel_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_header.Controls.Add(this.btnExit);
             this.panel_header.Controls.Add(this.label1);
             this.panel_header.Location = new System.Drawing.Point(179, 5);
             this.panel_header.Name = "panel_header";
@@ -63,7 +65,7 @@ namespace ProjectMagicBilliard.Scene
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(27, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 32);
+            this.label1.Size = new System.Drawing.Size(102, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Home";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -146,6 +148,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnKH.TabIndex = 4;
             this.btnKH.Text = "Quản lý khách hàng";
             this.btnKH.UseVisualStyleBackColor = false;
+            this.btnKH.Click += new System.EventHandler(this.btnKH_Click);
             // 
             // btnDoAn
             // 
@@ -213,9 +216,19 @@ namespace ProjectMagicBilliard.Scene
             this.panel_body.TabIndex = 2;
             this.panel_body.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_body_Paint);
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(555, 18);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(149, 53);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjectMagicBilliard.Properties.Resources._1000_F_266758914_P77ehoxpTyJYLaSFEzusFk4NGMDc5MwL;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -250,5 +263,6 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.Button btnLoaiDoAn;
         private System.Windows.Forms.Button btnBan;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -18,6 +18,11 @@ namespace ProjectMagicBilliard.Scene
         }
 
         private Form currentFormChid;
+        private string _nameStaff;
+        private string _idStaff;
+
+        public string NameStaff { get => _nameStaff; set => _nameStaff = value; }
+        public string IdStaff { get => _idStaff; set => _idStaff = value; }
 
         private void OpenChildForm(Form ChildForm)
         {
@@ -76,7 +81,8 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnDoAn_Click(object sender, EventArgs e)
         {
-            
+            OpenChildForm(new FoodScene());
+            label1.Text = btnDoAn.Text;
         }
 
         private void btnCV_Click(object sender, EventArgs e)
@@ -100,6 +106,23 @@ namespace ProjectMagicBilliard.Scene
         private void panel_body_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnKH_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GuestScene());
+            label1.Text = btnKH.Text;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+
+            home.SetTextStaff(_nameStaff);
+            home.IdStaffCurrent = _idStaff;
+
+            home.Show();
+            this.Close();
         }
     }
 }
