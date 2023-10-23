@@ -35,13 +35,16 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public bool updateGuest(string IDGuest, string NameGuest, string addressGuest, string PhoneNumberGuest, string TotalPointGuest)
         {
-            string query = $"UPDATE guest SET name='{NameGuest}', name='{addressGuest}', phoneNumber='{PhoneNumberGuest}',totalPoint='{TotalPointGuest}' WHERE id='{IDGuest}'";
+            string query = $"UPDATE guest SET name='{NameGuest}', address='{addressGuest}', phoneNumber='{PhoneNumberGuest}',totalPoint='{TotalPointGuest}' WHERE id='{IDGuest}'";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
-        public bool searchGuest(string name)
+        public DataTable searchGuest(string param, bool isSearchForcusName)
         {
-            string query = $"SELECT * FROM guest WHERE name LIKE '{name}'";
-            return DataManager.Instance.ExecuteNonOuery(query);
+            string query;
+            if (isSearchForcusName) query = $"SELECT * FROM guest WHERE name LIKE '%{param}%'";
+            else query = $"SELECT * FROM guest WHERE phoneNumber LIKE '%{param}%'";
+
+            return DataManager.Instance.ExecuteOuery(query);
         }
     }
 

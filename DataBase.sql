@@ -91,6 +91,13 @@ create table billInfo
 	foreign key (idBill) references bill (id)
 )
 go
+create table discountCode 
+(
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	name nvarchar(50),
+	quantity float
+)
+go
 CREATE TRIGGER InsertBill
 ON bill FOR Insert
 AS
@@ -205,4 +212,6 @@ go
 insert into foodCategory values ('do uong'), ('thuc an')
 go
 insert into food values ('coca', 10000, 1), ('pepsi', 10000, 1), ('Mi tom trung', 15000, 2)
+go
+insert into discountCode values ('giam20', 20)
 go

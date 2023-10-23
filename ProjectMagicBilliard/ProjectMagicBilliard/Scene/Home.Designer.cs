@@ -177,6 +177,7 @@ namespace ProjectMagicBilliard.Scene
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(465, 347);
             this.panel11.TabIndex = 4;
+            this.panel11.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // btnSelectFood
             // 
@@ -480,6 +481,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalTablePlay.Size = new System.Drawing.Size(126, 41);
             this.txtTotalTablePlay.TabIndex = 18;
             this.txtTotalTablePlay.Text = "000000";
+            this.txtTotalTablePlay.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // label12
             // 
@@ -491,6 +493,7 @@ namespace ProjectMagicBilliard.Scene
             this.label12.Size = new System.Drawing.Size(130, 32);
             this.label12.TabIndex = 17;
             this.label12.Text = "Tiền bàn:";
+            this.label12.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // txtTotalPriceFood
             // 
@@ -501,6 +504,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalPriceFood.Size = new System.Drawing.Size(126, 41);
             this.txtTotalPriceFood.TabIndex = 16;
             this.txtTotalPriceFood.Text = "000000";
+            this.txtTotalPriceFood.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // label6
             // 
@@ -512,6 +516,7 @@ namespace ProjectMagicBilliard.Scene
             this.label6.Size = new System.Drawing.Size(173, 32);
             this.label6.TabIndex = 15;
             this.label6.Text = "Tiền dịch vụ:";
+            this.label6.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // txtEndTime
             // 
@@ -523,6 +528,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtEndTime.Size = new System.Drawing.Size(129, 36);
             this.txtEndTime.TabIndex = 14;
             this.txtEndTime.Text = "00:00:00";
+            this.txtEndTime.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // label10
             // 
@@ -533,6 +539,7 @@ namespace ProjectMagicBilliard.Scene
             this.label10.Size = new System.Drawing.Size(226, 33);
             this.label10.TabIndex = 13;
             this.label10.Text = "Thời gian kết thúc:";
+            this.label10.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // txtTimeStart
             // 
@@ -564,7 +571,7 @@ namespace ProjectMagicBilliard.Scene
             this.txtTotalBIllInfo.Size = new System.Drawing.Size(126, 41);
             this.txtTotalBIllInfo.TabIndex = 10;
             this.txtTotalBIllInfo.Text = "000000";
-            this.txtTotalBIllInfo.Click += new System.EventHandler(this.label3_Click);
+            this.txtTotalBIllInfo.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // label2
             // 
@@ -576,6 +583,7 @@ namespace ProjectMagicBilliard.Scene
             this.label2.Size = new System.Drawing.Size(138, 32);
             this.label2.TabIndex = 9;
             this.label2.Text = "Tổng tiền:";
+            this.label2.Click += new System.EventHandler(this.DisablePanelMenu_Click);
             // 
             // PanelMenu
             // 

@@ -16,7 +16,12 @@ namespace ProjectMagicBilliard.Scene
         public GuestScene()
         {
             InitializeComponent();
+            cbSearch.SelectedIndex = 0;
         }
+
+        public bool IsPayiing = false;
+        public string IdGuest;
+        public string NameGuest;
 
         private void GuestScene_Load(object sender, EventArgs e)
         {
@@ -26,12 +31,12 @@ namespace ProjectMagicBilliard.Scene
 
         private void dgvTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int i = dgvGuest.CurrentCell.RowIndex;
-            txtID.Text = dgvGuest.Rows[i].Cells[0].Value.ToString();
-            txtName.Text = dgvGuest.Rows[i].Cells[1].Value.ToString();
-            txtAddress.Text = dgvGuest.Rows[i].Cells[2].Value.ToString();
-            txtPhoneNumber.Text = dgvGuest.Rows[i].Cells[3].Value.ToString();
-            txtTotalPoint.Text = dgvGuest.Rows[i].Cells[4].Value.ToString();
+            //int i = dgvGuest.CurrentCell.RowIndex;
+            //txtID.Text = dgvGuest.Rows[i].Cells[0].Value.ToString();
+            //txtName.Text = dgvGuest.Rows[i].Cells[1].Value.ToString();
+            //txtAddress.Text = dgvGuest.Rows[i].Cells[2].Value.ToString();
+            //txtPhoneNumber.Text = dgvGuest.Rows[i].Cells[3].Value.ToString();
+            //txtTotalPoint.Text = dgvGuest.Rows[i].Cells[4].Value.ToString();
         }
 
         public void loadGuest()
@@ -43,6 +48,8 @@ namespace ProjectMagicBilliard.Scene
             txtPhoneNumber.Text = "";
             txtAddress.Text = "";
             txtTotalPoint.Text = "";
+            cbSearch.SelectedIndex = 0;
+            txttimkiem.Text = "";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -87,7 +94,8 @@ namespace ProjectMagicBilliard.Scene
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             dgvGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvGuest.DataSource = guestCallSQL.Instance.searchGuest(txttimkiem.Text);
+            bool isSearchForcusName = cbSearch.SelectedIndex == 1 ? true : false;
+            dgvGuest.DataSource = guestCallSQL.Instance.searchGuest(txttimkiem.Text, isSearchForcusName);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -104,6 +112,18 @@ namespace ProjectMagicBilliard.Scene
             txtPhoneNumber.Text = dgvGuest.Rows[i].Cells[3].Value.ToString();
             txtTotalPoint.Text = dgvGuest.Rows[i].Cells[4].Value.ToString();
 
+            if (IsPayiing)
+            {
+                IdGuest = txtID.Text;
+                NameGuest = txtName.Text;
+
+                var result = MessageBox.Show($"Bạn có muốn chọn khách: {NameGuest}", "Thông báo", MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
         }
     }
 }

@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="CallSQL\BillCallSQL.cs" />
     <Compile Include="CallSQL\BillInfoCallSQL.cs" />
+    <Compile Include="CallSQL\DiscountCodeCallSQL.cs" />
     <Compile Include="CallSQL\FoodCallSQL.cs" />
     <Compile Include="CallSQL\FoodCategoryCallSQL.cs" />
     <Compile Include="CallSQL\guestCallSQL.cs" />

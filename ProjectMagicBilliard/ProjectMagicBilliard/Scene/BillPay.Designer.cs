@@ -41,7 +41,8 @@ namespace ProjectMagicBilliard.Scene
             this.txtGuest = new System.Windows.Forms.TextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.btnCheck = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@ namespace ProjectMagicBilliard.Scene
             // 
             this.btnCancel.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnCancel.Location = new System.Drawing.Point(46, 514);
             this.btnCancel.Name = "btnCancel";
@@ -156,9 +158,9 @@ namespace ProjectMagicBilliard.Scene
             this.txtGuest.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGuest.Location = new System.Drawing.Point(217, 68);
             this.txtGuest.Name = "txtGuest";
+            this.txtGuest.ReadOnly = true;
             this.txtGuest.Size = new System.Drawing.Size(173, 40);
-            this.txtGuest.TabIndex = 0;
-            this.txtGuest.Text = "Tên khách hàng";
+            this.txtGuest.TabIndex = 9999;
             // 
             // metroButton1
             // 
@@ -168,7 +170,7 @@ namespace ProjectMagicBilliard.Scene
             this.metroButton1.Location = new System.Drawing.Point(396, 61);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(74, 40);
-            this.metroButton1.TabIndex = 1;
+            this.metroButton1.TabIndex = 3;
             this.metroButton1.Text = "Chọn";
             this.metroButton1.UseCustomBackColor = true;
             this.metroButton1.UseCustomForeColor = true;
@@ -186,21 +188,40 @@ namespace ProjectMagicBilliard.Scene
             this.label2.TabIndex = 10;
             this.label2.Text = "Mã giảm giá:";
             // 
-            // textBox1
+            // txtDiscount
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(124, 384);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(268, 40);
-            this.textBox1.TabIndex = 3;
+            this.txtDiscount.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.Location = new System.Drawing.Point(124, 384);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(215, 40);
+            this.txtDiscount.TabIndex = 1;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnCheck.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheck.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnCheck.Location = new System.Drawing.Point(370, 385);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(98, 40);
+            this.btnCheck.TabIndex = 2;
+            this.btnCheck.Text = "Check";
+            this.btnCheck.UseCustomBackColor = true;
+            this.btnCheck.UseCustomForeColor = true;
+            this.btnCheck.UseSelectable = true;
+            this.btnCheck.UseStyleColors = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // BillPay
             // 
+            this.AcceptButton = this.btnPay;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(480, 580);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCheck);
+            this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.txtGuest);
@@ -237,6 +258,7 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.TextBox txtGuest;
         private MetroFramework.Controls.MetroButton metroButton1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDiscount;
+        private MetroFramework.Controls.MetroButton btnCheck;
     }
 }
