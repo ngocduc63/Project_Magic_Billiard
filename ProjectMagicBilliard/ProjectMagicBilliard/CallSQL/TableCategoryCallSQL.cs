@@ -35,7 +35,7 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public bool updateTableCategory(string idTableCategory, string nameTableCategory, string priceTableCategory)
         {
-            string query = $"UPDATE tableCategory SET name='{nameTableCategory}', address='{priceTableCategory}' WHERE id='{idTableCategory}'";
+            string query = $"UPDATE tableCategory SET name='{nameTableCategory}', price='{priceTableCategory}' WHERE id='{idTableCategory}'";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
         public DataTable searchTableCategory(string name)

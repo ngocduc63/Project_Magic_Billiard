@@ -43,12 +43,12 @@ namespace ProjectMagicBilliard.Scene
         {
             if (TableCategoryCallSQL.Instance.insertTableCategory(txtName.Text, txtPrice.Text))
             {
-                MessageBox.Show($"Thêm nhân viên thành công!!");
+                MessageBox.Show($"Thêm loại bàn thành công!!");
                 LoadTableCategory();
             }
             else
             {
-                MessageBox.Show($"Thêm nhân viên thất bại!!");
+                MessageBox.Show($"Thêm loại bàn thất bại!!");
             }
         }
 
@@ -56,12 +56,12 @@ namespace ProjectMagicBilliard.Scene
         {
             if (TableCategoryCallSQL.Instance.updateTableCategory(txtID.Text, txtName.Text, txtPrice.Text))
             {
-                MessageBox.Show($"Sửa nhân viên thành công!!");
+                MessageBox.Show($"Sửa loại bàn thành công!!");
                 LoadTableCategory();
             }
             else
             {
-                MessageBox.Show($"Sửa nhân viên thất bại!!");
+                MessageBox.Show($"Sửa loại bàn thất bại!!");
             }
         }
 
@@ -69,12 +69,12 @@ namespace ProjectMagicBilliard.Scene
         {
             if (TableCategoryCallSQL.Instance.deleteTableCategory(txtID.Text))
             {
-                MessageBox.Show($"Xóa nhân viên thành công!!");
+                MessageBox.Show($"Xóa loại bàn thành công!!");
                 LoadTableCategory();
             }
             else
             {
-                MessageBox.Show($"Xóa nhân viên thất bại!!");
+                MessageBox.Show($"Xóa loại bàn thất bại!!");
             }
         }
 

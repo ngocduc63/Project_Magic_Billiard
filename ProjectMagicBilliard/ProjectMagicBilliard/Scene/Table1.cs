@@ -23,9 +23,11 @@ namespace ProjectMagicBilliard.Scene
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtID.Text = dgvTable[0,dgvTable.CurrentRow.Index].Value.ToString();
-            txtTrangThai.Text = dgvTable[1,dgvTable.CurrentRow.Index].Value.ToString();
-            cmbNameCategory.SelectedValue = dgvTable[2,dgvTable.CurrentRow.Index].Value.ToString();
+            int i = dgvTable.CurrentCell.RowIndex;
+            txtID.Text = dgvTable.Rows[i].Cells[0].Value.ToString();
+            txtTrangThai.Text = dgvTable.Rows[i].Cells[1].Value.ToString();
+            cmbNameCategory.SelectedIndex = cmbNameCategory.FindString(dgvTable.Rows[i].Cells[2].Value.ToString());
+            
         }
 
         public static implicit operator Table1(TablePlay v)
@@ -42,9 +44,9 @@ namespace ProjectMagicBilliard.Scene
 
         public void loadcombobox()
         {
+            cmbNameCategory.DataSource = TableCategoryCallSQL.Instance.GetAllTableCategory();
             cmbNameCategory.DisplayMember = "name";
             cmbNameCategory.ValueMember = "id";
-            cmbNameCategory.DataSource = TableCategoryCallSQL.Instance.GetAllTableCategory();
         }
         public void loadtable()
         {
@@ -57,7 +59,7 @@ namespace ProjectMagicBilliard.Scene
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (TablePlayCallSQL.Instance.insertTable(txtTrangThai.Text,cmbNameCategory.Text))
+            if (TablePlayCallSQL.Instance.insertTable(txtTrangThai.Text, cmbNameCategory.SelectedValue.ToString()))
             {
                 MessageBox.Show($"Thêm bàn thành công!!");
                 loadtable();

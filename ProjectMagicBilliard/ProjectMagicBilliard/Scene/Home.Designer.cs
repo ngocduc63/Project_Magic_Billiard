@@ -433,7 +433,7 @@ namespace ProjectMagicBilliard.Scene
             // ListTablePlayPanel
             // 
             this.ListTablePlayPanel.AutoScroll = true;
-            this.ListTablePlayPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ListTablePlayPanel.BackgroundImage")));
+            this.ListTablePlayPanel.BackColor = System.Drawing.Color.Thistle;
             this.ListTablePlayPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ListTablePlayPanel.Location = new System.Drawing.Point(8, 90);
             this.ListTablePlayPanel.Margin = new System.Windows.Forms.Padding(20);
