@@ -47,7 +47,7 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public bool deleteAccount(string usernameAccount)
         {
-            string query = $"DELETE FROM account WHERE id='{usernameAccount}'";
+            string query = $"DELETE FROM account WHERE userName='{usernameAccount}'";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
         public bool updateAccount(string usernameAccount, string passwordAccount, string displayNameAccount, string idStaff)
@@ -57,7 +57,7 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public DataTable searchAccount(string usernameAccount)
         {
-            string query = $"SELECT * FROM account WHERE username LIKE '{usernameAccount}'";
+            string query = $"SELECT * FROM account WHERE username LIKE '%{usernameAccount}%'";
             DataTable retult = DataManager.Instance.ExecuteOuery(query);
             return retult;
         }

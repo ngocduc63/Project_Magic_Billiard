@@ -50,12 +50,12 @@ namespace ProjectMagicBilliard.CallSQL
             string query = $"insert into tablePlay (status,idCategory) values ('{status}','{idCategory}')";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
-        public bool deleteFoodCategory(string id)
+        public bool deleteTable(string id)
         {
             string query = $"DELETE FROM tablePlay WHERE id='{id}'";
             return DataManager.Instance.ExecuteNonOuery(query);
         }
-        public bool updateFoodCategory(string id, string status,string idCategory)
+        public bool updateTable(string id, string status,string idCategory)
         {
             string query = $"UPDATE tablePlay SET status ='{status}', idCategory = '{idCategory}' WHERE id='{id}'";
             return DataManager.Instance.ExecuteNonOuery(query);

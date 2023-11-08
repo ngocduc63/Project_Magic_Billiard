@@ -27,7 +27,7 @@ namespace ProjectMagicBilliard.Scene
             txtID.Text = dgvTable.Rows[i].Cells[0].Value.ToString();
             txtTrangThai.Text = dgvTable.Rows[i].Cells[1].Value.ToString();
             cmbNameCategory.SelectedIndex = cmbNameCategory.FindString(dgvTable.Rows[i].Cells[2].Value.ToString());
-            
+
         }
 
         public static implicit operator Table1(TablePlay v)
@@ -61,23 +61,49 @@ namespace ProjectMagicBilliard.Scene
         {
             if (TablePlayCallSQL.Instance.insertTable(txtTrangThai.Text, cmbNameCategory.SelectedValue.ToString()))
             {
-                MessageBox.Show($"Thêm bàn thành công!!");
+                MessageBox.Show("Thêm bàn thành công!!");
                 loadtable();
             }
             else
             {
-                MessageBox.Show($"Thêm bàn thất bại!!");
+                MessageBox.Show("Thêm bàn thất bại!!");
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnLammoi_Click(object sender, EventArgs e)
         {
             loadtable();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (TablePlayCallSQL.Instance.deleteTable(txtID.Text))
+            {
+                MessageBox.Show("Xóa bàn thành công");
+                loadtable();
+            }
+            else
+            {
+                MessageBox.Show("Xóa bàn thất bại");
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (TablePlayCallSQL.Instance.updateTable(txtID.Text, txtTrangThai.Text, cmbNameCategory.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Sửa bàn thành công!!");
+                loadtable();
+            }
+            else
+            {
+                MessageBox.Show("Sửa bàn thất bại!!");
+            }
         }
     }
 }

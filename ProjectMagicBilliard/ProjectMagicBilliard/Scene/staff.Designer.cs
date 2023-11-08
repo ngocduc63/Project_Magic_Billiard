@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbSearch = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbSearch);
             this.groupBox1.Controls.Add(this.txttimkiem);
             this.groupBox1.Controls.Add(this.btntimkiem);
             this.groupBox1.Controls.Add(this.dgvStaff);
@@ -69,13 +71,14 @@
             // 
             // txttimkiem
             // 
+            this.txttimkiem.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txttimkiem.ForeColor = System.Drawing.Color.Black;
             this.txttimkiem.Location = new System.Drawing.Point(267, 64);
             this.txttimkiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txttimkiem.Multiline = true;
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.Size = new System.Drawing.Size(325, 42);
             this.txttimkiem.TabIndex = 5;
-            this.txttimkiem.UseWaitCursor = true;
             // 
             // btntimkiem
             // 
@@ -86,7 +89,6 @@
             this.btntimkiem.TabIndex = 2;
             this.btntimkiem.Text = "Tìm kiếm";
             this.btntimkiem.UseVisualStyleBackColor = true;
-            this.btntimkiem.UseWaitCursor = true;
             this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // dgvStaff
@@ -275,6 +277,18 @@
             this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cbSearch
+            // 
+            this.cbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSearch.FormattingEnabled = true;
+            this.cbSearch.Items.AddRange(new object[] {
+            "Số điện thoại",
+            "Họ Tên"});
+            this.cbSearch.Location = new System.Drawing.Point(611, 66);
+            this.cbSearch.Name = "cbSearch";
+            this.cbSearch.Size = new System.Drawing.Size(246, 40);
+            this.cbSearch.TabIndex = 10;
+            // 
             // staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -320,5 +334,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbSearch;
     }
 }

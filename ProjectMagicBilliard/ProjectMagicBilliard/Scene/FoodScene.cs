@@ -22,23 +22,30 @@ namespace ProjectMagicBilliard.Scene
         {
             dgvFood.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFood.DataSource = FoodCallSQL.Instance.GetFood();
-            cmbCategory.DisplayMember = "name";
             cmbCategory.DataSource = FoodCategoryCallSQL.Instance.GetAllFoodCategory();
+            cmbCategory.DisplayMember = "name";
+            cmbCategory.ValueMember = "id";
         }
         public void loadFood()
         {
             dgvFood.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFood.DataSource = FoodCallSQL.Instance.GetFood();
-            cmbCategory.DisplayMember = "name";
             cmbCategory.DataSource = FoodCategoryCallSQL.Instance.GetAllFoodCategory();
+            cmbCategory.DisplayMember = "name";
+            cmbCategory.ValueMember = "id";
             txtID.Text = "";
             txtprice.Text = "";
             txtName.Text = "";
+            txttimkiem.Text = "";
         }
 
         private void dgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int i = dgvFood.CurrentCell.RowIndex;
+            txtID.Text = dgvFood.Rows[i].Cells[0].Value.ToString();
+            txtName.Text = dgvFood.Rows[i].Cells[1].Value.ToString();
+            txtprice.Text = dgvFood.Rows[i].Cells[2].Value.ToString();
+            cmbCategory.SelectedIndex = cmbCategory.FindString(dgvFood.Rows[i].Cells[3].Value.ToString());
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -54,7 +61,64 @@ namespace ProjectMagicBilliard.Scene
 
         private void dgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double price = Convert.ToDouble(txtprice.Text);
+                if (FoodCallSQL.Instance.insertFood(txtName.Text, price, cmbCategory.SelectedValue.ToString()))
+                {
+                    MessageBox.Show("Thêm thành công");
+                    loadFood();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Vui lòng nhập giá dạng số!!!");
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double price = Convert.ToDouble(txtprice.Text);
+                if (FoodCallSQL.Instance.updateFood(txtID.Text, txtName.Text, price, cmbCategory.SelectedValue.ToString()))
+                {
+                    MessageBox.Show("Sửa thành công");
+                    loadFood();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại");
+                }
+
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Vui lòng nhập giá dạng số!!!");
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (FoodCallSQL.Instance.deleteFood(txtID.Text))
+            {
+                MessageBox.Show("Xóa thành công");
+                loadFood();
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại");
+            }
         }
     }
 }

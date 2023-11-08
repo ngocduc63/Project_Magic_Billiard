@@ -14,14 +14,17 @@ namespace ProjectMagicBilliard.Scene
 {
     public partial class staff : Form
     {
-
-
         public staff()
         {
             InitializeComponent();
+
+            cbSearch.SelectedIndex = 0;
         }
 
-        
+        public bool IsSelecStaff = false;
+        public string NameStaff = "";
+        public string IDStaff = "";
+
         private void staff_Load(object sender, EventArgs e)
         {
             dgvStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -92,12 +95,25 @@ namespace ProjectMagicBilliard.Scene
             txtPhoneNumber.Text = dgvStaff.Rows[i].Cells[3].Value.ToString();
             txtIDPosition.Text = dgvStaff.Rows[i].Cells[4].Value.ToString();
 
+            if (IsSelecStaff)
+            {
+                IDStaff = txtID.Text;
+                NameStaff = txtName.Text;
+
+                var result = MessageBox.Show($"Bạn có muốn chọn nhân viên: {NameStaff}", "Thông báo", MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
         }
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
             dgvStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvStaff.DataSource = StaffCallSQL.Instance.searchStaff(txttimkiem.Text);
+            bool isSearchForcusName = cbSearch.SelectedIndex == 1 ? true : false;
+            dgvStaff.DataSource = StaffCallSQL.Instance.searchStaff(txttimkiem.Text, isSearchForcusName);
         }
 
         private void button1_Click(object sender, EventArgs e)

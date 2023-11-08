@@ -39,7 +39,7 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public DataTable searchFoodCategory(string name)
         {
-            string query = $"SELECT * FROM foodCategory WHERE name LIKE '{name}'";
+            string query = $"SELECT * FROM foodCategory WHERE name LIKE '%{name}%'";
             DataTable retult = DataManager.Instance.ExecuteOuery(query);
             return retult;
         }

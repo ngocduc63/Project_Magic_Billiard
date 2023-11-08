@@ -38,11 +38,13 @@ namespace ProjectMagicBilliard.CallSQL
             DataTable retult = DataManager.Instance.ExecuteOuery(query);
             return retult;
         }
-        public DataTable searchStaff(string name)
+        public DataTable searchStaff(string param, bool isSearchForcusName)
         {
-            string query = $"SELECT * FROM staff WHERE name LIKE '{name}'";
-            DataTable retult = DataManager.Instance.ExecuteOuery(query);
-            return retult;
+            string query;
+            if (isSearchForcusName) query = $"SELECT * FROM staff WHERE name LIKE '%{param}%'";
+            else query = $"SELECT * FROM staff WHERE phoneNumber LIKE '%{param}%'";
+
+            return DataManager.Instance.ExecuteOuery(query);
         }
     }
 }

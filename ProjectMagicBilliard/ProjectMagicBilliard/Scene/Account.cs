@@ -33,6 +33,7 @@ namespace ProjectMagicBilliard.Scene
             txtPassWord.Text = "";
             txtDisplayGame.Text = "";
             txtIDStaff.Text = "";
+            txtTimKiem.Text = "";
         }
         private void groupBox2_Enter(object sender, EventArgs e)
         {
@@ -101,6 +102,17 @@ namespace ProjectMagicBilliard.Scene
         {
             dgvAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAccount.DataSource = LoginCallSQL.Instance.searchAccount(txtTimKiem.Text);
+        }
+
+        private void btnSelectStaff_Click(object sender, EventArgs e)
+        {
+            staff staff = new staff();
+            staff.IsSelecStaff = true;
+
+            if (staff.ShowDialog() == DialogResult.OK)
+            {
+                txtIDStaff.Text = staff.IDStaff;
+            }
         }
     }
 }

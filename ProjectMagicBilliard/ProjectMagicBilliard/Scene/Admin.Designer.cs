@@ -30,6 +30,7 @@ namespace ProjectMagicBilliard.Scene
         private void InitializeComponent()
         {
             this.panel_header = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -42,7 +43,6 @@ namespace ProjectMagicBilliard.Scene
             this.btnNV = new System.Windows.Forms.Button();
             this.btnTK = new System.Windows.Forms.Button();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             this.panel_header.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,6 +57,17 @@ namespace ProjectMagicBilliard.Scene
             this.panel_header.Name = "panel_header";
             this.panel_header.Size = new System.Drawing.Size(718, 100);
             this.panel_header.TabIndex = 0;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnExit.Location = new System.Drawing.Point(555, 18);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(149, 53);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label1
             // 
@@ -215,16 +226,6 @@ namespace ProjectMagicBilliard.Scene
             this.panel_body.Size = new System.Drawing.Size(716, 515);
             this.panel_body.TabIndex = 2;
             this.panel_body.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_body_Paint);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(555, 18);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(149, 53);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Admin
             // 

@@ -70,6 +70,7 @@
             this.btnSua.TabIndex = 13;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -81,6 +82,7 @@
             this.btnXoa.TabIndex = 14;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // groupBox2
             // 
@@ -117,6 +119,7 @@
             this.txtTrangThai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTrangThai.Multiline = true;
             this.txtTrangThai.Name = "txtTrangThai";
+            this.txtTrangThai.ReadOnly = true;
             this.txtTrangThai.Size = new System.Drawing.Size(357, 48);
             this.txtTrangThai.TabIndex = 1;
             // 
@@ -173,7 +176,7 @@
             this.groupBox1.Size = new System.Drawing.Size(988, 314);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin đồ ăn";
+            this.groupBox1.Text = "Thông tin bàn";
             // 
             // txttimkiem
             // 
