@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbSearch = new System.Windows.Forms.ComboBox();
             this.txttimkiem = new System.Windows.Forms.TextBox();
             this.btntimkiem = new System.Windows.Forms.Button();
             this.dgvStaff = new System.Windows.Forms.DataGridView();
@@ -39,7 +40,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIDPosition = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.cbSearch = new System.Windows.Forms.ComboBox();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -68,6 +68,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nhân viên";
+            // 
+            // cbSearch
+            // 
+            this.cbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSearch.FormattingEnabled = true;
+            this.cbSearch.Items.AddRange(new object[] {
+            "Số điện thoại",
+            "Họ Tên"});
+            this.cbSearch.Location = new System.Drawing.Point(611, 66);
+            this.cbSearch.Name = "cbSearch";
+            this.cbSearch.Size = new System.Drawing.Size(246, 40);
+            this.cbSearch.TabIndex = 10;
             // 
             // txttimkiem
             // 
@@ -147,10 +159,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbPosition);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtAddress);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtIDPosition);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.label2);
@@ -195,15 +207,6 @@
             this.label4.Size = new System.Drawing.Size(168, 26);
             this.label4.TabIndex = 21;
             this.label4.Text = "PhoneNumber:";
-            // 
-            // txtIDPosition
-            // 
-            this.txtIDPosition.Location = new System.Drawing.Point(197, 229);
-            this.txtIDPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtIDPosition.Multiline = true;
-            this.txtIDPosition.Name = "txtIDPosition";
-            this.txtIDPosition.Size = new System.Drawing.Size(218, 46);
-            this.txtIDPosition.TabIndex = 4;
             // 
             // label3
             // 
@@ -272,22 +275,24 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 48);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Làm mới";
+            this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cbSearch
+            // cmbPosition
             // 
-            this.cbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSearch.FormattingEnabled = true;
-            this.cbSearch.Items.AddRange(new object[] {
-            "Số điện thoại",
-            "Họ Tên"});
-            this.cbSearch.Location = new System.Drawing.Point(611, 66);
-            this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(246, 40);
-            this.cbSearch.TabIndex = 10;
+            this.cmbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Items.AddRange(new object[] {
+            "Aplus",
+            "MrSung",
+            "KKing"});
+            this.cmbPosition.Location = new System.Drawing.Point(197, 232);
+            this.cmbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(218, 40);
+            this.cmbPosition.TabIndex = 12;
             // 
             // staff
             // 
@@ -326,7 +331,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIDPosition;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
@@ -335,5 +339,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbSearch;
+        private System.Windows.Forms.ComboBox cmbPosition;
     }
 }

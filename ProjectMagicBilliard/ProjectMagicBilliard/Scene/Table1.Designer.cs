@@ -221,7 +221,7 @@
             this.btnLammoi.Name = "btnLammoi";
             this.btnLammoi.Size = new System.Drawing.Size(134, 48);
             this.btnLammoi.TabIndex = 15;
-            this.btnLammoi.Text = "Làm mới";
+            this.btnLammoi.Text = "Reset";
             this.btnLammoi.UseVisualStyleBackColor = true;
             this.btnLammoi.Click += new System.EventHandler(this.btnLammoi_Click);
             // 

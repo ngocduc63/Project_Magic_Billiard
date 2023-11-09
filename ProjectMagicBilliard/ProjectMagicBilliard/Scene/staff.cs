@@ -29,6 +29,10 @@ namespace ProjectMagicBilliard.Scene
         {
             dgvStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStaff.DataSource = StaffCallSQL.Instance.GetAllStaff();
+
+            cmbPosition.DataSource = StaffCallSQL.Instance.GetAllPosition();
+            cmbPosition.DisplayMember = "name";
+            cmbPosition.ValueMember = "id";
         }
 
         public void Loadstaff()
@@ -39,12 +43,11 @@ namespace ProjectMagicBilliard.Scene
             txtName.Text = "";
             txtAddress.Text = "";
             txtPhoneNumber.Text = "";
-            txtIDPosition.Text = "";
             txttimkiem.Text = "";
         }
         private void btnthem_Click(object sender, EventArgs e)
         {
-            if(StaffCallSQL.Instance.insertStaff(txtName.Text,txtAddress.Text,txtPhoneNumber.Text,txtIDPosition.Text))
+            if(StaffCallSQL.Instance.insertStaff(txtName.Text,txtAddress.Text,txtPhoneNumber.Text,cmbPosition.SelectedValue.ToString()))
             {
                 MessageBox.Show($"Thêm nhân viên thành công!!");
                 Loadstaff();
@@ -57,7 +60,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (StaffCallSQL.Instance.updateStaff(txtID.Text,txtName.Text,txtAddress.Text,txtPhoneNumber.Text,txtIDPosition.Text))
+            if (StaffCallSQL.Instance.updateStaff(txtID.Text,txtName.Text,txtAddress.Text,txtPhoneNumber.Text, cmbPosition.SelectedValue.ToString()))
             {
                 MessageBox.Show($"Sửa nhân viên thành công!!");
                 Loadstaff();
@@ -93,7 +96,7 @@ namespace ProjectMagicBilliard.Scene
             txtName.Text = dgvStaff.Rows[i].Cells[1].Value.ToString();
             txtAddress.Text = dgvStaff.Rows[i].Cells[2].Value.ToString();
             txtPhoneNumber.Text = dgvStaff.Rows[i].Cells[3].Value.ToString();
-            txtIDPosition.Text = dgvStaff.Rows[i].Cells[4].Value.ToString();
+            cmbPosition.SelectedIndex= cmbPosition.FindString(dgvStaff.Rows[i].Cells[4].Value.ToString());
 
             if (IsSelecStaff)
             {

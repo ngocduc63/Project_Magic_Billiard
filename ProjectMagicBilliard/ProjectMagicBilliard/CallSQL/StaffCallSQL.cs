@@ -34,9 +34,15 @@ namespace ProjectMagicBilliard.CallSQL
         }
         public DataTable GetAllStaff()
         {
-            string query = $"SELECT * FROM staff";
+            string query = $"SELECT staff.id, staff.name, address, phoneNumber, position.name as 'NamePosition' FROM staff join position on staff.idPosition = position.id";
             DataTable retult = DataManager.Instance.ExecuteOuery(query);
             return retult;
+        }
+        public DataTable GetAllPosition()
+        {
+            string query = "select * from position";
+
+            return DataManager.Instance.ExecuteOuery(query);
         }
         public DataTable searchStaff(string param, bool isSearchForcusName)
         {
