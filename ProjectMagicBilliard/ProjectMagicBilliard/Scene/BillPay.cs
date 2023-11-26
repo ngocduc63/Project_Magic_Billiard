@@ -22,8 +22,11 @@ namespace ProjectMagicBilliard.Scene
         private string _idCurrentBill;
         private double _priceBill;
         private string _idStaffCurrent;
-        private string _idGuest;
+        private string _idGuest = "";
         private bool _isCheckCode = false;
+        private bool _checkUsePoint = false;
+        private double _lastPrice;
+        private bool isFirstUsePoint = false;
 
         public string IdCurrentBill { get => _idCurrentBill; set => _idCurrentBill = value; }
         public double PriceBill { get => _priceBill; set => _priceBill = value; }
@@ -50,6 +53,7 @@ namespace ProjectMagicBilliard.Scene
         {
             txtTotalTimePlay.Text = totalTime;
             txtTotalPay.Text = totalPrice;
+            _lastPrice = PriceBill;
         }
 
         public void LoadNameTxt(string nameStaff)
@@ -101,6 +105,12 @@ namespace ProjectMagicBilliard.Scene
             if (BillCallSQL.Instance.PayBill(_idCurrentBill, PriceBill, IdStaffCurrent, _idGuest))
             {
                 MessageBox.Show($"Thanh toán hóa đơn {_idCurrentBill} thành công");
+
+                if(_checkUsePoint || isFirstUsePoint)
+                {
+                    if (!BillCallSQL.Instance.UsePoint(_idGuest))   MessageBox.Show("Lỗi sử dụng điểm tích lũy !!!");
+                }
+
                 this.DialogResult = DialogResult.OK;
             }
             else MessageBox.Show("Lỗi thanh toán !!!");
@@ -114,8 +124,34 @@ namespace ProjectMagicBilliard.Scene
 
             if (guest.ShowDialog() == DialogResult.OK)
             {
+                if (!_idGuest.Equals(guest.IdGuest))
+                {
+                    PriceBill = _lastPrice;
+                    isFirstUsePoint = false;
+
+                    _isCheckCode = false;
+                    btnCheck.Enabled = true;
+
+                    txtTotalPay.Text = Home.Instance.NumberFormatter(_lastPrice) + "đ";
+                }
+
                 txtGuest.Text = guest.NameGuest;
                 _idGuest = guest.IdGuest;
+                _checkUsePoint = guest.UsePoint;
+
+
+                if (_checkUsePoint) 
+                {
+                    if (!isFirstUsePoint)
+                    {
+                        DiscountTotalPrice(10f, true);
+                        isFirstUsePoint = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mỗi hóa đơn chỉ giảm tối đa 1 lần");
+                    }
+                }
             }
         }
 
@@ -132,16 +168,25 @@ namespace ProjectMagicBilliard.Scene
                 else
                 {
                     double quantity = DiscountCodeCallSQL.Instance.GetQuantityCode(code);
-                    _priceBill *= ((100 - quantity) / 100);
-                    _priceBill = (int)Math.Round(_priceBill);
-                    txtTotalPay.Text = Home.Instance.NumberFormatter(_priceBill)+"đ";
-                    _isCheckCode = true;
-                    btnCheck.Enabled = false;
 
-                    MessageBox.Show($"Giảm thành công {quantity}%.\nTổng tiền còn: {_priceBill}đ");
-
+                    DiscountTotalPrice(quantity);
                 }
             }
+        }
+
+        private void DiscountTotalPrice (double quantity, bool isUsePoint = false)
+        {
+            if(isUsePoint) _lastPrice = PriceBill;
+            _priceBill *= ((100 - quantity) / 100);
+            _priceBill = (int)Math.Round(_priceBill);
+            txtTotalPay.Text = Home.Instance.NumberFormatter(_priceBill) + "đ";
+
+            if (!isUsePoint) {
+                _isCheckCode = true;
+                btnCheck.Enabled = false;
+            }
+
+            MessageBox.Show($"Giảm thành công {quantity}%.\nTổng tiền còn: {_priceBill}đ");
         }
     }
 }

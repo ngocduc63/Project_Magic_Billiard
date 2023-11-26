@@ -22,6 +22,7 @@ namespace ProjectMagicBilliard.Scene
         public bool IsPayiing = false;
         public string IdGuest;
         public string NameGuest;
+        public bool UsePoint = false;
 
         private void GuestScene_Load(object sender, EventArgs e)
         {
@@ -116,6 +117,13 @@ namespace ProjectMagicBilliard.Scene
             {
                 IdGuest = txtID.Text;
                 NameGuest = txtName.Text;
+
+                if(Convert.ToDouble(txtTotalPoint.Text) >= 10000f)
+                {
+                    var checkPoint = MessageBox.Show($"Bạn có muốn sử dụng 10,000 điểm để giảm 10 % không? ", "Thông báo", MessageBoxButtons.OKCancel);
+                    if (checkPoint == DialogResult.OK) UsePoint = true;
+
+                }
 
                 var result = MessageBox.Show($"Bạn có muốn chọn khách: {NameGuest}", "Thông báo", MessageBoxButtons.OKCancel);
 
