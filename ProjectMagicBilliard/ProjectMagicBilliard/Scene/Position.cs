@@ -20,8 +20,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void Position_Load(object sender, EventArgs e)
         {
-            dgvPosition.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPosition.DataSource = PositionCallSQL.Instance.GetAllPosition();
+            loadPosition();
         }
 
         public void loadPosition()
@@ -30,6 +29,10 @@ namespace ProjectMagicBilliard.Scene
             dgvPosition.DataSource = PositionCallSQL.Instance.GetAllPosition();
             txtID.Text = "";
             txtName.Text = "";
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -74,6 +77,10 @@ namespace ProjectMagicBilliard.Scene
                 int i = dgvPosition.CurrentCell.RowIndex;
                 txtID.Text = dgvPosition.Rows[i].Cells[0].Value.ToString();
                 txtName.Text = dgvPosition.Rows[i].Cells[1].Value.ToString();
+
+                btnThem.Enabled = false;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
             }
 
             private void btnlammoi_Click(object sender, EventArgs e)

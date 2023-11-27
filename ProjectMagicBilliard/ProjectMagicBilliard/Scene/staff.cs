@@ -27,23 +27,27 @@ namespace ProjectMagicBilliard.Scene
 
         private void staff_Load(object sender, EventArgs e)
         {
-            dgvStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvStaff.DataSource = StaffCallSQL.Instance.GetAllStaff();
-
-            cmbPosition.DataSource = StaffCallSQL.Instance.GetAllPosition();
-            cmbPosition.DisplayMember = "name";
-            cmbPosition.ValueMember = "id";
+            Loadstaff();
         }
 
         public void Loadstaff()
         {
             dgvStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStaff.DataSource = StaffCallSQL.Instance.GetAllStaff();
+
+            cmbPosition.DataSource = StaffCallSQL.Instance.GetAllPosition();
+            cmbPosition.DisplayMember = "name";
+            cmbPosition.ValueMember = "id";
+
             txtID.Text = "";
             txtName.Text = "";
             txtAddress.Text = "";
             txtPhoneNumber.Text = "";
             txttimkiem.Text = "";
+
+            btnthem.Enabled = true;
+            btnSua.Enabled = false;
+            button2.Enabled = false;
         }
         private void btnthem_Click(object sender, EventArgs e)
         {
@@ -97,6 +101,10 @@ namespace ProjectMagicBilliard.Scene
             txtAddress.Text = dgvStaff.Rows[i].Cells[2].Value.ToString();
             txtPhoneNumber.Text = dgvStaff.Rows[i].Cells[3].Value.ToString();
             cmbPosition.SelectedIndex= cmbPosition.FindString(dgvStaff.Rows[i].Cells[4].Value.ToString());
+
+            btnthem.Enabled = false;
+            btnSua.Enabled = true;
+            button2.Enabled = true;
 
             if (IsSelecStaff)
             {

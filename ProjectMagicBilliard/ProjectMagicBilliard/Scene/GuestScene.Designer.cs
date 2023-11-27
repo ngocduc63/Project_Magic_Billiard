@@ -46,8 +46,8 @@
             this.cbSearch = new System.Windows.Forms.ComboBox();
             this.txttimkiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgvGuest = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuest)).BeginInit();
@@ -117,6 +117,7 @@
             this.txtTotalPoint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalPoint.Multiline = true;
             this.txtTotalPoint.Name = "txtTotalPoint";
+            this.txtTotalPoint.ReadOnly = true;
             this.txtTotalPoint.Size = new System.Drawing.Size(347, 48);
             this.txtTotalPoint.TabIndex = 4;
             // 
@@ -260,18 +261,6 @@
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.Location = new System.Drawing.Point(932, 336);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 48);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Reset";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dgvGuest
             // 
             this.dgvGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -285,6 +274,18 @@
             this.dgvGuest.Size = new System.Drawing.Size(974, 211);
             this.dgvGuest.TabIndex = 0;
             this.dgvGuest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGuest_CellContentClick);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.Location = new System.Drawing.Point(932, 336);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 48);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Reset";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GuestScene
             // 

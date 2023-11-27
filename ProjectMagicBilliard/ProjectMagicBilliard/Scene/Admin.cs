@@ -124,5 +124,11 @@ namespace ProjectMagicBilliard.Scene
             home.Show();
             this.Close();
         }
+
+        private void btnCodeManeger_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CodeManager());
+            label1.Text = btnCodeManeger.Text;
+        }
     }
 }

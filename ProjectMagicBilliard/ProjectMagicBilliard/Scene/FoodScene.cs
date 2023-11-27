@@ -20,11 +20,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void FoodScene_Load(object sender, EventArgs e)
         {
-            dgvFood.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvFood.DataSource = FoodCallSQL.Instance.GetFood();
-            cmbCategory.DataSource = FoodCategoryCallSQL.Instance.GetAllFoodCategory();
-            cmbCategory.DisplayMember = "name";
-            cmbCategory.ValueMember = "id";
+            loadFood();
         }
         public void loadFood()
         {
@@ -37,6 +33,10 @@ namespace ProjectMagicBilliard.Scene
             txtprice.Text = "";
             txtName.Text = "";
             txttimkiem.Text = "";
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void dgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -46,6 +46,10 @@ namespace ProjectMagicBilliard.Scene
             txtName.Text = dgvFood.Rows[i].Cells[1].Value.ToString();
             txtprice.Text = dgvFood.Rows[i].Cells[2].Value.ToString();
             cmbCategory.SelectedIndex = cmbCategory.FindString(dgvFood.Rows[i].Cells[3].Value.ToString());
+
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

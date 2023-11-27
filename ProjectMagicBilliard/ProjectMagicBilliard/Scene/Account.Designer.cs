@@ -33,6 +33,7 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvAccount = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSelectStaff = new System.Windows.Forms.Button();
             this.txtPassWord = new System.Windows.Forms.TextBox();
             this.txtDisplayGame = new System.Windows.Forms.TextBox();
             this.txtIDStaff = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnlammoi = new System.Windows.Forms.Button();
-            this.btnSelectStaff = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -123,6 +123,18 @@
             this.groupBox2.Text = "Điền thông tin tài khoản";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // btnSelectStaff
+            // 
+            this.btnSelectStaff.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSelectStaff.Location = new System.Drawing.Point(556, 233);
+            this.btnSelectStaff.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSelectStaff.Name = "btnSelectStaff";
+            this.btnSelectStaff.Size = new System.Drawing.Size(228, 48);
+            this.btnSelectStaff.TabIndex = 6;
+            this.btnSelectStaff.Text = "Chọn nhân viên";
+            this.btnSelectStaff.UseVisualStyleBackColor = true;
+            this.btnSelectStaff.Click += new System.EventHandler(this.btnSelectStaff_Click);
+            // 
             // txtPassWord
             // 
             this.txtPassWord.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -181,9 +193,9 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.Location = new System.Drawing.Point(15, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 32);
+            this.label3.Size = new System.Drawing.Size(83, 32);
             this.label3.TabIndex = 2;
-            this.label3.Text = "DisplayGame:";
+            this.label3.Text = "Name";
             // 
             // label2
             // 
@@ -252,18 +264,6 @@
             this.btnlammoi.Text = "Reset";
             this.btnlammoi.UseVisualStyleBackColor = true;
             this.btnlammoi.Click += new System.EventHandler(this.btnlammoi_Click);
-            // 
-            // btnSelectStaff
-            // 
-            this.btnSelectStaff.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSelectStaff.Location = new System.Drawing.Point(556, 233);
-            this.btnSelectStaff.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSelectStaff.Name = "btnSelectStaff";
-            this.btnSelectStaff.Size = new System.Drawing.Size(228, 48);
-            this.btnSelectStaff.TabIndex = 6;
-            this.btnSelectStaff.Text = "Chọn nhân viên";
-            this.btnSelectStaff.UseVisualStyleBackColor = true;
-            this.btnSelectStaff.Click += new System.EventHandler(this.btnSelectStaff_Click);
             // 
             // Account
             // 

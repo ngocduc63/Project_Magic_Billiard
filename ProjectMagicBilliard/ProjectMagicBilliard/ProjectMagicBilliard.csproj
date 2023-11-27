@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="CallSQL\BillCallSQL.cs" />
     <Compile Include="CallSQL\BillInfoCallSQL.cs" />
+    <Compile Include="CallSQL\CodeManagerCallSQL.cs" />
     <Compile Include="CallSQL\DiscountCodeCallSQL.cs" />
     <Compile Include="CallSQL\FoodCallSQL.cs" />
     <Compile Include="CallSQL\FoodCategoryCallSQL.cs" />
@@ -91,6 +92,12 @@
     </Compile>
     <Compile Include="Scene\BillPay.Designer.cs">
       <DependentUpon>BillPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scene\CodeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scene\CodeManager.Designer.cs">
+      <DependentUpon>CodeManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Scene\FoodCategory.cs">
       <SubType>Form</SubType>
@@ -182,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Scene\BillPay.resx">
       <DependentUpon>BillPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scene\CodeManager.resx">
+      <DependentUpon>CodeManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scene\FoodCategory.resx">
       <DependentUpon>FoodCategory.cs</DependentUpon>

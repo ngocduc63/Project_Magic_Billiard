@@ -20,8 +20,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void FoodCategory_Load(object sender, EventArgs e)
         {
-            dgvFoodCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvFoodCategory.DataSource = FoodCategoryCallSQL.Instance.GetAllFoodCategory();
+            LoadFoodCategory();
         }
         public void LoadFoodCategory()
         {
@@ -30,6 +29,9 @@ namespace ProjectMagicBilliard.Scene
             txtID.Text = "";
             txtName.Text = "";
 
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -75,6 +77,10 @@ namespace ProjectMagicBilliard.Scene
             int i = dgvFoodCategory.CurrentCell.RowIndex;
             txtID.Text = dgvFoodCategory.Rows[i].Cells[0].Value.ToString();
             txtName.Text = dgvFoodCategory.Rows[i].Cells[1].Value.ToString();
+
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
         }
 
         private void btnlammoi_Click(object sender, EventArgs e)

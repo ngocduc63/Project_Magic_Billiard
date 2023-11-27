@@ -25,8 +25,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void TableCotegory_Load(object sender, EventArgs e)
         {
-            dgvTableCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvTableCategory.DataSource = TableCategoryCallSQL.Instance.GetAllTableCategory();
+            LoadTableCategory();
         }
 
         public void LoadTableCategory()
@@ -37,31 +36,53 @@ namespace ProjectMagicBilliard.Scene
             txtName.Text = "";
             txtPrice.Text = "";
             txtTimKiem.Text = "";
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (TableCategoryCallSQL.Instance.insertTableCategory(txtName.Text, txtPrice.Text))
+            try
             {
-                MessageBox.Show($"Thêm loại bàn thành công!!");
-                LoadTableCategory();
+                double price = Convert.ToDouble(txtPrice.Text);
+
+                if (TableCategoryCallSQL.Instance.insertTableCategory(txtName.Text, txtPrice.Text))
+                {
+                    MessageBox.Show($"Thêm loại bàn thành công!!");
+                    LoadTableCategory();
+                }
+                else
+                {
+                    MessageBox.Show($"Thêm loại bàn thất bại!!");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show($"Thêm loại bàn thất bại!!");
+                MessageBox.Show($"Nhập đúng thông tin !!");
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (TableCategoryCallSQL.Instance.updateTableCategory(txtID.Text, txtName.Text, txtPrice.Text))
+            try
             {
-                MessageBox.Show($"Sửa loại bàn thành công!!");
-                LoadTableCategory();
+                double price = Convert.ToDouble(txtPrice.Text);
+
+                if (TableCategoryCallSQL.Instance.updateTableCategory(txtID.Text, txtName.Text, txtPrice.Text))
+                {
+                    MessageBox.Show($"Sửa loại bàn thành công!!");
+                    LoadTableCategory();
+                }
+                else
+                {
+                    MessageBox.Show($"Sửa loại bàn thất bại!!");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show($"Sửa loại bàn thất bại!!");
+                MessageBox.Show($"Nhập đúng thông tin !!");
             }
         }
 
@@ -96,6 +117,9 @@ namespace ProjectMagicBilliard.Scene
             txtName.Text = dgvTableCategory.Rows[i].Cells[1].Value.ToString();
             txtPrice.Text = dgvTableCategory.Rows[i].Cells[2].Value.ToString();
 
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
         }
     }
 }

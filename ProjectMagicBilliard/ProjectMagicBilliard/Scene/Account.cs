@@ -21,8 +21,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void Account_Load(object sender, EventArgs e)
         {
-            dgvAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAccount.DataSource = LoginCallSQL.Instance.GetAllAccount();
+            LoadAccount();
         }
 
         public void LoadAccount()
@@ -34,6 +33,10 @@ namespace ProjectMagicBilliard.Scene
             txtDisplayGame.Text = "";
             txtIDStaff.Text = "";
             txtTimKiem.Text = "";
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
         private void groupBox2_Enter(object sender, EventArgs e)
         {
@@ -91,6 +94,10 @@ namespace ProjectMagicBilliard.Scene
             txtPassWord.Text = dgvAccount.Rows[i].Cells[1].Value.ToString();
             txtDisplayGame.Text = dgvAccount.Rows[i].Cells[2].Value.ToString();
             txtIDStaff.Text = dgvAccount.Rows[i].Cells[3].Value.ToString();
+
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
         }
 
         private void btnlammoi_Click(object sender, EventArgs e)

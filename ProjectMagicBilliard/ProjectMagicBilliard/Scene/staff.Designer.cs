@@ -37,6 +37,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -122,6 +122,7 @@
             // btnthem
             // 
             this.btnthem.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnthem.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnthem.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnthem.Location = new System.Drawing.Point(853, 466);
             this.btnthem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -130,11 +131,11 @@
             this.btnthem.TabIndex = 1;
             this.btnthem.Text = "Thêm";
             this.btnthem.UseVisualStyleBackColor = false;
-            this.btnthem.UseWaitCursor = true;
             this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
             // 
             // btnSua
             // 
+            this.btnSua.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.Location = new System.Drawing.Point(853, 536);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -147,6 +148,7 @@
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button2.Location = new System.Drawing.Point(853, 621);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -178,6 +180,20 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Điền Thông tin nhân viên";
+            // 
+            // cmbPosition
+            // 
+            this.cmbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Items.AddRange(new object[] {
+            "Aplus",
+            "MrSung",
+            "KKing"});
+            this.cmbPosition.Location = new System.Drawing.Point(197, 232);
+            this.cmbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(218, 40);
+            this.cmbPosition.TabIndex = 12;
             // 
             // label5
             // 
@@ -269,6 +285,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button1.Location = new System.Drawing.Point(853, 392);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -277,22 +294,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cmbPosition
-            // 
-            this.cmbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbPosition.FormattingEnabled = true;
-            this.cmbPosition.Items.AddRange(new object[] {
-            "Aplus",
-            "MrSung",
-            "KKing"});
-            this.cmbPosition.Location = new System.Drawing.Point(197, 232);
-            this.cmbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbPosition.Name = "cmbPosition";
-            this.cmbPosition.Size = new System.Drawing.Size(218, 40);
-            this.cmbPosition.TabIndex = 12;
             // 
             // staff
             // 

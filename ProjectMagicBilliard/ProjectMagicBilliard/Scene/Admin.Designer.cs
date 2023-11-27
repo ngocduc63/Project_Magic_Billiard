@@ -33,6 +33,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.btnCodeManeger = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBan = new System.Windows.Forms.Button();
             this.btnLoaiBan = new System.Windows.Forms.Button();
@@ -55,17 +56,17 @@ namespace ProjectMagicBilliard.Scene
             this.panel_header.Controls.Add(this.label1);
             this.panel_header.Location = new System.Drawing.Point(179, 5);
             this.panel_header.Name = "panel_header";
-            this.panel_header.Size = new System.Drawing.Size(718, 100);
+            this.panel_header.Size = new System.Drawing.Size(761, 100);
             this.panel_header.TabIndex = 0;
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnExit.Location = new System.Drawing.Point(555, 18);
+            this.btnExit.Location = new System.Drawing.Point(582, 18);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(149, 53);
             this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "Thoát";
+            this.btnExit.Text = "Quay lại";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -84,6 +85,7 @@ namespace ProjectMagicBilliard.Scene
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel.Controls.Add(this.btnCodeManeger);
             this.panel.Controls.Add(this.pictureBox1);
             this.panel.Controls.Add(this.btnBan);
             this.panel.Controls.Add(this.btnLoaiBan);
@@ -95,8 +97,21 @@ namespace ProjectMagicBilliard.Scene
             this.panel.Controls.Add(this.btnTK);
             this.panel.Location = new System.Drawing.Point(0, 5);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(180, 615);
+            this.panel.Size = new System.Drawing.Size(180, 640);
             this.panel.TabIndex = 1;
+            // 
+            // btnCodeManeger
+            // 
+            this.btnCodeManeger.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCodeManeger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCodeManeger.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCodeManeger.Location = new System.Drawing.Point(0, 583);
+            this.btnCodeManeger.Name = "btnCodeManeger";
+            this.btnCodeManeger.Size = new System.Drawing.Size(180, 57);
+            this.btnCodeManeger.TabIndex = 8;
+            this.btnCodeManeger.Text = "Quản lí mã code";
+            this.btnCodeManeger.UseVisualStyleBackColor = false;
+            this.btnCodeManeger.Click += new System.EventHandler(this.btnCodeManeger_Click);
             // 
             // pictureBox1
             // 
@@ -223,7 +238,7 @@ namespace ProjectMagicBilliard.Scene
             this.panel_body.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_body.Location = new System.Drawing.Point(181, 105);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(716, 515);
+            this.panel_body.Size = new System.Drawing.Size(759, 550);
             this.panel_body.TabIndex = 2;
             this.panel_body.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_body_Paint);
             // 
@@ -233,7 +248,7 @@ namespace ProjectMagicBilliard.Scene
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjectMagicBilliard.Properties.Resources._1000_F_266758914_P77ehoxpTyJYLaSFEzusFk4NGMDc5MwL;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(895, 608);
+            this.ClientSize = new System.Drawing.Size(938, 643);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.panel_header);
@@ -265,5 +280,6 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.Button btnBan;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnCodeManeger;
     }
 }

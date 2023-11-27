@@ -26,8 +26,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void GuestScene_Load(object sender, EventArgs e)
         {
-            dgvGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvGuest.DataSource = guestCallSQL.Instance.GetAllGuest();
+            loadGuest();
         }
 
         private void dgvTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -51,6 +50,10 @@ namespace ProjectMagicBilliard.Scene
             txtTotalPoint.Text = "";
             cbSearch.SelectedIndex = 0;
             txttimkiem.Text = "";
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -112,6 +115,10 @@ namespace ProjectMagicBilliard.Scene
             txtAddress.Text = dgvGuest.Rows[i].Cells[2].Value.ToString();
             txtPhoneNumber.Text = dgvGuest.Rows[i].Cells[3].Value.ToString();
             txtTotalPoint.Text = dgvGuest.Rows[i].Cells[4].Value.ToString();
+
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
 
             if (IsPayiing)
             {

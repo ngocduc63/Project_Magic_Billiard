@@ -28,6 +28,10 @@ namespace ProjectMagicBilliard.Scene
             txtTrangThai.Text = dgvTable.Rows[i].Cells[1].Value.ToString();
             cmbNameCategory.SelectedIndex = cmbNameCategory.FindString(dgvTable.Rows[i].Cells[2].Value.ToString());
 
+            btnThem.Enabled = false;
+            btnXoa.Enabled = true;
+            btnSua.Enabled = true;
+
         }
 
         public static implicit operator Table1(TablePlay v)
@@ -37,9 +41,7 @@ namespace ProjectMagicBilliard.Scene
 
         private void Table1_Load(object sender, EventArgs e)
         {
-            dgvTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvTable.DataSource = TablePlayCallSQL.Instance.GetDataTablePlay();
-            loadcombobox();
+            loadtable();
         }
 
         public void loadcombobox()
@@ -56,6 +58,10 @@ namespace ProjectMagicBilliard.Scene
             txtID.Text = "";
             txtTrangThai.Text = "";
             txttimkiem.Text = "";
+
+            btnThem.Enabled = true;
+            btnXoa.Enabled = false;
+            btnSua.Enabled = false;
         }
         private void btnThem_Click(object sender, EventArgs e)
         {

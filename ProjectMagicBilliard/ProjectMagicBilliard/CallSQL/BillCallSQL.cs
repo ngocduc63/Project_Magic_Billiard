@@ -74,5 +74,12 @@ namespace ProjectMagicBilliard.CallSQL
 
             return DataManager.Instance.ExecuteNonOuery(query);
         }
+
+        public bool UsePoint(string idGuest = "1")
+        {
+            string query = $"update guest set totalPoint = totalPoint - 10000 where id = {idGuest}";
+
+            return DataManager.Instance.ExecuteNonOuery(query);
+        }
     }
 }
