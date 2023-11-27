@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,6 +66,63 @@ namespace ProjectMagicBilliard.Scene
                 dgvDetail.DataSource = StatisticalCallSQL.Instance.GetDetailRevenue();
             }
             else btnDetail.Text = "Xem chi tiết";
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = "Statical.xls";
+                savefile.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+
+                DataTable dset = StatisticalCallSQL.Instance.GetDetailRevenue();
+
+                if (dset.Rows.Count > 0)
+                {
+                    if (savefile.ShowDialog() == DialogResult.OK)
+                    {
+                        StreamWriter wr = new StreamWriter(savefile.FileName);
+                        for (int i = 0; i < dset.Columns.Count; i++)
+                        {
+                            wr.Write(dset.Columns[i].ToString().ToUpper() + "\t");
+                        }
+
+                        wr.WriteLine();
+
+                        for (int i = 0; i < (dset.Rows.Count); i++)
+                        {
+                            for (int j = 0; j < dset.Columns.Count; j++)
+                            {
+                                if (dset.Rows[i][j] != null)
+                                {
+                                    wr.Write(Convert.ToString(dset.Rows[i][j]) + "\t");
+                                }
+                                else
+                                {
+                                    wr.Write("\t");
+                                }
+                            }
+                            wr.WriteLine();
+                        }
+                        //close file
+                        wr.Close();
+                        MessageBox.Show(this, "Xuất data thành công: " + savefile.FileName, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(this, "Không có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+
+            }
         }
     }
 }
