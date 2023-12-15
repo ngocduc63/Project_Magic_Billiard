@@ -19,6 +19,7 @@ namespace ProjectMagicBilliard.Scene
         {
             InitializeComponent();
             LoadRevenue();
+            cmbYear.SelectedIndex = 1;
         }
 
         private string _nameStaff;
@@ -27,11 +28,11 @@ namespace ProjectMagicBilliard.Scene
         public string NameStaff { get => _nameStaff; set => _nameStaff = value; }
         public string IdStaff { get => _idStaff; set => _idStaff = value; }
 
-        public void  LoadRevenue()
+        public void  LoadRevenue(int year = 2023)
         {
             dgvDetail.Visible = false;
 
-            chartRevenue.DataSource = StatisticalCallSQL.Instance.GetRevenueMonth();
+            chartRevenue.DataSource = StatisticalCallSQL.Instance.GetRevenueMonth(year);
             chartRevenue.Series["Doanh Thu"].XValueMember = "Thang";
             chartRevenue.Series["Doanh Thu"].YValueMembers = "Doanh Thu";
 
@@ -122,6 +123,25 @@ namespace ProjectMagicBilliard.Scene
             finally
             {
 
+            }
+        }
+
+        private void cmbYear_RightToLeftChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbYear_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int year = Convert.ToInt32(cmbYear.Text);
+
+                LoadRevenue(year);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vui lòng nhập đúng định dạng số");
             }
         }
     }

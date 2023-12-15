@@ -17,7 +17,7 @@ namespace ProjectMagicBilliard.CallSQL
             private set => instance = value;
         }
 
-        public DataTable GetRevenueMonth()
+        public DataTable GetRevenueMonth(int year)
         {
             string query = "SELECT "
                             + "CASE "
@@ -35,7 +35,7 @@ namespace ProjectMagicBilliard.CallSQL
                             + "WHEN MONTH(dateCheckOut) = 12 THEN N'Tháng Mười Hai'"
                             + "END as 'Thang', "
                             + "SUM(totalPrice) as 'Doanh Thu'"
-                            + "FROM bill WHERE status = 1 GROUP BY MONTH(dateCheckOut)";
+                            + $"FROM bill WHERE status = 1 and YEAR(dateCheckOut) = {year} GROUP BY MONTH(dateCheckOut)";
             return DataManager.Instance.ExecuteOuery(query);
         }
 

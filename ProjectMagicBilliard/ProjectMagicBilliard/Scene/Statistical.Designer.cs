@@ -36,6 +36,7 @@ namespace ProjectMagicBilliard.Scene
             this.btnDetail = new System.Windows.Forms.Button();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
             this.btnExport = new System.Windows.Forms.Button();
+            this.cmbYear = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
@@ -99,11 +100,28 @@ namespace ProjectMagicBilliard.Scene
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
+            // cmbYear
+            // 
+            this.cmbYear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbYear.FormattingEnabled = true;
+            this.cmbYear.Items.AddRange(new object[] {
+            "2022",
+            "2023",
+            "2024",
+            "2025"});
+            this.cmbYear.Location = new System.Drawing.Point(501, 24);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(121, 35);
+            this.cmbYear.TabIndex = 4;
+            this.cmbYear.RightToLeftChanged += new System.EventHandler(this.cmbYear_RightToLeftChanged);
+            this.cmbYear.TextChanged += new System.EventHandler(this.cmbYear_TextChanged);
+            // 
             // Statistical
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 580);
+            this.Controls.Add(this.cmbYear);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.dgvDetail);
             this.Controls.Add(this.btnDetail);
@@ -125,5 +143,6 @@ namespace ProjectMagicBilliard.Scene
         private System.Windows.Forms.Button btnDetail;
         private System.Windows.Forms.DataGridView dgvDetail;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.ComboBox cmbYear;
     }
 }
