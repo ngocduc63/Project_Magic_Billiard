@@ -28,7 +28,8 @@ namespace ProjectMagicBilliard.Scene
                 Home home = new Home();
 
                 var res = LoginCallSQL.Instance.GetDisplayName(usetName, passWord);
-                home.SetTextStaff(res.Item1);
+
+                home.SetTextStaff(res.Item1, res.Item2);
                 home.IdStaffCurrent = res.Item2;
 
                 this.Hide();

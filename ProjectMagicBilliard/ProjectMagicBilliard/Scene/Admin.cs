@@ -118,7 +118,7 @@ namespace ProjectMagicBilliard.Scene
         {
             Home home = new Home();
 
-            home.SetTextStaff(_nameStaff);
+            home.SetTextStaff(_nameStaff, _idStaff);
             home.IdStaffCurrent = _idStaff;
 
             home.Show();

@@ -503,11 +503,11 @@ namespace ProjectMagicBilliard.Scene
             this.Close();
         }
 
-        public void SetTextStaff(string name)
+        public void SetTextStaff(string name, string idtaff)
         {
             txtStaff.Text = name;
-            btnOpenFormAdmin.Visible = name.ToLower().Equals("admin");
-            btnStatistical.Visible = name.ToLower().Equals("admin");
+            btnOpenFormAdmin.Visible = idtaff.ToLower().Equals("1");
+            btnStatistical.Visible = idtaff.ToLower().Equals("1");
         }
 
         #region empty
