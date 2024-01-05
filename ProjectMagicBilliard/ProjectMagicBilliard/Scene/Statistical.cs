@@ -18,8 +18,10 @@ namespace ProjectMagicBilliard.Scene
         public Statistical()
         {
             InitializeComponent();
-            LoadRevenue();
-            cmbYear.SelectedIndex = 1;
+
+            int year = DateTime.Now.Year;
+            LoadRevenue(year);
+            cmbYear.SelectedIndex = cmbYear.FindString(year.ToString());
         }
 
         private string _nameStaff;
@@ -28,7 +30,7 @@ namespace ProjectMagicBilliard.Scene
         public string NameStaff { get => _nameStaff; set => _nameStaff = value; }
         public string IdStaff { get => _idStaff; set => _idStaff = value; }
 
-        public void  LoadRevenue(int year = 2023)
+        public void  LoadRevenue(int year)
         {
             dgvDetail.Visible = false;
 
@@ -136,6 +138,8 @@ namespace ProjectMagicBilliard.Scene
             try
             {
                 int year = Convert.ToInt32(cmbYear.Text);
+
+                if (year < 2000) return;
 
                 LoadRevenue(year);
             }

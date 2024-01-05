@@ -112,6 +112,8 @@ namespace ProjectMagicBilliard.Scene
                 else MessageBox.Show($"Tính giờ bàn {_currentTableData.Id} lỗi!!!");
             }
             else return;
+
+            if(CheckIsFilter()) Filter();
         }
 
         private void btnEndTimePlay_Click(object sender, EventArgs e)
@@ -127,12 +129,13 @@ namespace ProjectMagicBilliard.Scene
                     btnPay.Enabled = true;
                     setTimeBillText();
                     SetTextTotalPrice();
+
+                    if(CheckIsFilter()) ResetCheckFilter();
                     GetTablePlay();
                 }
                 else MessageBox.Show($"Tính tiền bàn {_currentTableData.Id} thất bại!!!!");
             }
             else return;
-
         }
 
         public void GetTablePlay()
@@ -461,6 +464,8 @@ namespace ProjectMagicBilliard.Scene
                         GetTablePlay();
                         ItemTablePlay_Click();
                     }
+
+                    if(CheckIsFilter()) ResetCheckFilter();
                 }
             }
             else MessageBox.Show("Vui lòng tính giờ chơi !!!");
@@ -584,7 +589,7 @@ namespace ProjectMagicBilliard.Scene
             if (newListTable.Count == 0) ckbEmpty.Checked = false;
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        public void ResetCheckFilter()
         {
             ckbEmpty.Checked = false;
             ckbWaitPay.Checked = false;
@@ -592,8 +597,27 @@ namespace ProjectMagicBilliard.Scene
             ckbKKing.Checked = false;
             ckbAplus.Checked = false;
             ckbMrSung.Checked = false;
+        }
+
+        public bool CheckIsFilter()
+        {
+            if (ckbEmpty.Checked) return true;
+            if (ckbWaitPay.Checked) return true;
+            if (ckbPlaying.Checked) return true;
+            if (ckbKKing.Checked) return true;
+            if (ckbAplus.Checked) return true;
+            if (ckbMrSung.Checked) return true;
+
+            return false;
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            ResetCheckFilter();
+
             GetTablePlay();
         }
+
 
         public void Filter()
         {
