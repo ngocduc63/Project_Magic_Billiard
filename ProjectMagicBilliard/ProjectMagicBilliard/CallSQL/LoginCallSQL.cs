@@ -24,12 +24,12 @@ namespace ProjectMagicBilliard.CallSQL
 
             return result.Rows.Count > 0;
         }
-        public (string, string) GetDisplayName(string userName, string passWord)
+        public (string, string, string) GetDisplayName(string userName, string passWord)
         {
-            string query = "SELECT displayName, idStaff FROM account WHERE userName =N'" + userName + "' AND passWord = N'" + passWord + "'";
+            string query = "SELECT displayName, idStaff, idPosition FROM account join staff on staff.id = account.idStaff WHERE userName =N'" + userName + "' AND passWord = N'" + passWord + "'";
             DataTable result = DataManager.Instance.ExecuteOuery(query);
 
-            return (result.Rows[0]["displayName"].ToString() , result.Rows[0]["idStaff"].ToString());
+            return (result.Rows[0]["displayName"].ToString() , result.Rows[0]["idStaff"].ToString(), result.Rows[0]["idPosition"].ToString());
         }
 
         public DataTable GetAllAccount()
