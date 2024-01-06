@@ -20,9 +20,11 @@ namespace ProjectMagicBilliard.Scene
         private Form currentFormChid;
         private string _nameStaff;
         private string _idStaff;
+        private string _idPosition;
 
         public string NameStaff { get => _nameStaff; set => _nameStaff = value; }
         public string IdStaff { get => _idStaff; set => _idStaff = value; }
+        public string IdPosition { get => _idPosition; set => _idPosition = value; }
 
         private void OpenChildForm(Form ChildForm)
         {
@@ -118,8 +120,9 @@ namespace ProjectMagicBilliard.Scene
         {
             Home home = new Home();
 
-            home.SetTextStaff(_nameStaff, _idStaff);
+            home.SetTextStaff(_nameStaff, _idStaff, _idPosition);
             home.IdStaffCurrent = _idStaff;
+            home.IdPositionCurrent = _idPosition;
 
             home.Show();
             this.Close();

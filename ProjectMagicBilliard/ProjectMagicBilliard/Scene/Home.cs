@@ -38,8 +38,10 @@ namespace ProjectMagicBilliard.Scene
         private bool _isWaitPaying = false;
         private string _totalTimePlay;
         private string _idStaffCurrent;
-        public string IdStaffCurrent { get => _idStaffCurrent; set => _idStaffCurrent = value; }
+        private string _idPositionCurrent;
 
+        public string IdStaffCurrent { get => _idStaffCurrent; set => _idStaffCurrent = value; }
+        public string IdPositionCurrent { get => _idPositionCurrent; set => _idPositionCurrent = value; }
 
         public Home()
         {
@@ -491,6 +493,7 @@ namespace ProjectMagicBilliard.Scene
             Admin adminForm = new Admin();
             adminForm.NameStaff = txtStaff.Text;
             adminForm.IdStaff = _idStaffCurrent;
+            adminForm.IdPosition = _idPositionCurrent;
             adminForm.Show();
             this.Close();
         }
@@ -499,15 +502,16 @@ namespace ProjectMagicBilliard.Scene
             Statistical statisticalForm = new Statistical();
             statisticalForm.NameStaff = txtStaff.Text;
             statisticalForm.IdStaff = _idStaffCurrent;
+            statisticalForm.IdPosition = _idPositionCurrent;
             statisticalForm.Show();
             this.Close();
         }
 
-        public void SetTextStaff(string name, string idtaff)
+        public void SetTextStaff(string name, string idtaff, string idPosition)
         {
             txtStaff.Text = name;
-            btnOpenFormAdmin.Visible = idtaff.ToLower().Equals("1");
-            btnStatistical.Visible = idtaff.ToLower().Equals("1");
+            btnOpenFormAdmin.Visible = idPosition.ToLower().Equals("1");
+            btnStatistical.Visible = idPosition.ToLower().Equals("1");
         }
 
         #region empty
